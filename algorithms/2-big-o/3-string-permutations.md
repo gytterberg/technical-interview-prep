@@ -20,59 +20,69 @@ stringPermutations('nn') //should return  [ 'nn' ]
 
 # Solutions
 
-```javascript
-function stringPermutations(str) {
-    var results = [ ];
-    var letters = str.split('');
-    results.push([letters.shift()]); //add first letter (as an array) to results
-    while (letters.length) {
-        var curLetter = letters.shift();
-        var tmpResults = [ ];
-        results.forEach(function(curResult) {
-            for (var i = 0; i<= curResult.length; i++) {
-                var tmp = curResult.slice(); //make copy so we can modify it
-                 //insert the letter at the current position
-                tmp.splice(i,0,curLetter);
-                tmpResults.push(tmp);
-            }
-        });
-        results = tmpResults; //overwrite the previous results
-    }
-    results = results.map(function(letterArr) {
-        return letterArr.join(''); //make string from letter array
+In general we're pretty stuck with `O(n!)` (factorial) time and space complexity (where `n` is the number of unique characters in the string). Frankly, the end result of the algorithm demands it, because for `n` possible characters, it turns out there are `n!` permutations of those characters.
+
+For generating all possible permutations we could imagine doing so "position by position". There are `n` possible characters for the first position in the string. Each of those possibilities has `n-1` possibilities for the second position (i.e. excluding the character we put in the first position). In turn each of those possibilities has `n-2` possibilities for the third position (i.e. excluding the two characters already used for the first two positions). This continues until we reach the last character, which actually just has 1 possibility, because we will have used all other characters at that point. So `n` possibilities times `n-1` possibilities times `n-2` possibilities until we reach 1—that is exactly what `n!` is! You may find an explanation that is figuratively and literally more drawn out [here](https://www.khanacademy.org/math/precalculus/prob-comb/combinatorics-precalc/v/factorial-and-counting-seat-arrangements).
+
+So one important lesson to take from this exercise: permutations problems will tend to be factorial time and space complexity.
+
+The following solution iteratively generates all possible permutations then sorts that result:
+
+```js
+function stringPermutations (str) {
+  var results = [ ];
+  var letters = str.split('');
+  results.push([letters.shift()]); //add first letter (as an array) to results
+  while (letters.length) {
+    var curLetter = letters.shift();
+    var tmpResults = [ ];
+    results.forEach(function (curResult) {
+      for (var i = 0; i<= curResult.length; i++) {
+        var tmp = curResult.slice(); //make copy so we can modify it
+        //insert the letter at the current position
+        tmp.splice(i,0,curLetter);
+        tmpResults.push(tmp);
+      }
     });
-    return results.filter(function(el,index) {
-        return results.indexOf(el) === index; //filter out non-unique words
-    }).sort();
+    results = tmpResults; //overwrite the previous results
+  }
+  results = results.map(function (letterArr) {
+    return letterArr.join(''); //make string from letter array
+  });
+  return results.filter(function (el, index) {
+    return results.indexOf(el) === index; //filter out non-unique words
+  }).sort();
 }
 ```
+
+...a similar solution, but recursive might look like:
 
 ```javascript
-function recursiveStringPermutations(str) {
-    var results = [ ];
-    getPerms(str, [ ]);
-    function getPerms(str, arr) {
-        if (typeof str === 'string')
-            //on first call, split the string into an array 
-            str = str.split('');
-        if (!str.length) 
-            //base case- push the compiled results into the results variable
-            results.push(arr.join('')); 
-        for (var i = 0; i < str.length; i++) {
-            var letter = str.splice(i, 1); 
-            arr.push(letter);
-            getPerms(str, arr); //recursive call
-            arr.pop(); 
-            str.splice(i, 0, letter);
-        }
+function recursiveStringPermutations (str) {
+  var results = [ ];
+  getPerms(str, [ ]);
+  function getPerms (str, arr) {
+    if (typeof str === 'string')
+        //on first call, split the string into an array 
+      str = str.split('');
+    if (!str.length) 
+        //base case- push the compiled results into the results variable
+      results.push(arr.join('')); 
+    for (var i = 0; i < str.length; i++) {
+      var letter = str.splice(i, 1); 
+      arr.push(letter);
+      getPerms(str, arr); //recursive call
+      arr.pop(); 
+      str.splice(i, 0, letter);
     }
-    return results.filter(function(el,index) {
-        return results.indexOf(el) === index; //filter out non-unique words
-    }).sort();
+  }
+  return results.filter(function(el,index) {
+    return results.indexOf(el) === index; //filter out non-unique words
+  }).sort();
 }
 ```
 
-A solution that implicitly keeps the results sorted as it generates them:
+Here is a solution that implicitly keeps the results sorted as it generates them (an optimization):
 
 ```js
 // finds all possible permutations *while* maintaining the order of the characters
