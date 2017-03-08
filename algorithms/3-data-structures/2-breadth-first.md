@@ -48,13 +48,13 @@ function breadthFirst (startingNode) {
 
 function depthFirstPreOrder(startingNode) {
   console.log(startingNode.value);
-  startingNode.forEach(function(child) {
+  startingNode.children.forEach(function(child) {
     depthFirstPreOrder(child);
   });
 }
 
 function depthFirstPostOrder(startingNode) {
-  startingNode.forEach(function(child) {
+  startingNode.children.forEach(function(child) {
     depthFirstPreOrder(child);
   });
   console.log(startingNode.value);
