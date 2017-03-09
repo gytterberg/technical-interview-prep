@@ -5,7 +5,7 @@
 
 A **binary heap** has 2 properties:
 1. uses a *complete* binary tree which means that every level of the tree is full except the bottom level which is filled from left to right 
-2. insertions satisfy the *heap-order property* which says that no child's priority is less than its parent's priority 
+2. insertions satisfy the *heap-order-property* which says that no child's priority is less than its parent's priority 
 
 note: the description and solution in this file describe a min-heap but obviously this can all be applied to max-heaps as well
 
@@ -23,11 +23,21 @@ note: these formulas assume you're not using index 0 at all as a way of making i
 
 Implement a binary heap with the following 3 methods:
 
+```javascript
 insert(data, priority) // inserts data into the binary heap with the given priority
+```
+Because we're working with a complete binary tree we insert at the bottom level at the first free spot from the left - push it into our array. In the case that a new insertion violates the heap-order-property we need to re-heapify. This is done by comparing the insertion's priority with its parent's priority and swapping the objects if the insertion's priority is less - repeat this process until the insertion's priority is not less than it's parent.
 
+```javascript
 min() // returns the value of the item with the highest priority without removing it from the binary heap
+```
+Returning the minimum value is easy since the heap-order-property guarantees that the minimum priority will always be at the root of the tree.
 
+```javascript
 popMin() // returns the value of the item with the highest priority and also removes it from the binary heap
+```
+This is done by removing the root object and replacing it with the last entry in the tree. This almost always ends up violating the heap-order-property so we need to re-heapify. This is done by comparing the root/parent's priority with its children's priorities. A swap should happen if the parent's priority is greater than one or both of its children's priorities and should be done with the child holding the smaller priority. Repeat this process until the parent's priority is not greater than either of its children's priorities.
+
 
 # Examples
 
