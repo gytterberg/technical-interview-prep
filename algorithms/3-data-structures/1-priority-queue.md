@@ -33,9 +33,7 @@ pq.popMax() // ==> 'Bob, breathing problems'
 pq.peek() // ==> 'Jill, concussion' // Bob has been removed from the PQ
 ```
 
-# Solutions
-
-A linked list implementation of a priority queue using ES5
+# Solution
 
 ```javascript
 function Node(data, priority) {
@@ -74,77 +72,5 @@ PriorityQueue.prototype.popMax = function() {
   var retVal = this.first.data;
   this.first = this.first.next;
   return retVal;
-}
-```
-
-A Binary Heap implementation of a priority queue using ES6
-
-```javascript
-class HeapPQ {
-    constructor () {
-        this.array = [null] 
-    }
-
-    insert (data, priority) {
-        this.array.push({data, priority})
-        let currentChild = this.array.length - 1
-        this.heapifyUp(currentChild)
-    }
-
-    swap (childIdx, parentIdx) {
-        [this.array[childIdx], this.array[parentIdx]] = [this.array[parentIdx], this.array[childIdx]]
-    }
-
-    parentIdx (childIdx) {
-        return Math.floor(childIdx/2)
-    }
-
-    childrenIdx (parentIdx) {
-        return [parentIdx * 2, parentIdx * 2 + 1]
-    }
-
-    min () {
-        return this.array[1].data
-    }
-
-    heapifyDown (rootIdx) {
-        let currentParent = rootIdx
-            , [l, r] = this.childrenIdx(currentParent)
-            , idxSmaller
-        const length = this.array.length
-        while (l < length) {
-            if (r < length) 
-                idxSmaller = this.priority(l) <= this.priority(r)? l : r
-            else idxSmaller = l
-
-            if (this.priority(currentParent) > this.priority(idxSmaller)) {
-                this.swap(idxSmaller, currentParent)
-                currentParent = idxSmaller
-                ;[l, r] = this.childrenIdx(currentParent)
-            }
-            else return
-        }
-    }
-
-    heapifyUp (deepestIdx) {
-        let currentChild = deepestIdx
-        while (this.parentIdx(currentChild) && this.array[currentChild].priority < this.array[this.parentIdx(currentChild)].priority) {
-            this.swap(currentChild, this.parentIdx(currentChild))
-            currentChild = this.parentIdx(currentChild)
-        } 
-    }
-
-    priority (i) {
-        return this.array[i].priority
-    }
-
-    popMin () {
-        const min = this.array[1]
-            , rootIdx = 1
-        this.array[1] = this.array.pop()
-
-        this.heapifyDown(rootIdx)
-        return min.data
-    }
 }
 ```
