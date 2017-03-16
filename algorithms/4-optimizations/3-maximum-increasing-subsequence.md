@@ -27,7 +27,7 @@ function longestIncreasingSubsequence (nums, idx = 0, base = -Infinity) {
   if (idx === nums.length) return 0;
   const num = nums[idx];
   const whenExcluded = longestIncreasingSubsequence(nums, idx + 1, base);
-  if (num < base) return whenExcluded;
+  if (num <= base) return whenExcluded;
   const whenIncluded = 1 + longestIncreasingSubsequence(nums, idx + 1, num);
   return Math.max(whenIncluded, whenExcluded);
 }
@@ -40,7 +40,7 @@ function memoizedLIS (nums, idx = 0, base = -Infinity, memo = {}) {
   if (idx === nums.length) return 0;
   const num = nums[idx];
   const whenExcluded = memoizedLIS(nums, idx + 1, base, memo);
-  if (num < base) return whenExcluded;
+  if (num <= base) return whenExcluded;
   let whenIncluded;
   if (memo.hasOwnProperty(idx)) {
     whenIncluded = memo[idx];
