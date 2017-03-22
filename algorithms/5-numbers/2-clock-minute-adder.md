@@ -20,15 +20,14 @@ There's one edge case to consider. The hours are "one-indexed" not "zero-indexed
 
 ```js
 function addMinutes (oldTime, minLater) {
-  const splitOldTime = oldTime.split(':');
-  const splitNums = splitOldTime.map(str => Number(str));
+  const [oldHrs, oldMins] = oldTime.split(':').map(str => Number(str));
   
-  const oldMins = (splitNums[0] * 60) + splitNums[1];
-  const totalMins = oldMins + minLater;
-  const totalHrs = Math.floor(totalMins / 60);
+  const oldTotalMins = (oldHrs * 60) + oldMins;
+  const newTotalMins = oldTotalMins + minLater;
+  const totalHrs = Math.floor(newTotalMins / 60);
   const newHrs = ((totalHrs - 1) % 12) + 1;
-  const newMins = totalMins % 60;
+  const newMins = newTotalMins % 60;
   
-  return `${newHrs}:${newMins > 9 ? newMins : `0${newMins}`;
+  return `${newHrs}:${newMins > 9 ? newMins : `0${newMins}`}`;
 }
 ```
