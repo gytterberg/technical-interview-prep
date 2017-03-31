@@ -60,10 +60,10 @@ A simple solution using a "factory function" (no constructor / class):
 const maybe = val => ({
   value: () => val,
   map: fn => (val === undefined || val === null)
-    ? maybe(undefined)
+    ? maybe(null)
     : maybe(fn(val)),
   flatMap: fn => (val === undefined || val === null)
-    ? val
+    ? maybe(null)
     : fn(val)
 })
 ```
