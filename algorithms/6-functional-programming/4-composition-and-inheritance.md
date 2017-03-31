@@ -72,7 +72,7 @@ function createQueue () {
     list.addToTail(item); 
   };
   queue.dequeue = function () {
-    return list.removeHead(); 
+    return list.removeFromHead(); 
   };
 
   return queue;
