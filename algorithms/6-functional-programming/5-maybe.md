@@ -48,6 +48,7 @@ maybe(true)
 * Provide one written chaining example to start
 * Try to avoid saying "map returns a new maybe" or anything like that
 * Suggest implementing `value`, then `map`, then dealing with `undefined/null`
+* If they suggest using `try-catch`, tell them it can be done without it
 * Feel free to guide / give hints
 * At the end, draw comparison to array map (Functor) and Promise then (Monad)
 
