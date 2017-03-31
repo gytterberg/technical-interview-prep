@@ -33,7 +33,7 @@ maybe({name: 'Hermione'})
 .value() // undefined - no thrown errors! :-)
 ```
 
-As a bonus, you can also add `flatMap`, which prevents nested Maybes:
+As a bonus, you can also add `flatMap`, which prevents nested Maybes. If so, remember that `flatMap` should also guard against null/undefined.
 
 ```js
 maybe(true)
@@ -61,7 +61,9 @@ const maybe = val => ({
   map: fn => (val === undefined || val === null)
     ? maybe(undefined)
     : maybe(fn(val)),
-  flatMap: fn => fn(val)
+  flatMap: fn => (val === undefined || val === null)
+    ? val
+    : fn(val)
 })
 ```
 
@@ -76,13 +78,15 @@ class Maybe {
     return this.val
   }
   map (fn) {
-    if (this.val === undefined || this.val === null) {
-        return new Maybe(undefined)
-    }
+    if (Maybe.isVal(this.val)) return new Maybe(undefined)
     return new Maybe(fn(this.val))
   }
   flatMap (fn) {
+    if (Maybe.isVal(this.val)) return val
     return fn(this.val)
+  }
+  static isVal (val) {
+    return !(this.val === undefined || this.val === null)
   }
 }
 ```
