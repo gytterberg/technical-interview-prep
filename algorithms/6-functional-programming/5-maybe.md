@@ -1,7 +1,7 @@
 # The Maybe Monad
 
 * [Slides](https://slides.com/fullstack/maybe)
-* [REPL](https://repl.it/GnkV/4)
+* [REPL](https://repl.it/GnkV/7)
 
 ## Prompt
 
@@ -78,12 +78,12 @@ class Maybe {
     return this.val
   }
   map (fn) {
-    if (Maybe.isVal(this.val)) return new Maybe(undefined)
-    return new Maybe(fn(this.val))
+    if (Maybe.isVal(this.val)) return new Maybe(fn(this.val))
+    return this
   }
   flatMap (fn) {
-    if (Maybe.isVal(this.val)) return val
-    return fn(this.val)
+    if (Maybe.isVal(this.val)) return fn(this.val)
+    return this.val
   }
   static isVal (val) {
     return !(this.val === undefined || this.val === null)
