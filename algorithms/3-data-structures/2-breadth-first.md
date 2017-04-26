@@ -1,5 +1,7 @@
 [Out of date slides](http://slides.com/benjaminconant/reacto#/)
 
+[REPL with this solution and an ES6 class solution](https://repl.it/H1qn/14)
+
 ---
 
 # Prompt
@@ -25,7 +27,7 @@ For the following examples consider this tree:
 |-----------------------|-----------------------------|------------------------------------------------------------|
 | `breadthFirst`        | `A B C D E F G H I J K L M` | Each "level" of the tree is printed in order               |
 | `depthFirstPreOrder`  | `A B E K L C F G H M D I J` | Children nodes are visited before sibling nodes            |
-| `depthFirstPostOrder` | `K L E B M F G H C I J D A` | A node is not traversed until all its children are reached |
+| `depthFirstPostOrder` | `K L E B F G M H C I J D A` | A node is not traversed until all its children are reached |
 
 
 A tree is represented by its `root` or top node. In other words, the top node is what will be passed into your function. You can assume that each node in the tree contains the following properties:
@@ -55,7 +57,7 @@ function depthFirstPreOrder(startingNode) {
 
 function depthFirstPostOrder(startingNode) {
   startingNode.children.forEach(function(child) {
-    depthFirstPreOrder(child);
+    depthFirstPostOrder(child);
   });
   console.log(startingNode.value);
 }
