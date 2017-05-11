@@ -28,6 +28,7 @@ const dictionary = [
 definitionOf('be', dictionary); // should return 'Exist'
 definitionOf('that', dictionary); // should return 'Used to identify a specific person or thing observed or heard by the speaker'
 definitionOf('to', dictionary); // should return 'Expressing motion in the direction of (a particular location)'
+definitionOf('wizbing', dictionary); // should return undefined
 ```
 
 # Solutions
@@ -51,39 +52,52 @@ function definitionOf (word, dict) {
 }
 ```
 
-The optimized binary search solution, `O(log n)` time and `O(1)` space*:
+The optimized binary search solution can be `O(log n)` time and `O(1)` space&#42; (see below). Note to interviewers: `<`/`>` can compare strings by alphabetical order (or really by character code, but that's close enough for what we're doing here). If a candidate goes down a rabbit-hole trying to implement a `compareByAlphabeticalOrder` function, just let them know that they can use `<`/`>`.
 
 ```javascript
 function definitionOf (word, dict) {
+  // initialize indexes at the beginning and end of the dictionary, these define the bounds of our "search window"
   let prevLeft = 0;
   let prevRight = dict.length - 1;
   let index;
+  // continue until the index has not changed from the previous cycle
   while (index !== prevLeft && index !== prevRight) {
-    const index = prevLeft + Math.floor((prevRight - prevLeft) / 2);
+    // find the middle of the existing search window
+    index = Math.floor((prevLeft + prevRight) / 2);
     if (dict[index].startsWith(word + ' - ')) {
       return dict[index].slice(word.length + 3); // "subtract" the word itself (plus the ' - ' part)
     }
     if (word < dict[index]) {
+      // "shrink" the right half of the search window
       prevRight = index - 1;
     } else {
+      // "shrink" the left half of the search window
       prevLeft = index + 1;
     }
   }
-  
 }
-// with modularity
+```
+
+...or more modular:
+
+```js
 function binaryFind (arr, matcher, comparator) {
+  // initialize indexes at the beginning and end of the array, these define the bounds of our "search window"
   let prevLeft = 0;
   let prevRight = arr.length - 1;
   let index;
+  // continue until the index has not changed from the previous cycle
   while (index !== prevLeft && index !== prevRight) {
-    index = prevLeft + Math.floor((prevRight - prevLeft) / 2);
+    // find the middle of the existing search window
+    index = Math.floor((prevLeft + prevRight) / 2);
     if (matcher(arr[index])) {
       return arr[index];
     }
     if (comparator(arr[index])) {
+      // "shrink" the right half of the search window
       prevRight = index - 1;
     } else {
+      // "shrink" the left half of the search window
       prevLeft = index + 1;
     }
   }
@@ -101,8 +115,10 @@ function definitionOf (word, dict) {
 The further-optimized precomputed hash map solution, `O(n)` time for the first run, `O(1)` for every subsequent run (AKA `O(n)` preprocessing time), and `O(n)` space*:
 
 ```javascript
+// this cache will hold ALL dictionaries (though we'll only ever have one)
 const cache = new Map();
 function findOrCreateHashMap (dict) {
+  // use the dictionary array object itself as a KEY
   if (cache.has(dict)) return cache.get(dict);
   const hashmap = {};
   dict.forEach(entry => {

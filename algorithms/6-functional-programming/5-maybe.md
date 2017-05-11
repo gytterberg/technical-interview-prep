@@ -83,7 +83,8 @@ class Maybe {
     return this
   }
   flatMap (fn) {
-    return this.map(fn).value()
+    if (Maybe.isVal(this.val)) return fn(this.val)
+    return this
   }
   static isVal (val) {
     return !(val === undefined || val === null)
