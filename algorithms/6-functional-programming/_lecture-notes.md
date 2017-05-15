@@ -11,6 +11,7 @@
 - immutability: data gets transformed into new data, not mutated
 - recursion
 - compsotion of functions
+#### How does it all fit together - having functions that transform data, focused on micro-transformations and composing them into the input/output pipelines we need
 
 ## Higher order functions, first class functions
 
