@@ -45,7 +45,7 @@ const findWordsStartingWith = (
 }
 
 //--//--//--// Tests //--//--//--//
-module.exports = () => {
+function tests() {
   const test = require('../../testing')
       , {deepEqual, equal} = require('assert')
 
@@ -83,4 +83,5 @@ module.exports = () => {
   test(() => deepEqual(wordsStartingWithHE, ['hello', 'help', 'height']))
 }
 
-if (module === require.main) { module.exports(...process.argv) }
+// Run the tests if we were run at the command line
+if (module === require.main) { tests(...process.argv) }
