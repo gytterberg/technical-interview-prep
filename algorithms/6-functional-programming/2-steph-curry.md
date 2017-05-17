@@ -33,31 +33,17 @@ Now you must be Steph Curry
 # Solutions
 
 ```javascript
-function curry( originalFunc ) {
-  const originalLength = originalFunc.length;
-
-  function resolver() {
-    const memory = Array.prototype.slice.call( arguments );
-    
-    const whatToReturn = function() {
-      let next;
-      const args = Array.prototype.slice.call( arguments );
-      const copy = memory.concat(args);
-
-      if (copy.length >= originalLength) {
-        next = originalFunc;
-      } else {
-        next = resolver;
-      }
-
-      return next.apply(null, copy);
-    };
-
-  
-    return whatToReturn;
-  }
-
-  return resolver();
+function curry (originalFunc) {
+    let argsMemory = [];
+    return function resolver () {
+        const args = [].slice.call(arguments);
+        argsMemory.concat(args);
+        if (argsMemory.length >= originalFunc.length) {
+            return func.apply(null, funArgs) 
+        } else {
+            return resolver;
+        }
+    }
 }
 ```
 
