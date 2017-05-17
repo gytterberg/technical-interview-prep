@@ -49,19 +49,23 @@ function tests() {
   const test = require('../../testing')
       , {deepEqual, equal} = require('assert')
 
-  test(() => deepEqual(add({}, 'hi'), {h: {i: {word: 'hi'}}}))
+  test `add adds one word to a prefix tree` (() =>
+    deepEqual(add({}, 'hi'), {h: {i: {word: 'hi'}}}))
 
   const toDict = (dict, word) => add(dict, word)
 
-  test(() =>
-    deepEqual(['hi', 'high'].reduce(toDict, {}), {
+  test `add adds many words to a prefix tree` (() => deepEqual(
+    // Add 'hi' and 'high' to a prefix trie.
+    ['hi', 'high'].reduce(toDict, {}),
+    {
       h: {
         i: {
           word: 'hi',
           g: {h: {word: 'high'}},
         }
       }
-    }))
+    }
+  ))
 
   const allWords = [
     'hello',
@@ -72,15 +76,21 @@ function tests() {
   ]  
   const dict = allWords.reduce(toDict, {})
 
-  const foundWords = []
-  words(dict, word => foundWords.push(word))  
-  test(() => deepEqual(allWords, foundWords))
+  test `withPrefix looks up the node for the right prefix` (
+    () => equal(withPrefix(dict, 'he'), dict.h.e)
+  )
 
-  equal(withPrefix(dict, 'he'), dict.h.e)
+  test `words finds all words in the dictionary when given the root` (() => {
+    const foundWords = []    
+    words(dict, word => foundWords.push(word))     
+    deepEqual(allWords, foundWords)
+  })
 
-  const wordsStartingWithHE = []
-  words(withPrefix(dict, 'he'), word => wordsStartingWithHE.push(word))
-  test(() => deepEqual(wordsStartingWithHE, ['hello', 'help', 'height']))
+  test `words collects all words in a subtree` (() => {
+    const wordsStartingWithHE = []
+    words(withPrefix(dict, 'he'), word => wordsStartingWithHE.push(word))      
+    deepEqual(wordsStartingWithHE, ['hello', 'help', 'height'])
+  })
 }
 
 // Run the tests if we were run at the command line
