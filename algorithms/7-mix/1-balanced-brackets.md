@@ -6,12 +6,16 @@
 
 Write a function that determines whether an input string has balanced brackets.
 
-You are given an input string consisting of only brackets—square `[ ]`, round `( )`, and curly `{ }`. Write a function that returns either `true` if the brackets in the input string are balanced or `false` if they are not. Balanced means that any opening bracket of a particular type must also have a closing bracket of the same type.
+You are given an input string consisting of brackets—square `[ ]`, round `( )`, and curly `{ }`. The input string can include other text. Write a function that returns either `true` if the brackets in the input string are balanced or `false` if they are not. Balanced means that any opening bracket of a particular type must also have a closing bracket of the same type.
+
+An empty input string or a string without brackets can also be considered "balanced".
 
 # Examples
 
 ```js
 hasBalancedBrackets('[][(){}'); // false
+hasBalancedBrackets('({)}'); // false
+hasBalancedBrackets('({[]})'); // true
 hasBalancedBrackets('text ( is allowed ){rwwrwrrww [] ()}'); // true
 ```
 
@@ -23,11 +27,11 @@ Here's a solid solution:
 
 ```js
 const bracketPattern = /[[\](){}]/g;
-const bracketPairs = { //keeps track of the possible bracket pairings 
+const bracketPairs = { //keeps track of the possible bracket pairings
   '[' : ']',
   '(' : ')',
   '{' : '}'
-}; 
+};
 function hasBalancedBrackets (inputString) {
   const inputBrackets = inputString.match(bracketPattern); // returns an array of all the brackets in the input
   const brackets = [];
