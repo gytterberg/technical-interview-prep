@@ -35,7 +35,7 @@ function ImmutableBST (value, left, right) {
   this.value = value;
   this.left = left || null;
   this.right = right || null;
-  this.size = 1 + left && left.size + right && right.size;
+  this.size = 1 + (left && left.size || 0) + (right && right.size || 0);
 }
 // O(log n) insertion time
 ImmutableBST.prototype.insert = function (value) {
