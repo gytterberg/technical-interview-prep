@@ -55,7 +55,23 @@ function subsetSum (target, nums) {
   // if we get here that means we've exhausted all possible sums less than the target and have found nothing
   return false;
 }
+
+// similar solution with arrays instead of sets
+function subsetSum(target, arr){
+  let sums = [0];
+  for (let i = 0; i < arr.length; i++){
+    let sumsCopy = [...sums]; // create a new array to iterate through; iterating through the array that we're mutating will lead to some weird behavior
+    for (let j = 0; j < sumsCopy.length; j++){
+      let newSum = sumsCopy[j] + arr[i];
+      if (newSum === target) return true;
+      else if (newSum < target) sums.push(newSum);
+    }
+  }
+  return false;
+}
+
 ```
+
 
 Or we can have an optimized "top-down" recursive solution that takes advantage of memoization. This approach involves stepping through each number in the array and determining whether 1) including it in the sum will lead to a `true` result (using the remaining numbers) or 2) excluding it from the sum will lead to a `true` result (using the remaining numbers). We can do so by 1) subtracting that number from the target and recursing onward to the next number and 2) keeping the target the same and recursing onward to the next number. If either of these possibilities returns `true`, then the ultimate result is `true`.
 
@@ -115,3 +131,5 @@ function subsetSum (target, nums, idx = 0, memo = {}) {
   return result;
 }
 ```
+
+Slides: http://slides.com/mithunselvaratnam/subset-sum-2#/
