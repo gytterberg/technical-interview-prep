@@ -47,24 +47,29 @@ adderSpy.returned(9); // false
 ```javascript
 function spyOn (func) {
   let callCount = 0;
-  let calledWith = [];
-  const returnVals = [];
+  const calledWith = new Set();
+  const returnVals = new Set();
+
   function spy (...args) {
-    const returnVal = func(...args);
+    const result = func(...args);
     callCount++;
-    calledWith = calledWith.concat(args);
-    returnVals.push(returnVal);
-    return returnVal;
+    args.forEach(arg => calledWith.add(arg));
+    returnVals.add(result);
+    return result;
   }
+
   spy.getCallCount = function () {
     return callCount;
   };
-  spy.wasCalledWith = function (val) {
-    return calledWith.includes(val);
+
+  spy.wasCalledWith = function (argument) {
+    return calledWith.has(argument);
   };
-  spy.returned = function (val) {
-    return returnVals.includes(val);
+
+  spy.returned = function (result) {
+    return returnVals.has(result);
   };
+
   return spy;
 }
 
