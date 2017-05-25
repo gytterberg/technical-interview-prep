@@ -16,6 +16,7 @@ See slides for diagrams and hints!
 
 ### Solution and Helper Functions
 
+```js
 'use strict';
 
 function detectLoop (linkedList) {
@@ -103,3 +104,4 @@ function BuildLinkedList (linkedListLength, cycleLength) {
 function randomNum() {
     return Math.floor(Math.random() * 100) + 1;
 }
+```
