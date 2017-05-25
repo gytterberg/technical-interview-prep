@@ -11,6 +11,7 @@
 - immutability: data gets transformed into new data, not mutated
 - recursion
 - compsotion of functions
+#### How does it all fit together - having functions that transform data, focused on micro-transformations and composing them into the input/output pipelines we need
 
 ## Higher order functions, first class functions
 
@@ -180,6 +181,23 @@ We don't mutate. But what about the world? The world changes? Well we model that
 Benefits: 1) We can easily step through the history of "changes" by simply inspecting each successive new state. 2) Predictability: if your data isn't mutating, it's more isolated and predictable. 3) Structural sharing between successive states.
 
 Exercise: build an immutable singly-linked list. It should have `head` property, and two methods: `addToHead` (which takes a value) and `removeFromHead` (which takes nothing). Each node in the linked list should have a `value` property (with the value given when it was added to the head) and a `next` property pointing to the next node, or null if it's the tail.
+
+```js
+const original = new ImmutableLinkedList();
+const fiveAtHead = original.addToHead(5);
+const sixAtHead = fiveAtHead.addToHead(6);
+
+const removedSix = sixAtHead.removeFromHead();
+/*
+memory data might/should look something like...
+
+          removedSix
+sixAtHead fiveAtHead   original
+    v         v           v
+    6 ------> 5 -------> null
+
+*/
+```
 
 ```js
 function ImmutableLinkedList (head) {
