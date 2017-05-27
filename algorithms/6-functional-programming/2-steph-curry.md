@@ -34,16 +34,16 @@ Now you must be the Curry
 
 ```javascript
 function curry (originalFunc) {
-    let argsMemory = [];
-    return function resolver () {
-        const args = [].slice.call(arguments);
-        argsMemory.concat(args);
-        if (argsMemory.length >= originalFunc.length) {
-            return func.apply(null, funArgs) 
-        } else {
-            return resolver;
-        }
+  let argsMemory = [];
+  return function resolver () {
+    const args = [].slice.call(arguments);
+    argsMemory = argsMemory.concat(args);
+    if (argsMemory.length >= originalFunc.length) {
+      return originalFunc.apply(null, argsMemory) 
+    } else {
+      return resolver;
     }
+  }
 }
 ```
 
