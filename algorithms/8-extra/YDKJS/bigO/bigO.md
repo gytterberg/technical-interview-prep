@@ -1,0 +1,1 @@
+It's important to be able to discern/deduce the Big O notation of algorithms. This exercise is all about looking at algorithms and assigning each line of the function a Big O value
