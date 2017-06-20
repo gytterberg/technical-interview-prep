@@ -134,10 +134,10 @@ INSERT: 'Sean'
 
 ## Heap
 
-- Often used for storage of names / references in JS
 - Tree where parent parent is greater than the child (or less than, either way: strict ordering)
 - Only parent / child relationship is primary
 - Analogy: family tree
+- Note: no relation to "the heap", meaning memory area allocated for runtime variables
 
 ## Graph
 
