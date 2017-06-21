@@ -37,6 +37,8 @@ Furthermore, while adding each new possible sum into the set, we could check if 
 An implementation:
 
 ```js
+
+// using the ES6 data structure Set: http://exploringjs.com/es6/ch_maps-sets.html#sec_set
 function subsetSum (target, nums) {
   // initialize possible sums to just a set containing 0
   const possibleSums = new Set([0]);
