@@ -135,7 +135,7 @@ function subsetSum (target, nums, idx = 0, memo = {}) {
 ```
 
 ## Additions: 
-![sub_set_sum3](https://user-images.githubusercontent.com/21270878/27407054-f5b514ac-56a4-11e7-8ba5-b96379e9a7a6.jpg)
+![subsetsum visualization](https://user-images.githubusercontent.com/21270878/27407314-d329168a-56a5-11e7-8df6-b97bd487c268.jpg)
 
 * Here is a repl showing the difference between the memoized and non-memoized versions: https://repl.it/Ivkg/4
 * Slides: http://slides.com/mithunselvaratnam/subset-sum-2#/
