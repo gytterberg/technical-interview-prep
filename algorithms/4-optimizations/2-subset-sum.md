@@ -131,5 +131,5 @@ function subsetSum (target, nums, idx = 0, memo = {}) {
   return result;
 }
 ```
-
-Slides: http://slides.com/mithunselvaratnam/subset-sum-2#/
+* Here is a repl showing the difference between the memoized and non-memoized versions: https://repl.it/Ivkg/4
+* Slides: http://slides.com/mithunselvaratnam/subset-sum-2#/
