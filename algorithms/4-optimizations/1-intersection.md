@@ -87,19 +87,17 @@ function intersection (arrA, arrB) {
 }
 ```
 
-For the follow-up, we could use a hash map to make a trade: time for space. The following solution is `O(n+m)` time complexity, but `O(n+m)` additional space.
+For the follow-up, we could use a hash map to make a trade: time for space. The following solution is `O(n+m)` time complexity, but `O(n)` additional space, where `n` is the length of the smaller of the two arrays.
 
 ```js
 function intersection (arrA, arrB) {
-  const hashA = {};
-  arrA.forEach(elemA => hashA[elemA] = true);
-  const shared = [];
-  arrB.forEach(elemB => {
-    if (hashA.hasOwnProperty(elemB)) {
-      shared.push(elemB);
-    }
-  });
-  return shared;
+  const smaller = arrB.length < arrA.length ? arrB : arrA;
+  const larger = arrB.length >= arrA.length ? arrB : arrA;
+
+  const hashSmaller = {};
+  smaller.forEach(elem => hashSmaller[elem] = true);
+
+  return larger.filter(elem => hashSmaller.hasOwnProperty(elem));
 }
 ```
 
@@ -107,13 +105,11 @@ We can also use a [`Set`](https://developer.mozilla.org/en-US/docs/Web/JavaScrip
 
 ```js
 function intersection (arrA, arrB) {
-  const setA = new Set(arrA);
-  const shared = [];
-  arrB.forEach(elemB => {
-    if (setA.has(elemB)) {
-      shared.push(elemB);
-    }
-  });
-  return shared;
+  const smaller = arrB.length < arrA.length ? arrB : arrA;
+  const larger = arrB.length >= arrA.length ? arrB : arrA;
+
+  const setSmaller = new Set(smaller);
+
+  return larger.filter(elem => setSmaller.has(elem));
 }
 ```
