@@ -1,7 +1,7 @@
 # The Maybe Monad
 
 * [Slides](https://slides.com/fullstack/maybe)
-* [REPL](https://repl.it/GnkV/latest)
+* [REPL](https://repl.it/GnkV/39)
 
 ## Prompt
 
