@@ -133,5 +133,13 @@ function subsetSum (target, nums, idx = 0, memo = {}) {
   return result;
 }
 ```
+
+## Additions: 
+![sub_set_sum](https://user-images.githubusercontent.com/21270878/27405628-505512fe-56a0-11e7-8340-fc61f01797e3.jpg)
+
 * Here is a repl showing the difference between the memoized and non-memoized versions: https://repl.it/Ivkg/4
 * Slides: http://slides.com/mithunselvaratnam/subset-sum-2#/
+* Here is a [video](https://www.youtube.com/watch?v=s6FhG--P7z0) of the O(n*m) solution 
+
+
+
