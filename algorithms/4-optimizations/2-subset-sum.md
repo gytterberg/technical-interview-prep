@@ -135,10 +135,10 @@ function subsetSum (target, nums, idx = 0, memo = {}) {
 ```
 
 ## Additions: 
-![subsetsum visualization](https://user-images.githubusercontent.com/21270878/27407314-d329168a-56a5-11e7-8df6-b97bd487c268.jpg)
+![subsetsum visualization](https://user-images.githubusercontent.com/21270878/27439357-c61c4198-5735-11e7-9261-8d8202abe983.jpg)
 
-* Here is a repl showing the difference between the memoized and non-memoized versions: https://repl.it/Ivkg/4
-* Slides: http://slides.com/mithunselvaratnam/subset-sum-2#/
+* Here is a [repl](https://repl.it/Ivkg/4) showing the difference between the memoized and non-memoized versions
+* Here are the [slides](http://slides.com/mithunselvaratnam/subset-sum-2#/)
 * Here is a [video](https://www.youtube.com/watch?v=s6FhG--P7z0) of the O(n*m) solution 
 
 
