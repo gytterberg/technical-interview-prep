@@ -1,8 +1,10 @@
+[Slides](http://slides.com/luisamiranda/reacto-selection-sort)
+
+[Partial REPL guide](https://repl.it/F6Gs/6)
+
 # Prompt
 
-A thorough REPL guide: https://repl.it/F6Gs/6
-
-Implement a function that adds two numbers. But without using `+` or any other built-in arithmetic.
+Implement a function that adds two numbers without using `+` or any other built-in arithmetic operators.
 
 # Examples
 
@@ -16,7 +18,9 @@ add(19, 82);   // 101
 
 # Solution
 
-An optimized solution would make use of bit operations. There are a number of ways we might do this. The important thing to keep in mind is that if we have binary representations, addition works much the same way as with decimal representations. That is, we can add columns from left to right and carry over a `1` to the next column if the previous column adds to `10` or greater. In our case `10` is not "ten" though, it's "two". So if we have two ones in a column it will result in a `0` below it and a `1` carried over to the next column.
+An optimized solution would make use of bitwise operations. There are a number of ways we might do this. The important thing to keep in mind is that addition works much the same way with binary numbers as it does with decimal numbers. That is:
+
+We can add columns from right to left and carry a `1` to the next column if the previous column adds to `10` or greater. In our case `10` is not "ten" though, it's "two". So if we have two ones in a column it will result in a `0` below it and a `1` carried over to the next column.
 
 ```
  1 <= carried
@@ -26,7 +30,7 @@ An optimized solution would make use of bit operations. There are a number of wa
  101
 ```
 
-Below is one possible solution. It uses XOR to compute the result without taking "carries" into account (let's call this value "uncarried"). Then it uses AND to find these "carries"—by shifting those carries one bit left (let's call this "carries"), we can then repeat the process. This time we XOR our "uncarried" result with our "carries" to get a new uncarried result, then we AND our uncarried result with our carries and shift left to get our new carries. We continue this until the "carries" equal `0`.
+Below is one possible solution. It uses XOR to compute the result without the "carries" (let's call this value "uncarried"). Then it uses AND to find the "carries" and LEFT SHIFT to shift those carries one bit left to where they belong (let's call this "carries"). We can then repeat the process. This time we XOR our "uncarried" result with our "carries" to get a new uncarried result, then we AND our uncarried result with our carries and shift left to get our new carries. We continue this until the "carries" equal `0`, meaning we've moved all the value out of one register into the other.
 
 ## Iterative
 
