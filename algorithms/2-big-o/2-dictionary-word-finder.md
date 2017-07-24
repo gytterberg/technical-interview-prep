@@ -37,7 +37,6 @@ The naive (brute force) solution, `O(n)` time (or `O(n*m)` if we consider the wo
 
 ```javascript
 function definitionOf (word, dict) {
-  let foundEntry;
   for (let i = 0; i < dict.length; i++) {
     if (dict[i].startsWith(word + ' - ')) {
       return dict[i].slice(word.length + 3); // "subtract" the word itself (plus the ' - ' part)
