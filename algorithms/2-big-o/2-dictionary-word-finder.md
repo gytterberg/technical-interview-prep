@@ -51,7 +51,7 @@ function definitionOf (word, dict) {
 }
 ```
 
-The optimized binary search solution can be `O(log n)` time and `O(1)` space&#42; (see below). Note to interviewers: `<`/`>` can compare strings by alphabetical order (or really by character code, but that's close enough for what we're doing here). If a candidate goes down a rabbit-hole trying to implement a `compareByAlphabeticalOrder` function, just let them know that they can use `<`/`>`.
+The optimized binary search solution can be `O(log n)` time and `O(1)` space&#42; (see below). Note to interviewers:  the less than `<` and greater than `>` operators can compare strings by alphabetical order (or really by character code, but that's close enough for what we're doing here). If a candidate goes down a rabbit-hole trying to implement a `compareByAlphabeticalOrder` function, just let them know that they can use `<`/`>`.
 
 ```javascript
 function definitionOf (word, dict) {
