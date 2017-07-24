@@ -1,3 +1,7 @@
+[Slides](https://slides.com/mschreiber/reacto/)
+
+---
+
 # Prompt
 
 Given an alphabetical array of dictionary entries and a word to search for, find that word's definition (if it exists). This array of dictionary entries will be formatted like so:
