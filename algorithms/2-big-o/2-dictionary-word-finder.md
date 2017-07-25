@@ -1,6 +1,3 @@
-[Slides](https://slides.com/mschreiber/reacto/)
-
----
 
 # Prompt
 
