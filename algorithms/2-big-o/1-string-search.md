@@ -10,6 +10,24 @@ indexOf('howdy', 'hello world'); // should return -1
 indexOf('oox', 'ooboxoooxo'); // should return 6
 ```
 
+## Common approaches:
+
+***Built-in methods***
+
+Most students' first instincts will be to use built-in string methods like ```indexOf()```, ```include()``` or ```substring()```. ```indexOf()``` is, of course, explicitly forbidden; steer them away from methods like ```include()``` and ```substring()```.
+
+The reason to avoid this is that many whiteboard interviews will be language-agnostic and focus on the underlying concepts. You will want to show that you understand how these work, not that you read a lot of documentation the night before.
+
+Another reason is that by using these methods, you may actually be adding more (hidden) complexity. Look into how ```indexOf()```, ```include()``` and ```substring()``` work under the hood. Many built-in methods actually add an operation that's O(n), or worse.
+
+***split() and loop***
+
+Most students also move to split the haystack into an array of characters and then loop through.
+
+This approach would work; but imagine what it would look like to generate and then hold the array in memory for a very, very large haystack. If they're in a groove, have them finish out this approach and pseudocode it; then ask them how they would do this without generating a local copy.
+
+That should lead you to the given solution, which uses pointers (kind of).
+
 # Solution(s)
 
 ```javascript
