@@ -25,9 +25,11 @@ Another reason is that by using these methods, you may actually be adding more (
 
 Most students also move to split the haystack into an array of characters and then loop through.
 
-This approach would work; but imagine what it would look like to generate and then hold the array in memory for a very, very large haystack. If they're in a groove, have them finish out this approach and pseudocode it; then ask them how they would do this without generating a second copy of the haystack.
+This approach would work; but imagine what it would look like to generate and then hold the array in memory for a very, very large haystack -- and that's before any looping.
 
-That should lead you to the given solution, which uses pointers (kind of).
+If they're in a groove, have them finish out this approach and pseudocode it; then ask them how they would do this without generating a second copy of the haystack.
+
+That should lead you to the given solution, which uses pointers.
 
 # Solution(s)
 
