@@ -23,9 +23,9 @@ Another reason is that by using these methods, you may actually be adding more (
 
 ***split() and loop***
 
-Most students also move to split the haystack into an array of characters and then loop through.
+Most students also move to split the haystack into an array of characters, and then loop through.
 
-This approach would work; but imagine what it would look like to generate and then hold the array in memory for a very, very large haystack -- and that's before any looping. Consider the space complexity of such an operation. You would be introducing another O(n) dimension in time and space, where n is the length of the haystack.
+This approach would work; but imagine the space complexity of generating a new array and then holding it in memory for a very, very large haystack. You would be introducing another O(n) dimension in time and space, where n is the length of the haystack.
 
 If they're in a groove, have them finish out this approach and pseudocode it; then ask them how they would do this without generating a second copy of the haystack.
 
