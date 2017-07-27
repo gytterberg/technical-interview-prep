@@ -17,7 +17,7 @@ stringPermutations('nn') //should return  [ 'nn' ]
 # Resources
 
 - [Slides](http://slides.com/seemaullal/reacto#/)
-- [REPL walkthrough](https://repl.it/lFv/48)
+- [REPL walkthrough](https://repl.it/lFv/49)
 
 # Solutions
 
