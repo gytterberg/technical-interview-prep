@@ -1,3 +1,5 @@
+Slides[http://slides.com/mschreiber/reacto]
+---
 
 # Prompt
 
