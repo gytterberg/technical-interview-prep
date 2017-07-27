@@ -15,11 +15,11 @@ indexOf('oox', 'ooboxoooxo'); // should return 6
 
 ***Built-in methods***
 
-Most students' first instincts will be to use built-in string methods like ```indexOf()```, ```include()``` or ```substring()```. ```indexOf()``` is, of course, explicitly forbidden; steer them away from methods like ```include()``` and ```substring()```.
+Most students' first instincts will be to use built-in string methods like ```indexOf()```, ```includes()``` or ```substring()```. ```indexOf()``` is, of course, explicitly forbidden; steer them away from methods like ```includes()``` and ```substring()```.
 
 The reason to avoid this is that many whiteboard interviews will be language-agnostic and focus on the underlying concepts. You will want to show that you understand how these work, not that you read a lot of documentation the night before.
 
-Another reason is that by using these methods, you may actually be adding more (hidden) complexity. Look into how ```indexOf()```, ```include()``` and ```substring()``` work under the hood. Many built-in methods actually add an operation that's O(n), or worse.
+Another reason is that by using these methods, you may actually be adding more (hidden) complexity. Look into how ```indexOf()```, ```includes()``` and ```substring()``` work under the hood. Many built-in methods actually add an operation that's O(n), or worse.
 
 ***split() and loop***
 
