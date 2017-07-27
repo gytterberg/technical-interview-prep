@@ -1,4 +1,4 @@
-[Slides](http://slides.com/seemaullal/reacto#/)
+[Slides](http://slides.com/mschreiber/reacto/)
 
 ---
 
