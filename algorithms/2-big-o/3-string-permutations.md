@@ -1,22 +1,23 @@
-[Slides](http://slides.com/mschreiber/reacto/)
-
----
-
 # Prompt
 
-Given a string, return an array of all the permutations of that string. The permutations of the string should be the same length as the original string (i.e. use each letter in the string exactly once) but do not need to be actual words. 
+Given a string, return an array of all the permutations of that string. The permutations of the string should be the same length as the original string (i.e. use each letter in the string exactly once) but do not need to be actual words.
 
-The array that is returned should only contain unique values and its elements should be in alphabetical order. 
+The array that is returned should only contain unique values and its elements should be in alphabetical order.
 
 # Examples
 
 ```javascript
-stringPermutations('one') 
+stringPermutations('one')
 // should return  [ 'eon', 'eno' 'neo', 'noe', 'one', 'oen']
-stringPermutations('app') 
+stringPermutations('app')
 // should return  [ 'app','pap','ppa']
 stringPermutations('nn') //should return  [ 'nn' ]
 ```
+
+# Resources
+
+- [Slides](http://slides.com/seemaullal/reacto#/)
+- [REPL walkthrough](https://repl.it/lFv/49)
 
 # Solutions
 
@@ -46,12 +47,14 @@ function stringPermutations (str) {
     });
     results = tmpResults; //overwrite the previous results
   }
-  results = results.map(function (letterArr) {
-    return letterArr.join(''); //make string from letter array
-  });
-  return results.filter(function (el, index) {
-    return results.indexOf(el) === index; //filter out non-unique words
-  }).sort();
+  return results
+    .map(function (letterArr) {
+      return letterArr.join('');
+    })
+    .filter(function (el, index, self) {
+      return self.indexOf(el) === index; //filter out non-unique words
+    })
+    .sort();
 }
 ```
 
@@ -63,16 +66,16 @@ function recursiveStringPermutations (str) {
   getPerms(str, [ ]);
   function getPerms (str, arr) {
     if (typeof str === 'string')
-        //on first call, split the string into an array 
+        //on first call, split the string into an array
       str = str.split('');
-    if (!str.length) 
+    if (!str.length)
         //base case- push the compiled results into the results variable
-      results.push(arr.join('')); 
+      results.push(arr.join(''));
     for (var i = 0; i < str.length; i++) {
-      var letter = str.splice(i, 1); 
+      var letter = str.splice(i, 1);
       arr.push(letter);
       getPerms(str, arr); //recursive call
-      arr.pop(); 
+      arr.pop();
       str.splice(i, 0, letter);
     }
   }
