@@ -17,7 +17,7 @@ indexOf('oox', 'ooboxoooxo'); // should return 6
 
 Most students' first instincts will be to use built-in string methods like ```indexOf()```, ```includes()``` or ```substring()```. ```indexOf()``` is, of course, explicitly forbidden; steer them away from methods like ```includes()``` and ```substring()```.
 
-The reason to avoid this is that many whiteboard interviews will be language-agnostic and focus on the underlying concepts. You will want to show that you understand how these work, not that you read a lot of documentation the night before.
+The reason to avoid this is that many whiteboard interviews will be language-agnostic and focus on the underlying concepts. You will want to show that you understand how these methods work, not that you happened to read the right documentation the night before.
 
 Another reason is that by using these methods, you may actually be adding more (hidden) complexity. Look into how ```indexOf()```, ```includes()``` and ```substring()``` work under the hood. Many built-in methods actually add an operation that's O(n), or worse.
 
@@ -25,7 +25,7 @@ Another reason is that by using these methods, you may actually be adding more (
 
 Most students also move to split the haystack into an array of characters and then loop through.
 
-This approach would work; but imagine what it would look like to generate and then hold the array in memory for a very, very large haystack -- and that's before any looping.
+This approach would work; but imagine what it would look like to generate and then hold the array in memory for a very, very large haystack -- and that's before any looping. Consider the space complexity of such an operation. You would be introducing another O(n) dimension in time and space, where n is the length of the haystack.
 
 If they're in a groove, have them finish out this approach and pseudocode it; then ask them how they would do this without generating a second copy of the haystack.
 
