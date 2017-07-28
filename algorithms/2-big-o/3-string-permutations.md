@@ -87,6 +87,8 @@ function recursiveStringPermutations (str) {
 
 Here is a solution that implicitly keeps the results sorted as it generates them (an optimization):
 
+Without sorting before we start finding permutations, we will get n! * log(n!) -- we have an array that is n! in length at that point. If we sort before our sort time is n * log(n). In both situations, n is the length of the input string. Overall, finding all string permutations is n!
+
 ```js
 // finds all possible permutations *while* maintaining the order of the characters
 function stringPermutations (str) {
