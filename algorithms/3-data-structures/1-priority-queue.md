@@ -102,13 +102,17 @@ If i is the index of an object we can use the following formulas:
     - left child is 2i
     - right child is 2i + 1
 
-Taken from [Princeton's Algorithms 4th Edition](http://algs4.cs.princeton.edu/24pq/):
+## Resources
+
+- Taken from [Princeton's Algorithms 4th Edition](http://algs4.cs.princeton.edu/24pq/):
 
 ![](http://algs4.cs.princeton.edu/24pq/images/heap-representations.png)
 
-- Further reading
-  - [Stanford's CS106B PQueue explainer](http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1174/handouts/190%20Assignment%205.pdf) -- binary heap explanation starts on pg. 7
-  - [Cornell's CS312 lecture notes](http://www.cs.cornell.edu/courses/cs312/2007sp/lectures/lec25.html)
+- [REPL with examples](https://repl.it/JrH7/3)
+
+- [Stanford's CS106B PQueue explainer](http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1174/handouts/190%20Assignment%205.pdf) -- binary heap explanation starts on pg. 7
+
+- [Cornell's CS312 lecture notes](http://www.cs.cornell.edu/courses/cs312/2007sp/lectures/lec25.html)
 
 A Binary Heap implementation of a priority queue using ES6
 
