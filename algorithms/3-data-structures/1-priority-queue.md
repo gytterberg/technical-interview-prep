@@ -114,7 +114,7 @@ If i is the index of an object we can use the following formulas:
 
 An implementation of a priority queue using ES6 (and a [REPL explainer](https://repl.it/JrH7/3)) follows.
 
-Note that this is a **minHeap**, in which the minimum-priority element ends up at the root of the heap. This is in contrast with a **maxHeap**, in which the maximum-priority element ends at the root of the heap. Consider the tradeoffs in either variety for `popMin()` and `popMax()`.
+Note that this is a **minHeap**, in which the minimum-priority element ends up at the root of the heap. This is in contrast with a **maxHeap**, in which the maximum-priority element ends up at the root of the heap. Consider the tradeoffs in either variety for `popMin()` and `popMax()`.
 
 ```javascript
 class HeapPQ {
