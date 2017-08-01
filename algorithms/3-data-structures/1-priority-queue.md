@@ -98,9 +98,9 @@ Because binary heaps are complete binary trees, they're often stored as arrays i
 By mapping objects to indices in this way, we can easily get an object's parent or children based on its index.
 
 If i is the index of an object we can use the following formulas:
-    - parent is i/2 rounded down
-    - left child is 2i
-    - right child is 2i + 1
+- parent is i/2 rounded down
+- left child is 2i
+- right child is 2i + 1
 
 ## Resources
 
@@ -110,9 +110,11 @@ If i is the index of an object we can use the following formulas:
 
 - [Stanford's CS106B PQueue explainer](http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1174/handouts/190%20Assignment%205.pdf) -- binary heap explanation starts on pg. 7
 
-- [Cornell's CS312 lecture notes](http://www.cs.cornell.edu/courses/cs312/2007sp/lectures/lec25.html)
+- [CMU explainer](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Binary%20Heaps/heaps.html)
 
-A Binary Heap implementation of a priority queue using ES6 (and a [REPL explainer](https://repl.it/JrH7/3)):
+An implementation of a priority queue using ES6 (and a [REPL explainer](https://repl.it/JrH7/3)) follows.
+
+Note that this is a **minHeap**, in which the minimum-priority element ends up at the root of the heap. This is in contrast with a **maxHeap**, in which the maximum-priority element ends up at the root of the heap. Consider the tradeoffs in either variety for `popMin()` and `popMax()`.
 
 ```javascript
 class HeapPQ {
