@@ -47,8 +47,8 @@ function buildTrie (text) {
   text = text.toLowerCase();
   for (let i = 0; i < text.length; i++) {
     let node = trie;
-    const starting = i;
-    while (text[i] !== ' ' && text[i] !== ',' && text[i] !== '.') {
+    let starting = i;
+    while (text[i] && text[i] !== ' ' && text[i] !== ',' && text[i] !== '.') {
       const char = text[i];
       node[char] = node[char] || {indexes: []};
       node[char].indexes.push(starting);
