@@ -108,13 +108,11 @@ If i is the index of an object we can use the following formulas:
 
 ![](http://algs4.cs.princeton.edu/24pq/images/heap-representations.png)
 
-- [REPL with examples](https://repl.it/JrH7/3)
-
 - [Stanford's CS106B PQueue explainer](http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1174/handouts/190%20Assignment%205.pdf) -- binary heap explanation starts on pg. 7
 
 - [Cornell's CS312 lecture notes](http://www.cs.cornell.edu/courses/cs312/2007sp/lectures/lec25.html)
 
-A Binary Heap implementation of a priority queue using ES6
+A Binary Heap implementation of a priority queue using ES6 (and a [REPL explainer](https://repl.it/JrH7/3)):
 
 ```javascript
 class HeapPQ {
