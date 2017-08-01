@@ -1,6 +1,8 @@
 # Prompt
 
-Given a "book" and a string to search for, return the character index for every word that begins with that string. The book will be given as two things: a book id and a string of English text. The search should be case *insensitive*.
+Given a "book" and a string to search for, return an array of the character indices for every word in the book that begins with that string.
+
+The book will be given as two things: a book id and a string of English text. The search should be case *insensitive*.
 
 Follow-up: consider the possibility of repeated searches through the same book.
 
