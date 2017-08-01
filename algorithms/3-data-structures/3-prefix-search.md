@@ -47,7 +47,7 @@ For repeated executions, precomputing a trie would be extremely helpful. A trie 
 For more on tries:
 - [Dead simple explainer from a bioinformatics blog](http://bioinformatics.cvr.ac.uk/blog/trie-data-structure/)
 - [Brilliant.org explainer](https://brilliant.org/wiki/tries/)
-- [REPL walkthrough](https://repl.it/JsXG/2) of below solution
+- [REPL walkthrough](https://repl.it/JsXG/4) of below solution
 
 ```js
 const tries = {};
@@ -56,7 +56,7 @@ function buildTrie (text) {
   text = text.toLowerCase();
   for (let i = 0; i < text.length; i++) {
     let node = trie;
-    let starting = i;
+    const starting = i;
     while (text[i] && text[i] !== ' ' && text[i] !== ',' && text[i] !== '.') {
       const char = text[i];
       node[char] = node[char] || {indexes: []};
