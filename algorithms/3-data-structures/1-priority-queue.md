@@ -112,7 +112,9 @@ If i is the index of an object we can use the following formulas:
 
 - [CMU explainer](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Binary%20Heaps/heaps.html)
 
-An implementation of a priority queue using ES6 (and a [REPL explainer](https://repl.it/JrH7/3)) follows. Note that this is a minHeap, versus the prompt above, which asks for a maxHeap. Conversion for `insert()` is just a matter of reversing the priority rules, but how would this change `popMin()` and `popMax()`?
+An implementation of a priority queue using ES6 (and a [REPL explainer](https://repl.it/JrH7/3)) follows.
+
+Note that this is a **minHeap**, in which the minimum-priority element ends up at the root of the heap. This is in contrast with a **maxHeap**, in which the maximum-priority element ends at the root of the heap. Consider the tradeoffs in either variety for `popMin()` and `popMax()`.
 
 ```javascript
 class HeapPQ {
