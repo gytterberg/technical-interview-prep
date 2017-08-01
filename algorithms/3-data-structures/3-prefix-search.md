@@ -38,7 +38,7 @@ function findWordsStartingWith (book, prefix) {
 }
 ```
 
-For repeated executions, precomputing a trie would be extremely helpful.
+For repeated executions, precomputing a trie would be extremely helpful. See this [REPL walkthrough](https://repl.it/JsXG/2) for examples.
 
 ```js
 const tries = {};
