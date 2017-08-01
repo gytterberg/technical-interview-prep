@@ -40,7 +40,16 @@ function findWordsStartingWith (book, prefix) {
 }
 ```
 
-For repeated executions, precomputing a trie would be extremely helpful. See this [REPL walkthrough](https://repl.it/JsXG/2) for examples.
+For repeated executions, precomputing a trie would be extremely helpful.
+
+A trie is a tree-like structure that stores successive prefixes of a word.
+
+![Image of a trie from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/400px-Trie_example.svg.png) ![Another image of a trie from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Patricia_trie.svg/320px-Patricia_trie.svg.png)
+
+For more on tries:
+- [Dead simple explainer from a bioinformatics blog](http://bioinformatics.cvr.ac.uk/blog/trie-data-structure/)
+- [Brilliant.org explainer](https://brilliant.org/wiki/tries/)
+- [REPL walkthrough](https://repl.it/JsXG/2) of below solution
 
 ```js
 const tries = {};
