@@ -47,7 +47,7 @@ For repeated executions, precomputing a trie would be extremely helpful. A trie 
 For more on tries:
 - [Dead simple explainer from a bioinformatics blog](http://bioinformatics.cvr.ac.uk/blog/trie-data-structure/)
 - [Brilliant.org explainer](https://brilliant.org/wiki/tries/)
-- [REPL walkthrough](https://repl.it/JsXG/4) of below solution
+- [REPL walkthrough](https://repl.it/JsXG/latest) of below solution
 
 ```js
 const tries = {};
