@@ -4,8 +4,8 @@ A graph consists of a set of vertices connected together by a set of edges. A tr
 
 # Prompt
 
-[Slides](http://slides.com/sarahdherr/reacto-graph#/)
-[REPL](https://repl.it/JVhs/2)
+* [Slides](http://slides.com/sarahdherr/reacto-graph#/)
+* [REPL](https://repl.it/JVhs/2)
 
 Write a function that determines if a path exists between two vertices of a graph.
 
