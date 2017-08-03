@@ -20,7 +20,9 @@ findWordsStartingWith(book, 'cat'); // should return [ 69, 91 ]
 
 # Solutions
 
-A naive solution involves a simple loop through the text.
+A naive solution involves simply looping through the text. This solution is O(n * m), where n is the length of the text and m is the length of the prefix.
+
+Interviewees may instinctively move to use `includes`, `substring`, `indexOf`, or to check the prefix against a `slice` of the text. This is fine in practice, but in an interview setting only serves to show that you happen to have read the docs, not that you understand how these methods work under the hood. Steer them away from this approach and towards something like the solution below.
 
 ```js
 function findWordsStartingWith (book, prefix) {
@@ -40,14 +42,18 @@ function findWordsStartingWith (book, prefix) {
 }
 ```
 
-For repeated executions, precomputing a trie would be extremely helpful. A trie is a tree-like structure that stores successive prefixes of a word.
+For repeated executions, precomputing a trie would be extremely helpful.
+
+A trie is a tree-like structure that stores successive prefixes of a word.
 
 ![Image of a trie from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/400px-Trie_example.svg.png) ![Another image of a trie from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Patricia_trie.svg/320px-Patricia_trie.svg.png)
+
+While expensive at setup, this solution yields dividends in repeated lookups. Searching an existing trie is at most O(n), with n being the length of the prefix.
 
 For more on tries:
 - [Dead simple explainer from a bioinformatics blog](http://bioinformatics.cvr.ac.uk/blog/trie-data-structure/)
 - [Brilliant.org explainer](https://brilliant.org/wiki/tries/)
-- [REPL walkthrough](https://repl.it/JsXG/latest) of below solution
+- [REPL walkthrough](https://repl.it/JsXG/8) of below solution
 
 ```js
 const tries = {};
