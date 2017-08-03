@@ -4,6 +4,9 @@ A graph consists of a set of vertices connected together by a set of edges. A tr
 
 # Prompt
 
+[Slides](http://slides.com/sarahdherr/reacto-graph#/)
+[REPL](https://repl.it/JVhs/2)
+
 Write a function that determines if a path exists between two vertices of a graph.
 
 The graph will be represented as an object, each of whose keys represents a vertex of the graph and whose value represents all vertices that can be reached from the aforementioned key. In the example below, there is a connection from vertex `a` to vertex `b` and a connection from vertex `b` to vertices `c` and `d` but not a connection from vertex `b` to vertex `a`.
@@ -23,7 +26,7 @@ This problem is essentially a DFS/BFS problem. Either algorithm is sufficient. T
  s: []
  }`
 
-     
+
 Imagine we started travsering at vertex `a`. Eventually we would reach vertex `r`, but notice that it points right back to vertex `a`. If you were to unleash an unmodified BFS/DFS traversal algorithm on this input, the algorithm would proceed in an infinite loop. This means that the algorithm must be changed to keep track of all vertices that it has seen. If a vertex has been seen, we know to not consider it's edges a second time. The algorithm completes when either it has found the target vertex or when it has exhausted all possible vertices without finding it's target.
 
 # Discussion
@@ -35,8 +38,8 @@ The data structure seen above used to represent the graph is called an ajacency 
       c 0  0  1  1
       s 0  0  0  0
       r 1  0  0  0
-    
-In javascript, this table would be represented using an array of arrays or object of objects. A 1 indicates that a given vertex has an edge pointing to another vertex, and a 0 indicates that it does not. 
+
+In javascript, this table would be represented using an array of arrays or object of objects. A 1 indicates that a given vertex has an edge pointing to another vertex, and a 0 indicates that it does not.
 
 This table reads as follows:<br>
 
