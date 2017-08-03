@@ -1,6 +1,10 @@
+[Slides](http://slides.com/mschreiber/reacto-4#/)
+
 # Prompt
 
-Given a "book" and a string to search for, return the character index for every word that begins with that string. The book will be given as two things: a book id and a string of English text. The search should be case *insensitive*.
+Given a "book" and a string to search for, return an array of the character indices for every word in the book that begins with that string.
+
+The book will be given as two things: a book id and a string of English text. The search should be case *insensitive*.
 
 Follow-up: consider the possibility of repeated searches through the same book.
 
@@ -38,7 +42,14 @@ function findWordsStartingWith (book, prefix) {
 }
 ```
 
-For repeated executions, precomputing a trie would be extremely helpful.
+For repeated executions, precomputing a trie would be extremely helpful. A trie is a tree-like structure that stores successive prefixes of a word.
+
+![Image of a trie from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/400px-Trie_example.svg.png) ![Another image of a trie from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Patricia_trie.svg/320px-Patricia_trie.svg.png)
+
+For more on tries:
+- [Dead simple explainer from a bioinformatics blog](http://bioinformatics.cvr.ac.uk/blog/trie-data-structure/)
+- [Brilliant.org explainer](https://brilliant.org/wiki/tries/)
+- [REPL walkthrough](https://repl.it/JsXG/latest) of below solution
 
 ```js
 const tries = {};
@@ -48,7 +59,7 @@ function buildTrie (text) {
   for (let i = 0; i < text.length; i++) {
     let node = trie;
     const starting = i;
-    while (text[i] !== ' ' && text[i] !== ',' && text[i] !== '.') {
+    while (text[i] && text[i] !== ' ' && text[i] !== ',' && text[i] !== '.') {
       const char = text[i];
       node[char] = node[char] || {indexes: []};
       node[char].indexes.push(starting);
