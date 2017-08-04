@@ -20,10 +20,11 @@ The graph will be represented as an object, each of whose keys represents a vert
 
 This problem is essentially a DFS/BFS problem. Either algorithm is sufficient. The only catch is that graphs can be cyclic. In other words, it's possible for a loop to exist in the graph. The graph below showcases this problem:
 
-`{a: ['a', 'c'],
- c: ['s', 'r']
- r: ['a'],
- s: []
+`{
+    a: ['a', 'c'],
+    c: ['s', 'r']
+    r: ['a'],
+    s: []
  }`
 
 
@@ -31,7 +32,7 @@ Imagine we started travsering at vertex `a`. Eventually we would reach vertex `r
 
 # Discussion
 
-The data structure seen above used to represent the graph is called an ajacency list. An alternative data structure exists for representing graphs called adjacency matrices. The cyclic graph above could have been modeled as follows using an adjacency matrix:
+The data structure seen ***above*** used to represent the graph is called an **ajacency list**. An alternative data structure exists for representing graphs called adjacency matrices. The cyclic graph above could have been modeled as ***follows*** using an **adjacency matrix**:
 
         a  c  s  r
       a 1  1  0  0
@@ -39,7 +40,7 @@ The data structure seen above used to represent the graph is called an ajacency 
       s 0  0  0  0
       r 1  0  0  0
 
-In javascript, this table would be represented using an array of arrays or object of objects. A 1 indicates that a given vertex has an edge pointing to another vertex, and a 0 indicates that it does not.
+In javascript, this table would be represented using an array of arrays or object of objects. A 1 indicates that a given vertex has an edge pointing to another vertex, and a 0 indicates that it does not. Both of these show direction!
 
 This table reads as follows:<br>
 
@@ -49,7 +50,7 @@ This table reads as follows:<br>
 `c -> r`<br>
 `r -> a`
 
-Consider the transoffs between using one of these data structres of the other. How do they compare for the following ways:
+Consider the tradeoffs between using one of these data structres of the other. How do they compare for the following ways:
 
 | Attribute                                             | Answer                                                            |
 | ------------------------------------------------------|------------------------------------------------------------------:|
@@ -65,14 +66,17 @@ Comparison from The Algoritm Design Manual, Skiena - second Edition - page 152
 
 # Solution
 
+Consider using a `Set` instead of a POJO for the `visited` argument!
+
 ```javascript
-var graph = {a: ['c'],
- b: ['c'],
- c: ['s', 'r'],
- d: ['a'],
- s: ['a', 'c'],
- r: ['d'],
- z: ['z']
+var graph = {
+    a: ['c'],
+    b: ['c'],
+    c: ['s', 'r'],
+    d: ['a'],
+    s: ['a', 'c'],
+    r: ['d'],
+    z: ['z']
  };
 
 var doesPathExist = function(graph, visited, start, target) {
