@@ -1,3 +1,7 @@
+[Slides](http://slides.com/mschreiber/reacto-5#)
+
+---
+
 # Prompt
 
 Given a current time in the string format `HH:MM` and a number of minutes, return the clock time given those minutes added to the base time. Assume you're working with a standard 12-hour clock and the output should match the input format `HH:MM`.
