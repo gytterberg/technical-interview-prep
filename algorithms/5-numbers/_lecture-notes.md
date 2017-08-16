@@ -50,9 +50,16 @@ function lastDigitAfterMultiplying (nums) {
 ### Bitwise operators
 
 - AND, & both are 1, then it outputs 1
+  - `x & 0 == 0`
+  - `x & -1 == x`
 - OR, | either is 1, outputs 1
+  - `x | 0 == x`
+  - `x | -1 == -1`
 - XOR, ^ exactly one of them is 1 (the second number "flips" the first)
+  - `x ^ 0 == x`
+  - `x ^ -1 == ~x`
 - NOT, ~ inverts all 1s to 0s and 0s to 1s
+  - `~x == -(x + 1)`
 
 ```
 E.g. 55 & 467, => 19
@@ -70,8 +77,6 @@ E.g. 34 ^ 71 => 101
   1100101
 ```
 
-Can be useful for low level pixel operations, or audio operations. These bitwise operators are fundamental.
-
 Exercise one: get the nth bit of a number. You can't use `.toString()`.
 
 ```js
@@ -81,7 +86,7 @@ getNthBit(871, 4); // => 0
 ```
 
 Shift right by index and check if even or odd, with modulus 2.
- 
+
 ```js
 function getNthBit (num, idx) {
   return num >> idx % 2;
@@ -143,3 +148,19 @@ How might we "clear" a bit?
 // ------------
 //   1101100111
 ```
+
+### Bit Masks
+- "A bitmask is a sequence of bits that can manipulate and/or read flags." - MDN
+- Turning some bits on: `| 1111`
+- Turning some bits off (to ignore them): `& 0000`
+- Querying the status of a bit: turn off all other bits (`& 0000`), compare desired bit to `1`
+- [Additional reading/examples on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators#Flags_and_bitmasks)
+
+### Practical Applications of Bitwise Operations
+- Can be useful for low level pixel operations, or audio operations
+- Optimized numerical conversions - faster than `Math` or `parseInt` equivalents
+  - `Math.floor`: `~~n`
+  - Toggling between 0 and 1: ^= 1
+- Performance optimization, but at the cost of readability
+- You may see some libraries like Bluebird and jQuery use them internally
+  - [How Bluebird uses them internally](https://www.reaktor.com/blog/javascript-performance-fundamentals-make-bluebird-fast/) (see especially section 2, "Minimize object size")
