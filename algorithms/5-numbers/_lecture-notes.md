@@ -160,7 +160,7 @@ How might we "clear" a bit?
 - Can be useful for low level pixel operations, or audio operations
 - Optimized numerical conversions - faster than `Math` or `parseInt` equivalents
   - `Math.floor`: `~~n`
-  - Toggling between 0 and 1: ^= 1
+  - Toggling between 0 and 1: `^= 1`
 - Performance optimization, but at the cost of readability
 - You may see some libraries like Bluebird and jQuery use them internally
   - [How Bluebird uses them internally](https://www.reaktor.com/blog/javascript-performance-fundamentals-make-bluebird-fast/) (see especially section 2, "Minimize object size")
