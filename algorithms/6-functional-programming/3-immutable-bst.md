@@ -1,3 +1,6 @@
+(Slides)[https://slides.com/mschreiber]
+---
+
 # Prompt
 
 Implement an immutable binary search tree class. The class constructor should accept (at least) a single argument which will represent the value for its root node. Each instance should have two methods: `insert`, which takes a numerical value and returns a new binary search tree containing that value, and `contains`, which takes a numerical value and returns `true` or `false` based on whether the tree contains it.
