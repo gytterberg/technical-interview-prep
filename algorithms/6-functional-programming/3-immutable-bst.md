@@ -1,4 +1,4 @@
-(Slides)[https://slides.com/mschreiber]
+[Slides](https://slides.com/mschreiber)
 ---
 
 # Prompt
