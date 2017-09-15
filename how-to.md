@@ -40,10 +40,10 @@ Congratulations, you're an interviewer for tomorrow's mock-interview! At {time} 
 
 This happens at least one day before you lead a given prompt.
 
-- To check whether a prompt has already been successfully remarkised, see **Viewing markdowns as slideshows**
+- To check whether a prompt has already been successfully remarkised, see [**Viewing markdowns as slideshows**](#viewing-markdowns-as-slideshows)
 - Otherwise, head to the technical interview prep github repo
   - Check whether some other fellow/instructor is already working on getting the prompt ready for remarkise by looking for an issue that is assigned
-  - If nobody is, decide whether you want to or not—if you decide to go for it, see **Prepare a REACTO prompt for remarkise**)
+  - If nobody is, decide whether you want to or not—if you decide to go for it, see [**Prepare a REACTO prompt for remarkise**](#prepare-a-reacto-prompt-for-remarkise)
 
 ---
 
@@ -56,7 +56,7 @@ This happens at least one day before you lead a given prompt.
   - Go to your local clone of the technical interview prep repo (or clone it if you haven't)
   - Make a branch and start editing
   - Here is the [remark wiki](https://github.com/gnab/remark/wiki) which you can use to help you properly format the markdown file
-  - To try out your formatting, see **Viewing markdowns as slideshows**
+  - To try out your formatting, see [**Viewing markdowns as slideshows**](#viewing-markdowns-as-slideshows)
   - When it's ready, push your branch, make a PR and assign somebody to review it
 
 ---
@@ -72,9 +72,9 @@ For when you want to check whether a markdown file is slideshow-ready and/or pre
 
 ## Lead REACTO
 
-*Note: see the **Times** below.*
+*Note: see the [**Times**](#times) below.*
 
-- Call interviewers into another room (for remote, see **Zoom rooms and REACTO**) and start going over the prompt at the starting time *even if some people aren't there*
+- Call interviewers into another room (for remote, see [**Zoom rooms and REACTO**](#zoom-rooms-and-reacto)) and start going over the prompt at the starting time *even if some people aren't there*
 - Present the remarkised markdown (if the prompt has been properly prepared for that), or the slides.com slideshow (if it exists), or otherwise just display the markdown file as it is
 - Field any questions
 - Before you begin review, give the "interviewers" an opportunity to give some constructive feedback to their "candidates" (2-ish minutes)
