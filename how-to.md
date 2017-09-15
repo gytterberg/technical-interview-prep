@@ -40,7 +40,7 @@ Congratulations, you're an interviewer for tomorrow's mock-interview! At {time} 
 
 This happens at least one day before you lead a given prompt.
 
-- You can check whether a prompt has already been successfully remarkised by dropping the relevant `.md` file into https://remarkjs.com/remarkise
+- To check whether a prompt has already been successfully remarkised, see **Viewing markdowns as slideshows**
 - Otherwise, head to the technical interview prep github repo
   - Check whether some other fellow/instructor is already working on getting the prompt ready for remarkise by looking for an issue that is assigned
   - If nobody is, decide whether you want to or not—if you decide to go for it, see **Prepare a REACTO prompt for remarkise**)
@@ -56,8 +56,17 @@ This happens at least one day before you lead a given prompt.
   - Go to your local clone of the technical interview prep repo (or clone it if you haven't)
   - Make a branch and start editing
   - Here is the [remark wiki](https://github.com/gnab/remark/wiki) which you can use to help you properly format the markdown file
-  - To try out your formatting, head to https://remarkjs.com/remarkise and drop the `.md` file for the prompt into the target box
+  - To try out your formatting, see **Viewing markdowns as slideshows**
   - When it's ready, push your branch, make a PR and assign somebody to review it
+
+---
+
+## Viewing markdowns as slideshows
+
+For when you want to check whether a markdown file is slideshow-ready and/or present one that is.
+
+- For working locally (and with live updating for your edits) use https://github.com/FullstackAcademy/fs-present
+- Otherwise, you can head to https://remarkjs.com/remarkise and drop the markdown file for the prompt into the target box
 
 ---
 
