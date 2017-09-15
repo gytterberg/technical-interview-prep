@@ -121,12 +121,3 @@ This is relevant for leading remote REACTO. It may help to check out [zoom's own
 | interviewer prep | 8:30–8:45 |
 | mock interview   | 8:45–9:20 |
 | class review     | 9:20–9:30 |
-
----
-
-## REACTO + Zoom
-
-- Head to the zoom classroom
-- Use the zoom classroom host computer to create breakout rooms and create at least one breakout room
-- Put yourself and all of the interviewers into that breakout room
-- 
