@@ -103,7 +103,7 @@ class: center middle
 ## Solution Code (Breadth First)
 
 ```javascript
-function breadthFirst (startingNode) {
+const breadthFirst = (startingNode) => {
   // we use a queue to iterate over the tree
   // progressively adding the children as we go
   // The tree begins with the first node
@@ -111,11 +111,10 @@ function breadthFirst (startingNode) {
   // you might want to consider handling edges cases
   /// such as not receiving a properly formatted node
   // or make a proper Node constructor/prototype (see below)
-  while(queue.length) {
+  while (queue.length) {
     // we shift off the array instead of iterating with a counter
     // as we are treating it as a queue (FIFO)
-    let node = queue.shift();
-    console.log(node.value);
+    const node = queue.shift();
     // es6 format:
     queue.push(...node.children);
     // es5 might look like this if queue were a var (or let) instead of const
@@ -132,18 +131,16 @@ function breadthFirst (startingNode) {
 ```javascript
 // depth first seems trivial in comparison! Simply log the value
 // and then call the function on each node
-function depthFirstPreOrder(startingNode) {
-  console.log(startingNode.value);
+const depthFirstPreOrder = (startingNode) => {
   startingNode.children.forEach(function(child) {
     depthFirstPreOrder(child);
   });
 }
 
-function depthFirstPostOrder(startingNode) {
+const depthFirstPostOrder = (startingNode) => {
   startingNode.children.forEach(function(child) {
     depthFirstPostOrder(child);
   });
-  console.log(startingNode.value);
 }
 ```
 ---
