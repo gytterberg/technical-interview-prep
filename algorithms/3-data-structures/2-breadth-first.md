@@ -1,10 +1,9 @@
-[Out of date slides](http://slides.com/benjaminconant/reacto#/)
-
-[REPL with this solution and an ES6 class solution](https://repl.it/H1qn/14)
+class: center middle
+## Tree Traversal
 
 ---
 
-# Prompt
+## Interviewer Prompt
 
 Today you will write a series of iterator functions for trees.
 
@@ -17,50 +16,15 @@ Today you will write a series of iterator functions for trees.
 
 Each of these function will take a node of the tree and iterate through all other nodes. The difference between them is the order in which they iterate.
 
-# Examples
+???
 
-For the following examples consider this tree:
+Any presenter notes can go after the three question marks
 
-![tree](https://www.cpp.edu/~ftang/courses/CS241/notes/images/trees/tree1.bmp)
+---
 
-| Algorithm             | Order                       | Explanation                                                |
-|-----------------------|-----------------------------|------------------------------------------------------------|
-| `breadthFirst`        | `A B C D E F G H I J K L M` | Each "level" of the tree is printed in order               |
-| `depthFirstPreOrder`  | `A B E K L C F G H M D I J` | Children nodes are visited before sibling nodes            |
-| `depthFirstPostOrder` | `K L E B F G M H C I J D A` | A node is not traversed until all its children are reached |
-
-
-A tree is represented by its `root` or top node. In other words, the top node is what will be passed into your function. You can assume that each node in the tree contains the following properties:
-
-* `.value` — the content (data) of the node, what you should print out
-* `.children` — an ordered array of child nodes for that node
-
-
-# Solution
+## Setup
 
 ```javascript
-function breadthFirst (startingNode) {
-  const queue = [startingNode];
-  while(queue.length) {
-    let node = queue.shift();
-    console.log(node.value);
-    queue.push(...node.children);
-  }
-}
-
-function depthFirstPreOrder(startingNode) {
-  console.log(startingNode.value);
-  startingNode.children.forEach(function(child) {
-    depthFirstPreOrder(child);
-  });
-}
-
-function depthFirstPostOrder(startingNode) {
-  startingNode.children.forEach(function(child) {
-    depthFirstPostOrder(child);
-  });
-  console.log(startingNode.value);
-}
 
 function node(value) {
   return {
@@ -68,7 +32,6 @@ function node(value) {
     children: []
   }
 }
-
 var a = node('a');
 var b = node('b');
 var c = node('c');
@@ -90,3 +53,101 @@ c.children.push(f,g,h);
 h.children.push(m);
 d.children.push(i,j);
 ```
+---
+
+## Example
+
+![tree](https://www.cpp.edu/~ftang/courses/CS241/notes/images/trees/tree1.bmp)
+
+| Algorithm             | Order                       | Explanation                                                |
+|-----------------------|-----------------------------|------------------------------------------------------------|
+| `breadthFirst`        | `A B C D E F G H I J K L M` | Each "level" of the tree is printed in order               |
+| `depthFirstPreOrder`  | `A B E K L C F G H M D I J` | Children nodes are visited before sibling nodes            |
+| `depthFirstPostOrder` | `K L E B F G M H C I J D A` | A node is not traversed until all its children are reached |
+
+---
+
+class: center middle
+## Interviewer Guide
+
+---
+
+### RE
+
+* This differs from the traversal we worked on in junior phase in that each node may have any number of children
+
+* You may need to remind your interviewee of what the different types of traversal mean
+
+* Interviewee does not need to write the "node" function, but should be aware of the structure of a node
+
+* Be sure to have your interviewee sketch an example tree
+---
+
+### AC
+
+* Push a recursive solution
+
+* Remind them that each child of a tree node is it's own tree
+
+
+---
+
+### TO
+
+* If your interviewee finishes, ask them:
+  * What is the Big O of the breadth first? Depth first?
+  * Does your answer change if this becomes a binary search tree (max 2 children)? 
+
+---
+
+## Solution Code (Breadth First)
+
+```javascript
+const breadthFirst = (startingNode) => {
+  // we use a queue to iterate over the tree
+  // progressively adding the children as we go
+  // The tree begins with the first node
+  const queue = [startingNode];
+  // you might want to consider handling edges cases
+  /// such as not receiving a properly formatted node
+  // or make a proper Node constructor/prototype (see below)
+  while (queue.length) {
+    // we shift off the array instead of iterating with a counter
+    // as we are treating it as a queue (FIFO)
+    const node = queue.shift();
+    // es6 format:
+    queue.push(...node.children);
+    // es5 might look like this if queue were a var (or let) instead of const
+    // queue = queue.concat(node.children)
+    // or:
+    // queue.push.apply(queue, node.children)
+  }
+}
+```
+---
+
+## Solution Code (Depth First)
+
+```javascript
+// depth first seems trivial in comparison! Simply log the value
+// and then call the function on each node
+const depthFirstPreOrder = (startingNode) => {
+  startingNode.children.forEach(child => {
+    depthFirstPreOrder(child);
+  });
+}
+
+const depthFirstPostOrder = (startingNode) => {
+  startingNode.children.forEach(child => {
+    depthFirstPostOrder(child);
+  });
+}
+```
+---
+## Summary
+
+Big O
+  * Breadth First: O(n)
+  * Depth First: O(n)
+
+[REPL with this solution and an ES6 class solution](https://repl.it/H1qn/14)
