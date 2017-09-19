@@ -132,13 +132,13 @@ const breadthFirst = (startingNode) => {
 // depth first seems trivial in comparison! Simply log the value
 // and then call the function on each node
 const depthFirstPreOrder = (startingNode) => {
-  startingNode.children.forEach(function(child) {
+  startingNode.children.forEach(child => {
     depthFirstPreOrder(child);
   });
 }
 
 const depthFirstPostOrder = (startingNode) => {
-  startingNode.children.forEach(function(child) {
+  startingNode.children.forEach(child => {
     depthFirstPostOrder(child);
   });
 }
