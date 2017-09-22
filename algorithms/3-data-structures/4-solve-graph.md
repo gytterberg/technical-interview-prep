@@ -128,12 +128,14 @@ const doesPathExist = function(graph, start, target, visited = {}) {
 
 ## Big O
 
-* Both DFS and BFS take O(n) time. We MUST attempt to visit every node.
+* Both DFS and BFS take O(V + E) time. We MUST attempt to visit every node, which will take us through potentially many edges.
 
   * For acyclic graphs, we might visit every node and hit the leaves 
   * For cyclic graphs, the cycle might not occur until a 'leaf'
+  * For dense graphs, edges will dominate
+  * For sparse graphs, vertices will dominate
 
-* Keeping track of a 'visited' object means we need O(n) space
+* Keeping track of a 'visited' object means we need O(v) additional space
 
 ---
 ## Summary
@@ -147,3 +149,61 @@ const doesPathExist = function(graph, start, target, visited = {}) {
 
 
 [REPL Link](https://repl.it/JVhs/49)
+
+---
+
+## Discussion
+
+The data structure seen ***earlier*** used to represent the graph is called an **adjacency list**. An alternative data structure exists for representing graphs called adjacency matrices. The cyclic graph above could have been modeled as ***follows*** using an **adjacency matrix**:
+
+        a  c  s  r
+      a 1  1  0  0
+      c 0  0  1  1
+      s 0  0  0  0
+      r 1  0  0  0
+
+In javascript, this table would be represented using an array of arrays or object of objects. A 1 indicates that a given vertex has an edge pointing to another vertex, and a 0 indicates that it does not. Both of these show direction!
+
+---
+
+## Discussion
+
+Adjacency matrix:
+
+        a  c  s  r
+      a 1  1  0  0
+      c 0  0  1  1
+      s 0  0  0  0
+      r 1  0  0  0
+
+This table reads as follows:<br>
+
+`a -> a`<br>
+`a -> c`<br>
+`c -> s`<br>
+`c -> r`<br>
+`r -> a`
+
+---
+
+## Discussion
+
+Consider the tradeoffs between using one of these data structures over the other. Which do we prefer for the following operations?
+
+* Testing if a given edge exists
+  * Adjacency matrix O(1)
+* Finding the # of edges of a vertex
+  * Adjacency list O(1)
+* Insertion/deletion of edges
+  * AM O(1), AL O(d) where d is degree of vertex
+* Memory usage for sparse graphs
+  * AL O(v + e), AM O(v^2)
+* Memory usage for dense graphs
+  * AM O(v^2)
+* Graph traversal
+  * AL O(v + e), AM O(n^2)
+* Better overall
+  * Adjacency List
+
+Comparison from The Algoritm Design Manual, Skiena - second Edition - page 152
+---
