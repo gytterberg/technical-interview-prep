@@ -110,25 +110,25 @@ Have your interviewee test their implementation on acyclic and cyclic graphs.
 ## Solution
 
 ```javascript
-var doesPathExist = function(graph, start, target, visited = {}) {
+const doesPathExist = function(graph, start, target, visited = {}) {
+  if (start === target) return true;
+  
   visited[start] = true;
-  return graph[start].some(function(vertex){
-    if (start === target) {
-      return true;
-    } else if (!visited[vertex]) {
-      return doesPathExist(graph, visited, vertex, target);
+  return graph[start].some(function (vertex) {
+    if (!visited[vertex]) {
+      return doesPathExist(graph, vertex, target, visited);
     } else {
       return false;
     }
   });
-};
+}
 ```
 
 ---
 
 ## Big O
 
-* Both DFS and BFS should take O(n) time. We MUST attempt to visit every node.
+* Both DFS and BFS take O(n) time. We MUST attempt to visit every node.
 
   * For acyclic graphs, we might visit every node and hit the leaves 
   * For cyclic graphs, the cycle might not occur until a 'leaf'
@@ -140,9 +140,10 @@ var doesPathExist = function(graph, start, target, visited = {}) {
 
 * All trees are graphs. Techniques you learn to solve graphs can be applied for various kinds of trees, and often vice versa.
 
-* You will often run into problems where keeping track of 'visited' nodes is very useful. Sometimes this means keeping an extra object, and sometimes this could mean creating a 'visited' property if nodes are themselves objects.
+* You will often run into problems where you need to track 'visited' nodes
+  * Sometimes this means keeping a table of visited nodes
+
+  * If nodes are objects, this could mean adding a 'visited' property
 
 
-[REPL Link](https://repl.it/JVhs/2)
-
----
+[REPL Link](https://repl.it/JVhs/49)
