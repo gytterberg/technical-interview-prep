@@ -32,7 +32,7 @@ Imagine we started travsering at vertex `a`. Eventually we would reach vertex `r
 
 # Discussion
 
-The data structure seen ***above*** used to represent the graph is called an **ajacency list**. An alternative data structure exists for representing graphs called adjacency matrices. The cyclic graph above could have been modeled as ***follows*** using an **adjacency matrix**:
+The data structure seen ***above*** used to represent the graph is called an **adjacency list**. An alternative data structure exists for representing graphs called adjacency matrices. The cyclic graph above could have been modeled as ***follows*** using an **adjacency matrix**:
 
         a  c  s  r
       a 1  1  0  0
