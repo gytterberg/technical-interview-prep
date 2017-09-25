@@ -78,10 +78,11 @@ This is a good place to have your interviewee draw out the graph and think throu
 
 #### Example:
 
+* Interviewers: make it clear that the nodes in this graph are represented by strings like 'a' and 'b', not by instances of a Node class.
+
 * If your interviewee continues without asking questions, stop them and ask, "Do you have any questions about what the graph looks like?" Your prompt mentions that the graph is directed, but they may not have caught on to this fact. 
 
 * Your interviewee may also not realize that we are allowing cyclic connections in these graphs. Again, this is easy to visualize/reason about if they have drawn out an example graph or two.
-
 
 ---
 
@@ -110,11 +111,12 @@ Have your interviewee test their implementation on acyclic and cyclic graphs.
 ## Solution
 
 ```javascript
-const doesPathExist = function(graph, start, target, visited = {}) {
-  if (start === target) return true;
-  
+const doesPathExist = (graph, start, target, visited = {}) => {
+  if (!graph[start]) return false
   visited[start] = true;
-  return graph[start].some(function (vertex) {
+  
+  return graph[start].some((vertex) => {
+    if (vertex === target) return true;
     if (!visited[vertex]) {
       return doesPathExist(graph, vertex, target, visited);
     } else {
@@ -188,7 +190,7 @@ This table reads as follows:<br>
 
 ## Discussion
 
-Consider the tradeoffs between using one of these data structures over the other. Which do we prefer for the following operations?
+Consider the tradeoffs between using one of these data structures or the other. Which do we prefer for the following operations?
 
 * Testing if a given edge exists
   * Adjacency matrix O(1)
@@ -205,5 +207,5 @@ Consider the tradeoffs between using one of these data structures over the other
 * Better overall
   * Adjacency List
 
-Comparison from The Algoritm Design Manual, Skiena - second Edition - page 152
+Comparison from The Algorithm Design Manual, Skiena - second Edition - page 152
 ---
