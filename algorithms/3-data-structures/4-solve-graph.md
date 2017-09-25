@@ -50,7 +50,7 @@ This table reads as follows:<br>
 `c -> r`<br>
 `r -> a`
 
-Consider the tradeoffs between using one of these data structres of the other. How do they compare for the following ways:
+Consider the tradeoffs between using one of these data structres or the other. How do they compare for the following ways:
 
 | Attribute                                             | Answer                                                            |
 | ------------------------------------------------------|------------------------------------------------------------------:|
