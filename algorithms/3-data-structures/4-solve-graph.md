@@ -43,7 +43,6 @@ doesPathExist(graph, 'a', 'b') // true
 doesPathExist(graph, 'b', 'a') // false
 doesPathExist(graph, 'a', 'd') // true
 doesPathExist(graph, 'a', 'a') // false
-
 ```
 
 ---
