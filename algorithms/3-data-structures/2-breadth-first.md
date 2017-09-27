@@ -14,11 +14,7 @@ Today you will write a series of iterator functions for trees.
 
 - `depthFirstPostOrder`
 
-Each of these function will take a node of the tree and iterate through all other nodes. The difference between them is the order in which they iterate.
-
-???
-
-Any presenter notes can go after the three question marks
+Each of these function will take a node of the tree and a callback. The function will iterate through the child nodes, calling the callback function on each of them. The difference between them is the order in which they iterate.
 
 ---
 
@@ -103,7 +99,7 @@ class: center middle
 ## Solution Code (Breadth First)
 
 ```javascript
-const breadthFirst = (startingNode) => {
+const breadthFirst = (startingNode, callback) => {
   // we use a queue to iterate over the tree
   // progressively adding the children as we go
   // The tree begins with the first node
@@ -115,6 +111,7 @@ const breadthFirst = (startingNode) => {
     // we shift off the array instead of iterating with a counter
     // as we are treating it as a queue (FIFO)
     const node = queue.shift();
+    callback(node.value)
     // es6 format:
     queue.push(...node.children);
     // es5 might look like this if queue were a var (or let) instead of const
@@ -131,7 +128,8 @@ const breadthFirst = (startingNode) => {
 ```javascript
 // depth first seems trivial in comparison! Simply log the value
 // and then call the function on each node
-const depthFirstPreOrder = (startingNode) => {
+const depthFirstPreOrder = (startingNode, callback) => {
+  callback(startingNode.value);
   startingNode.children.forEach(child => {
     depthFirstPreOrder(child);
   });
@@ -141,6 +139,7 @@ const depthFirstPostOrder = (startingNode) => {
   startingNode.children.forEach(child => {
     depthFirstPostOrder(child);
   });
+  callback(startingNode.value);
 }
 ```
 ---
