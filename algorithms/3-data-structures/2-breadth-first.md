@@ -135,7 +135,7 @@ const depthFirstPreOrder = (startingNode, callback) => {
   });
 }
 
-const depthFirstPostOrder = (startingNode) => {
+const depthFirstPostOrder = (startingNode, callback) => {
   startingNode.children.forEach(child => {
     depthFirstPostOrder(child);
   });
