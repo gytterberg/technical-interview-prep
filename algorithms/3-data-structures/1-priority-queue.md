@@ -98,10 +98,10 @@ Because binary heaps are complete binary trees, they're often stored as arrays i
 
 By mapping objects to indices in this way, we can easily get an object's parent or children based on its index.
 
-If `i` is the index of an object in the array we can use the following formulas:
-- parent is `i`/2 rounded down
-- left child is 2`i`
-- right child is 2`i` + 1
+If `i` is the index of an object in the array (starting at 0) we can use the following formulas:
+- parent is (`i`-1)/2 rounded down
+- left child is 2`i`+1
+- right child is 2`i` + 2
 
 ## Resources
 
