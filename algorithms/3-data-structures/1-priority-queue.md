@@ -6,7 +6,7 @@
 
 A *queue* is a data structure that stores pieces of data and returns them in the same order in which they were inserted.  One way of implementing them is as a linked list.
 
-A *priority queue* is a data structure that takes with each piece of data a priority value and returns the data in order of priority.
+A *priority queue* is a data structure that takes a priority value with each piece of data and returns the data in order of priority.
 
 Implement a priority queue with the following 3 methods:
 
@@ -22,7 +22,7 @@ For the purposes of our implementation, "higher priority" corresponds to a highe
 
 # Examples
 
-For example, a hospital emergency room could use a priority queue to determine the order in which their doctors see patients.  The priority queue would work the following way:
+A hospital emergency room could use a priority queue to determine the order in which their doctors see patients.  The priority queue would work the following way:
 
 ```javascript
 var pq = new PriorityQueue();
@@ -42,65 +42,66 @@ pq.peek() // ==> 'Jill, concussion' // Bob has been removed from the PQ
 A naive approach would be to have what is essentially a linked list where each node also has a priority. To insert, simply traverse until you reach a node that is lesser in priority, and put the new node just before that one.
 
 ```javascript
-function Node(data, priority) {
+function Node (data, priority) {
   this.data = data;
   this.priority = priority;
-  this.next;
+  this.next = null;
 }
 
-function PriorityQueue() {
-  this.first;
+function PriorityQueue () {
+  this.first = null;
 }
 
-PriorityQueue.prototype.insert = function(data, priority) {
+PriorityQueue.prototype.insert = function (data, priority) {
+  const newItem = new Node(data, priority);
   if (!this.first || this.first.priority < priority) {
     // First case: Handle both empty PQ and higher priority than anything in the queue. The new Node becomes the new first.
-    var prevFirst = this.first;
-    this.first = new Node(data, priority);
-    this.first.next = prevFirst;
+    newItem.next = this.first;
+    this.first = newItem;
   } else {
     // Second case: Find the place to insert the new item and insert it.
-    var pointer = this.first;
-    while (pointer.next && pointer.next.priority >= priority) { //Traverse the queue until it finds a node with priority < search priority.
-      pointer = pointer.next;
+    const currentNode = this.first;
+    while (currentNode.next && currentNode.next.priority >= priority) { //Traverse the queue until it finds a node with priority < search priority.
+      currentNode = currentNode.next;
     }
-    //At this point in the algorithm, pointer is the node right before the position where you're meant to insert a new item. Accomplish this by pointing the next of your new Node to pointer's next, and then pointing pointer's next to the new Node.
-    var newItem = new Node(data, priority);
-    newItem.next = pointer.next;
-    pointer.next = newItem;
+    //At this point in the algorithm, currentNode is the node right before the position where you're meant to insert a new item. Accomplish this by pointing the next of your new Node to currentNode's next, and then pointing currentNode's next to the new Node.
+    newItem.next = currentNode.next;
+    currentNode.next = newItem;
   }
 }
 
-PriorityQueue.prototype.peek = function() {
+PriorityQueue.prototype.peek = function () {
   return this.first.data;
 }
 
-PriorityQueue.prototype.popMax = function() {
-  var retVal = this.first.data;
+PriorityQueue.prototype.popMax = function () {
+  const maxVal = this.first.data;
   this.first = this.first.next;
-  return retVal;
+  return maxVal;
 }
 ```
 
 This should be `O(1)` time complexity for peek and popMax, but `O(n)` time complexity for insert (where `n` is the number of nodes in the priority queue).
 
+Space complexity is `O(n)`, where `n` is the number of items in the queue.
+
 ## Optimization: Binary heap
 
-A more optimal solution could involve a heap, in particular a binary heap. This could give us `O(log n)` insertion time, with the not-so-bad down-side of changing `popMax` time to `O(log n)`.
+A more optimal solution could involve a heap, in particular a binary max heap. This could give us `O(log n)` insertion time, with the not-so-bad down-side of changing `popMax` time to `O(log n)`. Space complexity remains the same at `O(n)` since we still store a node for each item in the queue, just in a tree (heap) arrangement.
 
 A **binary heap** has 2 properties:
 
 1. Uses a *complete* binary tree, which means that every level of the tree is full except the bottom level, which is filled from left to right
-2. Insertions satisfy the *heap-order-property*, which says that no child's priority is less than its parent's priority
+2. Insertions satisfy the *heap-order-property*, which says that no child's value is greater than its parent's value (in a *max* heap)
 
-Because binary heaps are complete binary trees, they're often stored as arrays in an order that follows a level ordered traversal starting at the root. We could use a pointer-and-node-based data structure for the heap implementation, but the array runs faster because we don't have to set and reset references from one node to another.
+Because binary heaps are complete binary trees, they're often stored as arrays in an order that follows a level ordered traversal starting at the root. We could use a pointer-and-node-based (linked) data structure for the heap implementation, but the array runs faster because we don't have to set and reset references from one node to another.
 
 By mapping objects to indices in this way, we can easily get an object's parent or children based on its index.
 
-If i is the index of an object we can use the following formulas:
-- parent is i/2 rounded down
-- left child is 2i
-- right child is 2i + 1
+If `i` is the index of an object in the array we can use the following formulas:
+- parent is `i`/2 rounded down
+- left child is 2`i`
+- right child is 2`i` + 1
 
 ## Resources
 
@@ -112,77 +113,75 @@ If i is the index of an object we can use the following formulas:
 
 - [CMU explainer](https://www.cs.cmu.edu/~adamchik/15-121/lectures/Binary%20Heaps/heaps.html)
 
-An implementation of a priority queue using ES6 (and a [REPL explainer](https://repl.it/JrH7/3)) follows.
+An implementation of a priority queue using ES6 (and a [REPL explainer](https://repl.it/JrH7/3)) follows:
 
-Note that this is a **minHeap**, in which the minimum-priority element ends up at the root of the heap. This is in contrast with a **maxHeap**, in which the maximum-priority element ends up at the root of the heap. Consider the tradeoffs in either variety for `popMin()` and `popMax()`.
+Note that this is a **max heap**, in which the maximum-priority element ends up at the root of the heap. This is in contrast with a **min heap**, in which the minimum-priority element ends up at the root of the heap. Consider the tradeoffs in either variety for `popMax()` and `popMin()`.
 
 ```javascript
 class HeapPQ {
   constructor () {
-    this.array = [null]
+    this.items = [];
   }
 
   insert (data, priority) {
-    this.array.push({data, priority})
-    let currentChild = this.array.length - 1
-    this.heapifyUp(currentChild)
+    this.items.push({data, priority});
+    this._heapifyUp();
   }
 
-  min () {
-    return this.array[1].data
-  }
-
-  popMin () {
-    const min = this.array[1]
-      , rootIdx = 1
-    this.array[1] = this.array.pop()
-
-    this.heapifyDown(rootIdx)
-    return min.data
-  }
-
-  heapifyDown (rootIdx) {
-    let currentParent = rootIdx
-      , [l, r] = this.childrenIdx(currentParent)
-      , idxSmaller
-    const length = this.array.length
-    while (l < length) {
-      if (r < length) {
-        idxSmaller = this.priority(l) <= this.priority(r) ? l : r
-      }
-      else idxSmaller = l
-
-      if (this.priority(currentParent) > this.priority(idxSmaller)) {
-        this.swap(idxSmaller, currentParent)
-        currentParent = idxSmaller
-        ;[l, r] = this.childrenIdx(currentParent)
-      }
-      else return
+  _heapifyUp () {
+    let currentIdx = this.items.length - 1;
+    while (currentIdx > 0 && this.items[currentIdx].priority > this.items[this.parentIdx(currentIdx)].priority) {
+      this.swap(currentIdx, this.parentIdx(currentIdx))
+      currentIdx = this.parentIdx(currentIdx);
     }
   }
 
-  heapifyUp (deepestIdx) {
-    let currentChild = deepestIdx
-    while (this.parentIdx(currentChild) && this.array[currentChild].priority < this.array[this.parentIdx(currentChild)].priority) {
-      this.swap(currentChild, this.parentIdx(currentChild))
-      currentChild = this.parentIdx(currentChild)
+  peek () {
+    return this.items[0].data;
+  }
+
+  popMax () {
+    const max = this.items[0];
+    this.items[0] = this.items.pop(); // replace the root with the last item in the collection
+
+    this._heapifyDown();
+    return max.data;
+  }
+
+  _heapifyDown () {
+    let currentIdx = 0;
+    let [left, right] = this.childrenIndices(currentIdx);
+    let idxLarger;
+    const length = this.items.length;
+    while (left < length) {
+      if (right < length) {
+        idxLarger = this.priority(left) >= this.priority(right) ? left : right;
+      }
+      else idxLarger = left;
+
+      if (this.priority(currentIdx) < this.priority(idxLarger)) {
+        this.swap(idxLarger, currentIdx);
+        currentIdx = idxLarger;
+        [left, right] = this.childrenIndices(currentIdx);
+      }
+      else return;
     }
   }
 
   swap (childIdx, parentIdx) {
-    [this.array[childIdx], this.array[parentIdx]] = [this.array[parentIdx], this.array[childIdx]]
+    [this.items[childIdx], this.items[parentIdx]] = [this.items[parentIdx], this.items[childIdx]];
   }
 
   parentIdx (childIdx) {
-    return Math.floor(childIdx / 2)
+    return Math.floor((childIdx - 1) / 2);
   }
 
-  childrenIdx (parentIdx) {
-    return [parentIdx * 2, parentIdx * 2 + 1]
+  childrenIndices (parentIdx) {
+    return [parentIdx * 2 + 1, parentIdx * 2 + 2];
   }
 
   priority (i) {
-    return this.array[i].priority
+    return this.items[i].priority;
   }
 }
 ```
