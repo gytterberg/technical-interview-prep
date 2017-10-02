@@ -25,7 +25,7 @@ For the purposes of our implementation, "higher priority" corresponds to a highe
 A hospital emergency room could use a priority queue to determine the order in which their doctors see patients.  The priority queue would work the following way:
 
 ```javascript
-var pq = new PriorityQueue();
+const pq = new PriorityQueue();
 pq.insert('Jill, concussion', 7);
 pq.insert('John, stomach pain', 5);
 pq.peek() // ==> 'Jill, concussion'
