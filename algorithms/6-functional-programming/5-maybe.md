@@ -13,7 +13,7 @@ Maybe is an entity used in many pure functional programming languages to deal wi
 
 ---
 
-## Example Output A: `value`
+## Example Output
 
 A Maybe's `value` returns the value held by the Maybe.
 
@@ -22,10 +22,6 @@ const maybe5 = maybe(5)
 console.log(maybe5.value()) // 5
 // value :: Maybe a ~> () -> a
 ```
-
----
-
-## Example Output B: `map`
 
 The `map` method takes a mapping function `f` and can be chained. The result can still report its `value`:
 
@@ -37,14 +33,6 @@ maybe('yo')
 // map :: Maybe a ~> (a -> b) -> Maybe b
 ```
 
-???
-
-Being mappable makes Maybe a *functor*.
-
----
-
-## Example Output C: `map`
-
 Critically, Maybes protect against `null`/`undefined` values, preventing them from being used in calculations:
 
 ```js
@@ -54,6 +42,10 @@ maybe({name: 'Hermione'})
 .map(num => num % 2)
 .value() // undefined - no thrown errors! :-)
 ```
+
+???
+
+Being mappable makes Maybe a *functor*.
 
 ---
 
@@ -176,5 +168,3 @@ Other solutions involve a `maybe` factory which returns `just` or `nothing` valu
 * http://sean.voisen.org/blog/2013/10/intro-monads-maybe/
 * https://github.com/ramda/ramda-fantasy/blob/master/docs/Maybe.md
 * https://egghead.io/courses/professor-frisby-introduces-composable-functional-javascript
-
----
