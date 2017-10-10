@@ -56,20 +56,22 @@ class: center middle
 
 ### RE
 
-* Provide at least one written chaining example to start (as opposed to the normal system of only describing the problem).
 * Feel free providing a lot guidance up front – this is not a usual REACTO problem.
+* Show the example output. It is very hard to begin guiding them towards an answer without it.
+* Introduce each main requirement (`value`, `map`, dealing with `undefined`) gradually, confirming understanding along the way. Have the student illustrate other examples before moving on to the next concept.
 
 ---
 
 ### AC
 
-* Suggest following this sequence:
+* Discourage class-based answers – they tend to add to the confusion. But if the interviewee wants to use a class, point out that `maybe(val)` can simply `return new Maybe(val)`, for sanity's sake.
+* Suggest / guide the interviewee into following this sequence:
   1. implement `value`
   1. implement `map`
   1. deal with `undefined/null`
 * Draw comparison to array `map` (Functor)
 * If they suggest using `try-catch`, tell them it should be done without it
-* Try to avoid saying "map returns a new maybe" at first; instead, say "map can be chained" and see if you can guide them gently towards understanding what that means
+* Try to avoid saying "map returns a new maybe" at first; instead, say "map can be chained" and see if you can guide them towards understanding what that means. If they get stymied, teach them more directly.
 
 ---
 
@@ -78,10 +80,15 @@ class: center middle
 As a bonus, you can also add `flatMap`, which prevents nested Maybes. If so, remember that `flatMap` should also guard against null/undefined. Help the interviewee by drawing comparisons to Promise `then` (Monad).
 
 ```js
-maybe('whatever')
-.flatMap(something => maybe('hi'))
-.map(s => s + '.')
-.value() // 'hi.'
+// you might already have this because it's useful elsewhere:
+const maybeFirst = strOrArr => maybe(strOrArr[0])
+
+// now you want to re-use it in a chain, but…
+maybe(['hello', 'goodbye'])
+.flatMap(maybeFirst) // …cannot `map` bc `maybeFirst` returns a Maybe!
+.flatMap(maybeFirst)
+.map(yell)
+.value() // 'g!'
 // flatMap :: Maybe a ~> (a -> Maybe b) -> Maybe b
 ```
 
@@ -91,23 +98,48 @@ Being flatMappable makes Maybe a *monad*.
 
 ---
 
-### Answers to Common Questions
+### Answers to Common Questions (a)
 
-* What is a Functor?
-  * Functors are things that can be mapped.
+#### What is a Functor?
+
+* Functors are things that can be mapped.
+* Context / container for value(s), which can apply generic functions (like `double` or `yell`) that don't know about context
+* `map` creates a new context with all values within mapped
+* Examples
+  * Array
+  * Tree (with added `map` function)
+  * Promise (`then`)
+  * RxJS observables (functional streams)
 
 ```js
+//        functor  map  generic -> new functor
          [1, 2, 3].map (double) // [2, 4, 6]
 Promise.resolve(3).then(double) // Promise for 6
           maybe(5).map (double) // maybe(10)
 ```
 
-* What is a Monad?
-  * Monads are Functors that can be flatMapped.
+```hs
+map :: Functor a =>
+```
+
+---
+
+### Answers to Common Questions (b)
+
+#### What is a Monad?
+
+Monads are Functors that can be flat-mapped.
+Flat mapping can "unwrap" / "un-nest" monads
+Examples
+  * Arrays (with added `flatMap` function)
+  * Promise (also `then` – auto-selects mapping or flat mapping)
+  * RxJS observables (functional streams)
 
 ```js
-Promise.resolve().then(()    => Promise.resolve('hi')) // Promise for 'hi' — unwrapped!
-         maybe(5).flatMap(() => maybe('hi'))           // maybe('hi') — unwrapped!
+//         monad  flatMap   (fn returning monad)       -> new monad (not nested)
+Promise.resolve().then   (() => Promise.resolve('hi')) // Promise for 'hi'
+         maybe(5).flatMap(() => maybe('hi'))           // maybe('hi')
+           [4, 7].flatMap(el => [el, el])              // [4, 4, 7, 7]
 ```
 
 ---
