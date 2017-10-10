@@ -127,7 +127,7 @@ console.log(takesOne.length) // 1
 
 ### TO
 
-* When you interviewee finishes, make sure they check and make sure that their curried functions are re-usable, and that they can handle more than one argument at a time
+* When your interviewee finishes, make sure they check and that their curried functions are re-usable, and that they can handle more than one argument at a time
 
 ---
 
@@ -136,6 +136,8 @@ console.log(takesOne.length) // 1
 #### Example:
 * What if the function receives more arguments than it has room for?
   * _It should just ignore them like any JavaScript function does_
+* Should I handle `this` context in any particular way?
+  * _You may assume that any functions passed to curry do not use `this`_
 
 ---
 
