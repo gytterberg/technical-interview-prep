@@ -119,7 +119,7 @@ Promise.resolve(3).then(double) // Promise for 6
 ```
 
 ```hs
-map :: Functor a =>
+map :: Functor a ~> (a -> b) -> Functor b
 ```
 
 ---
@@ -140,6 +140,10 @@ Examples
 Promise.resolve().then   (() => Promise.resolve('hi')) // Promise for 'hi'
          maybe(5).flatMap(() => maybe('hi'))           // maybe('hi')
            [4, 7].flatMap(el => [el, el])              // [4, 4, 7, 7]
+```
+
+```hs
+flatMap :: Monad a ~> (a -> Monad b) -> Monad b
 ```
 
 ---
