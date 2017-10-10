@@ -7,9 +7,13 @@ class: center middle
 
 Currying is the process by which a function of N arguments is implemented as N single-argument functions such that first of them takes in the first argument and returns a function which takes in the 2nd argument and so on, until the Nth single-argument function finally returns the value of the multi-argument function being implemented.
 
+### Your Task:
+
+Write a function called `curry` that takes a function as an argument, and returns a "curried" version of that function.
+
 ???
 
-Any presenter notes can go after the three question marks
+Encourage interviewers to share the first couple of slides with interviewees to help them understand the concept.
 
 ---
 
@@ -48,7 +52,7 @@ const add = (x, y) => x + y
 const curriedAdd = curry(add)
 
 // curriedAdd can now take one argument at a time
-// in otherwords, it will now behave like `const add = x => y => x + y`
+// in other words, it will now behave like `const add = x => y => x + y`
 
 const addOne = add(1)
 addOne(2) // 3
