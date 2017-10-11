@@ -67,8 +67,8 @@ class: center middle
 * Discourage class-based answers – they tend to add to the confusion. But if the interviewee wants to use a class, point out that `maybe(val)` can simply `return new Maybe(val)`, for sanity's sake.
 * Suggest / guide the interviewee into following this sequence:
   1. implement `value`
-  1. implement `map`
-  1. deal with `undefined/null`
+  2. implement `map`
+  3. deal with `undefined/null`
 * Draw comparison to array `map` (Functor)
 * If they suggest using `try-catch`, tell them it should be done without it
 * Try to avoid saying "map returns a new maybe" at first; instead, say "map can be chained" and see if you can guide them towards understanding what that means. If they get stymied, teach them more directly.
