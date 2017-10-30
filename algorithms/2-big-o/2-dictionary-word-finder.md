@@ -1,22 +1,12 @@
-[Slides](http://slides.com/mschreiber/reacto)
+class: center middle
+
+# Dictionary Word Finder
 
 ---
 
-# Prompt
+# Interviewer Prompt
 
-Given an alphabetical array of dictionary entries and a word to search for, find that word's definition (if it exists). This array of dictionary entries will be formatted like so:
-
-```javascript
-[
-  'definition - A statement of the exact meaning of a word, especially in a dictionary',
-  'inane - Lacking sense or meaning; silly',
-  'word - A single distinct meaningful element of speech or writing, used with others (or sometimes alone) to form a sentence and typically shown with a space on either side when written or printed'
-]
-```
-
-...though the actual array of entries should be an input to the algorithm.
-
-# Examples
+Given an alphabetical array of dictionary entries and a word to search for, find that word's definition (if it exists). A dictionary entry is just a string where the word's name appears first, followed by ` - ` followed by the definition.
 
 ```javascript
 const dictionary = [
@@ -35,9 +25,64 @@ definitionOf('to', dictionary); // should return 'Expressing motion in the direc
 definitionOf('wizbing', dictionary); // should return undefined
 ```
 
+---
+
+class: center middle
+
+# Interviewer Guide
+
+---
+
+# Primary focuses
+
+- Time / space complexity analysis
+- Binary search
+- Indexing / caching (for repeated executions)
+
+---
+
+# Complexity analysis
+
+- *Push* your candidate to analyze the time and/or space complexity
+- Do so when they're going over a possible approach
+- ...but leave them an option to cover it later
+
+---
+
+# Binary search
+
+- If your candidate quickly comes up with the naive solution, push them to come up with other approaches
+- ...before they start implementing the naive approach
+- If they don't come up with binary search, suggest it
+
+---
+
+# Indexing / caching
+
+- Probably only worth covering this *after* the candidate has successfully implemented binary search
+- ...so you probably will not get to this
+
+---
+
+class: center middle
+
 # Solutions
 
-The naive (brute force) solution, `O(n)` time (or `O(n*m)` if we consider the word length itself, `m`, to grow arbitrarily large) and `O(1)` space*:
+---
+
+# Brute force solution
+
+The naive (brute force) solution is to loop down the dictionary each time, looking for an entry that starts with the search word. This is `O(n)` time and `O(m)` space complexity, where `n` is the size of the dictionary and `m` is the average size of an entire entry.
+
+--
+
+If we consider the length of a definable word an "input that can grown arbitrarily large", then the time complexity is `O(n * p)`, where `p` is average word length.
+
+In reality, we know that the longest word is no longer than, say, 100 letters. That means `p` doesn't grow arbitrarily large.
+
+---
+
+# Brute force solution
 
 ```javascript
 function definitionOf (word, dict) {
@@ -47,7 +92,11 @@ function definitionOf (word, dict) {
     }
   }
 }
-// with fancy `.find` method
+```
+
+...with fancy `.find` array method...
+
+```javascript
 function definitionOf (word, dict) {
   const foundEntry = dict.find(entry => entry.startsWith(word + ' - '));
   if (!foundEntry) return;
@@ -55,7 +104,39 @@ function definitionOf (word, dict) {
 }
 ```
 
-The optimized binary search solution can be `O(m * log n)` time (n is dict array length, m is word length) and `O(1)` space&#42; (see below). Note to interviewers:  the less than `<` and greater than `>` operators can compare strings by alphabetical order (or really by character code, but that's close enough for what we're doing here). If a candidate goes down a rabbit-hole trying to implement a `compareByAlphabeticalOrder` function, just let them know that they can use `<`/`>`.
+---
+
+# Interviewer note
+
+Your candidate might get stuck figuring out the *precise* code for confirming a dictionary match, e.g.:
+
+```js
+entry.startsWith(searchWord + ' - ');
+```
+
+...and/or for getting the definition *only* from an entire entry:
+
+```js
+entry.slice(searchWord.length + 3);
+```
+
+You can freely decide to let them struggle with these parts or to help them out (depending on how you want to challenge your candidate).
+
+---
+
+# Binary search solution
+
+The optimized binary search solution can be `O(m * log n)` time (n is dict array length, m is word length) and `O(1)` space.
+
+---
+
+# Interviewer note
+
+The less than `<` and greater than `>` operators can compare strings by alphabetical order (or really by character code, but that's close enough for what we're doing here). If a candidate goes down a rabbit-hole trying to implement a `compareByAlphabeticalOrder` function, just let them know that they can use `<`/`>`.
+
+---
+
+# Binary search solution
 
 ```javascript
 function definitionOf (word, dict) {
@@ -81,7 +162,32 @@ function definitionOf (word, dict) {
 }
 ```
 
+---
+
+# Binary search solution
+
 ...or more modular:
+
+```js
+function definitionOf (word, dict) {
+  const foundEntry = binaryFind(
+    dict,
+    entry => entry.startsWith(word + ' - '),
+    entry => word < entry
+  );
+  return foundEntry.slice(word.length + 3); // "subtract" the word itself (plus the ' - ' part)
+}
+```
+
+Notice that `binaryFind` is "assumed". In an interview, you can say something like "if I have time, I'll implement `binaryFind`".
+
+This not only leads to more modular code, but also is a good way to get to a solution more quickly.
+
+---
+
+# Binary search solution
+
+Possible implementation of `binaryFind`...
 
 ```js
 function binaryFind (arr, matcher, comparator) {
@@ -105,17 +211,13 @@ function binaryFind (arr, matcher, comparator) {
     }
   }
 }
-function definitionOf (word, dict) {
-  const foundEntry = binaryFind(
-    dict,
-    entry => entry.startsWith(word + ' - '),
-    entry => word < entry
-  );
-  return foundEntry.slice(word.length + 3); // "subtract" the word itself (plus the ' - ' part)
-}
 ```
 
-The further-optimized precomputed hash map solution, `O(n)` time for the first run, `O(1)` for every subsequent run (AKA `O(n)` preprocessing time), and `O(n)` space*:
+---
+
+# Caching solution
+
+The further-optimized precomputed hash map solution, `O(n)` time for the first run, `O(1)` for every subsequent run (AKA `O(n)` "preprocessing time"), and `O(n)` space:
 
 ```javascript
 // this cache will hold ALL dictionaries (though we'll only ever have one)
@@ -137,4 +239,28 @@ function definitionOf (word, dict) {
 }
 ```
 
-&#42; - Actually if you consider the size of an entry to be a relevant variable, then the space complexity changes by a multiplier of `p`, the average size of an entry in the dictionary.
+---
+
+# Map...?
+
+`Map` is an ES6 class that works a lot like an object, except...
+
+## A `Map` can have objects as keys
+
+```js
+const exampleMap = new Map();
+const exampleKey = {foo: 'bar'};
+// woah an object is a key!?
+exampleMap.set(exampleKey, 'this is any value');
+exampleMap.get(exampleKey); // 'this is any value'
+// must be the same object, not a different object with the same properties
+exampleMap.get({foo: 'bar'}); // undefined
+```
+
+---
+
+# Summary
+
+- Keep your candidate focused on time / space complexity analysis
+- Push them to find a binary search solution
+- ...If they finish that, push them to find the caching solution
