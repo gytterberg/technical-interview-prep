@@ -82,7 +82,7 @@ The naive (brute force) solution is to loop down the dictionary each time, looki
 
 --
 
-If we consider the length of a definable word an "input that can grown arbitrarily large", then the time complexity is `O(n * p)`, where `p` is average word length.
+If we consider the length of a definable word an "input that can grow arbitrarily large", then the time complexity is `O(n * p)`, where `p` is average word length.
 
 In reality, we know that the longest word is no longer than, say, 100 letters. That means `p` doesn't grow arbitrarily large.
 
