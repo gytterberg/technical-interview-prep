@@ -20,6 +20,7 @@ For this REACTO problem, implement a `spyOn` function which does the following:
   - `.wasCalledWith(val)`: returns `true` if `spy` was ever called with `val`, else returns `false`
   - `.returned(val)`: returns `true` if `spy` ever returned `val`, else returns `false`
 
+---
 # Example
 
 Below is a specific example of how `spyOn` might work in the wild. Keep in mind that not all functions take only two arguments…
@@ -41,7 +42,7 @@ adderSpy.wasCalledWith(0); // false
 adderSpy.returned(6); // true
 adderSpy.returned(9); // false
 ```
-
+---
 # Solution
 
 ```javascript
