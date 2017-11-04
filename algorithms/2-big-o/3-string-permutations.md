@@ -8,16 +8,20 @@ The array that is returned should only contain unique values and its elements sh
 
 ```javascript
 stringPermutations('one')
-// should return  [ 'eon', 'eno' 'neo', 'noe', 'one', 'oen']
+// should return  [ 'eno', 'eon' 'neo', 'noe', 'oen', 'one']
 stringPermutations('app')
 // should return  [ 'app','pap','ppa']
 stringPermutations('nn') //should return  [ 'nn' ]
 ```
 
+---
+
 # Resources
 
 - [Slides](http://slides.com/seemaullal/reacto#/)
 - [REPL walkthrough](https://repl.it/lFv/49)
+
+---
 
 # Solutions
 
@@ -26,6 +30,8 @@ In general we're pretty stuck with `O(n!)` (factorial) time and space complexity
 For generating all possible permutations we could imagine doing so "position by position". There are `n` possible characters for the first position in the string. Each of those possibilities has `n-1` possibilities for the second position (i.e. excluding the character we put in the first position). In turn each of those possibilities has `n-2` possibilities for the third position (i.e. excluding the two characters already used for the first two positions). This continues until we reach the last character, which actually just has 1 possibility, because we will have used all other characters at that point. So `n` possibilities times `n-1` possibilities times `n-2` possibilities until we reach 1—that is exactly what `n!` is! You may find an explanation that is figuratively and literally more drawn out [here](https://www.khanacademy.org/math/precalculus/prob-comb/combinatorics-precalc/v/factorial-and-counting-seat-arrangements).
 
 So one important lesson to take from this exercise: permutations problems will tend to be factorial time and space complexity.
+
+---
 
 The following solution iteratively generates all possible permutations then sorts that result:
 
@@ -58,6 +64,8 @@ function stringPermutations (str) {
 }
 ```
 
+---
+
 ...a similar solution, but recursive might look like:
 
 ```javascript
@@ -85,9 +93,13 @@ function recursiveStringPermutations (str) {
 }
 ```
 
+---
+
 Here is a solution that implicitly keeps the results sorted as it generates them (an optimization):
 
 Without sorting before we start finding permutations, we will get n! * log(n!) -- we have an array that is n! in length at that point. If we sort before our sort time is n * log(n). In both situations, n is the length of the input string. Overall, finding all string permutations is n!
+
+---
 
 ```js
 // finds all possible permutations *while* maintaining the order of the characters
