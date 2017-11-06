@@ -162,7 +162,7 @@ class: center middle
 
 ### Inserting an item
 
-Because we're working with a complete binary tree we insert at the bottom level at the first free spot from the left - push it into our array. In the case that a new insertion violates the heap-order-property we need to re-heapify. This is done by comparing the insertion's priority with its parent's priority and swapping the objects if the insertion's priority is less - repeat this process until the insertion's priority is not less than its parent's.
+Because we're working with a complete binary tree we insert at the bottom level at the first free spot from the left - push it into our array. In the case that a new insertion violates the heap-order-property we need to re-heapify. This is done by comparing the insertion's priority with its parent's priority and swapping the objects if the insertion's priority is greater - repeat this process until the insertion's priority is not less than its parent's.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/a/ac/Heap_add_step1.svg)
 ![](https://upload.wikimedia.org/wikipedia/commons/1/16/Heap_add_step2.svg)
@@ -180,7 +180,7 @@ Returning the maximum-priority value is easy since the heap-order-property guara
 
 ### Dequeue
 
-`popMax` is done by removing the root object and replacing it with the last entry in the tree. This almost always ends up violating the heap-order-property so we need to re-heapify. This is done by comparing the root/parent's priority with its children's priorities. A swap should happen if the parent's priority is greater than one or both of its children's priorities and should be done with the child holding the smaller priority. Repeat this process until the parent's priority is not greater than either of its children's priorities.
+`popMax` is done by removing the root object and replacing it with the last entry in the tree. This almost always ends up violating the heap-order-property so we need to re-heapify. This is done by comparing the root/parent's priority with its children's priorities. A swap should happen if the parent's priority is less than one or both of its children's priorities and should be done with the child holding the smaller priority. Repeat this process until the parent's priority is greater than either of its children's priorities.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/1/1c/Heap_delete_step0.svg)
 ![](https://upload.wikimedia.org/wikipedia/commons/e/ee/Heap_remove_step1.svg)
@@ -202,7 +202,7 @@ class HeapPQ {
   }
 
   _swap (childIdx, parentIdx) {
-    [this._items[childIdx], this._items[parentIdx]] = 
+    [this._items[childIdx], this._items[parentIdx]] =
       [this._items[parentIdx], this._items[childIdx]];
   }
 
@@ -231,7 +231,7 @@ class HeapPQ {
 
   _heapifyUp () {
     let currentIdx = this._items.length - 1;
-    while (currentIdx > 0 && 
+    while (currentIdx > 0 &&
         this._items[currentIdx].priority > this._items[this._parentIdx(currentIdx)].priority) {
       this._swap(currentIdx, this._parentIdx(currentIdx))
       currentIdx = this._parentIdx(currentIdx);
