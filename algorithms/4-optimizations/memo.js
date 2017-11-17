@@ -13,12 +13,12 @@ module.exports = class Memo {
 
   get(key) {
     const value = this.map.get(key)
-    debug(`get(%s) = %s`, key, value)
+    debug(`get(%s) -> %s`, key, JSON.stringify(value))
     return value
   }
 
   set(key, value) {
-    debug(`set(%s, %s) = %s`, key, value)
+    debug(`set(%s) <- %s`, key, JSON.stringify(value))
     this.map.set(key, value)
     return value
   }
