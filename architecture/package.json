@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "watchify": "^3.9.0"
+  }
+}
