@@ -90,9 +90,3 @@ function addMinutes (oldTime, minLater) {
 ```
 
 ---
-class:center
-## Summary
- 
-[__Solution Repl__ ](https://repl.it/KJbI/3)
-
----
