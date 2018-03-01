@@ -12,7 +12,7 @@ class: center middle
 
 # Interviewer Prompt
 
-Given an alphabetical array of dictionary entries and a word to search for, find that word's definition (if it exists). A dictionary entry is just a string where the word's name appears first, followed by ` - ` followed by the definition.
+Given an alphabetical array of dictionary entries and a word to search for, find that word's definition (if it exists). A dictionary entry is just a string where the word's name appears first, followed by ` - [definition]`.
 
 ```javascript
 const dictionary = [
@@ -170,9 +170,47 @@ function definitionOf (word, dict) {
 
 ---
 
+# Note: 
+
+`String.prototype.startsWith()` is a method built in to the String prototype with ECMAScript 2015 (aka: ES2015/ES6). So, it might not be available across all browsers or all JavaScript implementations.
+
+You could implement it yourself with the following code (as per MDN):
+
+```javascript
+if (!String.prototype.startsWith) {
+  String.prototype.startsWith = function(search, pos) {
+    return this.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search
+  }
+}
+``` 
+
+Notice that this is using the method `String.prototype.substr()`...
+
+---
+
+# Three methods that do similar things
+
+```javascript
+someStr.slice(start, end)
+someStr.substring(start, end)
+someStr.substr(start, length)
+```
+
+### Similarities:
+- They all **do not** mutate the original string
+- The first argument is required, the second is optional
+- If there's only a `start`, the returned string goes to length
+
+### Differences:
+- `end` is exclusive in `.slice` and `.substring`, `length` is inclusive in `.substr` 
+- If `end`/`length` < 0 in `.slice`, it grabs from end, but `.substring` and `.substr` return empty strings
+- If `end` < `start` in `.slice`, it will return an empty string, while `.substring` will swap args
+
+---
+
 # Binary search solution
 
-...or more modular:
+The more modular version:
 
 ```js
 function definitionOf (word, dict) {
@@ -223,7 +261,7 @@ function binaryFind (arr, matcher, comparator) {
 
 # Caching solution
 
-The further-optimized precomputed hash map solution, `O(n)` time for the first run, `O(1)` for every subsequent run (AKA `O(n)` "preprocessing time"), and `O(n)` space:
+The further-optimized precomputed hash map solution, `O(n)` time for the first run, `O(1)` for every subsequent run (AKA `O(n)` "pre-processing time"), and `O(n)` space:
 
 ```javascript
 // this cache will hold ALL dictionaries (though we'll only ever have one)
@@ -231,17 +269,17 @@ const cache = new Map();
 function findOrCreateHashMap (dict) {
   // use the dictionary array object itself as a KEY
   if (cache.has(dict)) return cache.get(dict);
-  const hashmap = {};
+  const hashMap = {};
   dict.forEach(entry => {
     const [word, definition] = entry.split(' - ');
-    hashmap[word] = definition;
+    hashMap[word] = definition;
   });
-  cache.set(dict, hashmap);
-  return hashmap;
+  cache.set(dict, hashMap);
+  return hashMap;
 }
 function definitionOf (word, dict) {
-  const hashmap = findOrCreateHashMap(dict);
-  return hashmap[word];
+  const hashMap = findOrCreateHashMap(dict);
+  return hashMap[word];
 }
 ```
 
@@ -255,12 +293,12 @@ function definitionOf (word, dict) {
 
 ```js
 const exampleMap = new Map();
-const exampleKey = {foo: 'bar'};
+const exampleKey = { foo: 'bar' };
 // woah an object is a key!?
 exampleMap.set(exampleKey, 'this is any value');
 exampleMap.get(exampleKey); // 'this is any value'
 // must be the same object, not a different object with the same properties
-exampleMap.get({foo: 'bar'}); // undefined
+exampleMap.get({ foo: 'bar' }); // undefined
 ```
 
 ---
