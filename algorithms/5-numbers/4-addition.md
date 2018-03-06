@@ -1,7 +1,3 @@
-[Slides](http://slides.com/luisamiranda/reacto-selection-sort)
-
-[Partial REPL guide](https://repl.it/F6Gs/6)
-
 # Prompt
 
 Implement a function that adds two numbers without using `+` or any other built-in arithmetic operators.
@@ -15,6 +11,11 @@ add(2, 2);     // 4
 add(123, 456); // 579
 add(19, 82);   // 101
 ```
+# Resources
+
+[Slides](http://slides.com/luisamiranda/reacto-selection-sort)
+
+[BitWise Operators](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Bitwise_Operators)
 
 # Solution
 
@@ -55,11 +56,11 @@ const add = (a, b) => {
   // Base case is that there is no more uncarried value.
   if (b === 0) return a;
   // Grab the raw bit addition through XOR
-  const carried = a ^ b;
+  const uncarried = a ^ b;
   // Check to see if there are any 'collisions' aka carry overs
-  const uncarried = (a & b) << 1;
+  const carried = (a & b) << 1;
   // Call add again with new values
-  return add(carried, uncarried);
+  return add(uncarried, carried);
 }
 
 //Recursive Solution Going to Prom
