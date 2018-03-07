@@ -131,13 +131,13 @@ const breadthFirst = (startingNode, callback) => {
 const depthFirstPreOrder = (startingNode, callback) => {
   callback(startingNode.value);
   startingNode.children.forEach(child => {
-    depthFirstPreOrder(child);
+    depthFirstPreOrder(child, callback);
   });
 }
 
 const depthFirstPostOrder = (startingNode, callback) => {
   startingNode.children.forEach(child => {
-    depthFirstPostOrder(child);
+    depthFirstPostOrder(child, callback);
   });
   callback(startingNode.value);
 }
@@ -149,4 +149,4 @@ Big O
   * Breadth First: O(n)
   * Depth First: O(n)
 
-[REPL with this solution and an ES6 class solution](https://repl.it/H1qn/14)
+[REPL with this solution and an ES6 class solution](https://repl.it/@ellap/TreeTraversal)
