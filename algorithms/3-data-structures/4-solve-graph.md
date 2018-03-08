@@ -5,9 +5,9 @@ class: center middle
 
 ## Interviewer Prompt
 
-Write a function that determines if a path exists between two vertices of a directed graph. 
+Write a function that determines if a path exists between two vertices of a directed graph.
 
-The graph will be represented as an object, each of whose keys represents a vertex of the graph and whose value represents all vertices that can be reached from the aforementioned key. 
+The graph will be represented as an object, each of whose keys represents a vertex of the graph and whose value represents all vertices that can be reached from the aforementioned key.
 
 In the example below, there is a connection from vertex a to vertex b and a connection from vertex b to vertices c and d but not a connection from vertex b to vertex a.
 
@@ -75,11 +75,11 @@ class: center middle
 
 This is a good place to have your interviewee draw out the graph and think through how they want to walk through the nodes.
 
-#### Example:
+#### Guide:
 
 * Interviewers: make it clear that the nodes in this graph are represented by strings like 'a' and 'b', not by instances of a Node class.
 
-* If your interviewee continues without asking questions, stop them and ask, "Do you have any questions about what the graph looks like?" Your prompt mentions that the graph is directed, but they may not have caught on to this fact. 
+* If your interviewee continues without asking questions, stop them and ask, "Do you have any questions about what the graph looks like?" Your prompt mentions that the graph is directed, but they may not have caught on to this fact.
 
 * Your interviewee may also not realize that we are allowing cyclic connections in these graphs. Again, this is easy to visualize/reason about if they have drawn out an example graph or two.
 
@@ -88,6 +88,8 @@ This is a good place to have your interviewee draw out the graph and think throu
 ### AC
 
 This problem is essentially a DFS/BFS problem. Either algorithm is sufficient. The only catch is that graphs can be cyclic. In other words, it's possible for a loop to exist in the graph.
+
+#### Guide:
 
 * You can let your interviewee come up with a solution that does not account for cycles, then let them refine it afterwards.
 
@@ -99,7 +101,7 @@ This problem is essentially a DFS/BFS problem. Either algorithm is sufficient. T
 
 Have your interviewee test their implementation on acyclic and cyclic graphs.
 
-#### Example:
+#### Guide:
 * If your interviewee finishes, ask them:
   * What are the time and space complexities for their approach?
 
@@ -113,7 +115,7 @@ Have your interviewee test their implementation on acyclic and cyclic graphs.
 const doesPathExist = (graph, start, target, visited = {}) => {
   if (!graph[start]) return false
   visited[start] = true;
-  
+
   return graph[start].some((vertex) => {
     if (vertex === target) return true;
     if (!visited[vertex]) {
@@ -124,14 +126,14 @@ const doesPathExist = (graph, start, target, visited = {}) => {
   });
 }
 ```
-
+[MDN .some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 ---
 
 ## Big O
 
-* Both DFS and BFS take O(V + E) time. We MUST attempt to visit every node, which will take us through potentially many edges.
+* Both DFS and BFS take O(V + E) time where V is the number of vertices or nodes and E is the number of edges. We MUST attempt to visit every node, which will take us through potentially many edges.
 
-  * For acyclic graphs, we might visit every node and hit the leaves 
+  * For acyclic graphs, we might visit every node and hit the leaves
   * For cyclic graphs, the cycle might not occur until a 'leaf'
   * For dense graphs, edges will dominate
   * For sparse graphs, vertices will dominate
@@ -147,9 +149,6 @@ const doesPathExist = (graph, start, target, visited = {}) => {
   * Sometimes this means keeping a table of visited nodes
 
   * If nodes are objects, this could mean adding a 'visited' property
-
-
-[REPL Link](https://repl.it/JVhs/49)
 
 ---
 
