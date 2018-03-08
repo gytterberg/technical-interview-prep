@@ -1,5 +1,5 @@
 class: center middle
-# Priority Queue
+# Prefix Search
 
 ---
 
@@ -7,7 +7,7 @@ class: center middle
 
 Given a "book" and a string to search for, return an array of the character indices for every word in the book that begins with that string.
 
-The book will be given as two things: a book id and a string of English text. The search should be case *insensitive*.
+The book will contain two things: a book id and a string of English text. The search should be case *insensitive*.
 
 Follow-up: consider the possibility of repeated searches through the same book.
 
@@ -88,6 +88,10 @@ For repeated executions, pre-computing a trie would be extremely helpful.
 A trie is a tree-like structure that stores successive prefixes of a word. They are also referred to as digital trees, radix trees, or prefix trees.
 
 ![Image of a trie from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/400px-Trie_example.svg.png) ![Another image of a trie from Wikipedia](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Patricia_trie.svg/320px-Patricia_trie.svg.png)
+
+---
+
+## Note
 
 While expensive at setup, this solution yields dividends in repeated look-ups. Searching an existing trie is at most O(n), with n being the length of the prefix.
 
