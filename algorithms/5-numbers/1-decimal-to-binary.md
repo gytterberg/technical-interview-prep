@@ -27,10 +27,10 @@ We could iterate through all the digits multiplying them by increasing powers of
 
 ```javascript
 function binaryToDecimal(num){
-    var arr = num.split("")
-    var power = 1
-    var total = 0
-    for (var i=arr.length-1; i>=0; i--){
+    let arr = num.split("")
+    let power = 1
+    let total = 0
+    for (let i=arr.length-1; i>=0; i--){
         total += arr[i]*power
         power *= 2
     }
@@ -40,9 +40,9 @@ function binaryToDecimal(num){
 //or
 
 function binaryToDecimal2(numStr) {
-    var sum = 0;
-    var reversedStr = numStr.split('').reverse();
-    for (var i = 0; i < reversedStr.length; i++) {
+    let sum = 0;
+    let reversedStr = numStr.split('').reverse();
+    for (let i = 0; i < reversedStr.length; i++) {
         sum += Math.pow(2, i) * reversedStr[i];
     }
     return sum;
@@ -58,9 +58,9 @@ More effecient solutions:
 ```javascript
 
 function decimalToBinary(num) {
-    var binaryStr = '';
+    let binaryStr = '';
     while(num) {
-        var remainder = num % 2;
+        let remainder = num % 2;
         binaryStr = remainder + binaryStr;
         num = (num - remainder)/2;
     }
@@ -82,11 +82,11 @@ Similarly we can increase the divisor (by a power of 2):
 ```javascript
 
 function decimalToBinary2(num) {
-  var power = 2;
-  var binaryStr = '';
+  let power = 2;
+  let binaryStr = '';
   while(num) {
-    var remainder = num % power;
-    var digit = remainder ? 1 : 0;
+    let remainder = num % power;
+    let digit = remainder ? 1 : 0;
     binaryStr = digit + binaryStr;
     num = num - remainder;
     power *= 2;
