@@ -78,3 +78,26 @@ function hasBalancedBrackets (str) {
   return opensStack.length === 0;
 }
 ```
+
+Here is another similar solution:
+
+```js
+  const bracketPattern = /[[\](){}]/g;
+  const bracketPairs = {
+    '[' : ']',
+    '{' : '}',
+    '(' : ')'
+  };
+  
+  const hasBalancedBrackets = str => {
+  const bracketStack = [];
+  str = str.match(bracketPattern);
+  for(let i = 0; i < str.length; i++){
+    if(str[i] in bracketPairs) bracketStack.unshift(str[i]);
+    else if (bracketPairs[bracketStack[0]] === str[i]) bracketStack.shift();
+    else return false;
+  }
+  return !bracketStack.length;
+};
+
+```
