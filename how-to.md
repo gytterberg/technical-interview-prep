@@ -12,17 +12,23 @@ Only do this before the first problem of each week.
 - Go to the pairs tab and select the correct cohort 
 - Generate pairs and move them around as needed (if any are red, that's showing incompatibility)
 - Save the pairs in learndot and then click "copy pairs"
-- Paste the pairs into the cohort google sheet
+- Paste the pairs into the cohort google sheet (`REACTO` tab)
 - Don't forget to slack out the pairs!
 
 ---
 
 ## Send out REACTO night-before emails
 
+Option 1:
+  - Clone the technical interview prep repo
+  - Drag and drop the appropriate `.md` file (from finder view) into the email
+Option 2:
 - Find the problem in the technical interview prep repo
 - Copy the raw markdown into a new secret gist (and save the link to that gist for later)
+
+For both options:
 - Find REACTO pairs (in cohort google sheet)
-- Figure out which pair member is the interviewer for tomorrow (the first column will corresponds to those who were interviewers for the first prompt this week)
+- **Filter** pairs (NOT SORT) so that you are only looking at the appropriate day (1 or 2, note that 3 person pairs exist and switch that up)
 - Copy and paste the email addresses into a new email
 - Send email to interviewers only, email template below (feel free to deviate from it however you want)
 
@@ -32,7 +38,7 @@ REACTO Prompt for Tomorrow
 
 ### Email body
 
-Congratulations, you're an interviewer for tomorrow's mock-interview! At {time} tomorrow morning we will go over the prompt at hand, but here it is ahead-of-time: {linkToGist}. Please don't share this with the candidates, so that we can simulate a more realistic mock interview :)
+Congratulations, you're an interviewer for tomorrow's mock-interview! At {time} tomorrow morning we will go over the prompt at hand, but here it is ahead-of-time: {linkToGist} OR {see `.md` attached}. Please don't share this with the candidates, so that we can simulate a more realistic mock interview :)
 
 ---
 
