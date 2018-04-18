@@ -43,6 +43,8 @@ Coaching advice for the interviewer to make sure that their interviewee is askin
   * _`n` could be either positive or negative_
 * Does the order of the output array matter?
   * _No, but it should be stable (that is, you should always get the same result for the same input)_
+* What if there is more than one matching pair?
+  * _Return the first one you find_
 
 ---
 
