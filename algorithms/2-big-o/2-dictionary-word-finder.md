@@ -116,13 +116,13 @@ function definitionOf (word, dict) {
 
 Your candidate might get stuck figuring out the *precise* code for confirming a dictionary match, e.g.:
 
-```js
+```javascript
 entry.startsWith(searchWord + ' - ');
 ```
 
 ...and/or for getting the definition *only* from an entire entry:
 
-```js
+```javascript
 entry.slice(searchWord.length + 3);
 ```
 
@@ -174,7 +174,7 @@ function definitionOf (word, dict) {
 
 ...or more modular:
 
-```js
+```javascript
 function definitionOf (word, dict) {
   const foundEntry = binaryFind(
     dict,
@@ -195,7 +195,7 @@ This not only leads to more modular code, but also is a good way to get to a sol
 
 Possible implementation of `binaryFind`...
 
-```js
+```javascript
 function binaryFind (arr, matcher, comparator) {
   // initialize indexes at the beginning and end of the array, these define the bounds of our "search window"
   let prevLeft = 0;
@@ -253,7 +253,7 @@ function definitionOf (word, dict) {
 
 ## A `Map` can have objects as keys
 
-```js
+```javascript
 const exampleMap = new Map();
 const exampleKey = {foo: 'bar'};
 // woah an object is a key!?
