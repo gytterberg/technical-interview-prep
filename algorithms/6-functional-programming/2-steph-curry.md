@@ -13,7 +13,7 @@ Write a function called `curry` that takes a function as an argument, and return
 
 ???
 
-Encourage interviewers to share the first couple of slides with interviewees to help them understand the concept.
+Encourage interviewers to share the next prompts with interviewees to help them understand the concept.
 
 ---
 
@@ -183,7 +183,7 @@ The magic that makes this work is that we also curry the partially applied funct
 
 ---
 
-## Solution and Exaplanation (c)
+## Solution and Explanation (b cont'd)
 
 ```javascript
 function greet (title, name) {
@@ -210,7 +210,7 @@ const curry = function (fn) {
 
 ---
 
-## Solution and Exaplanation (d)
+## Solution and Explanation (b cont'd)
 
 ```javascript
 const greetJedi = curriedGreet('Jedi Master')
@@ -239,7 +239,7 @@ const curry = function (fn) {
 
 ---
 
-## Solution and Exaplanation (e)
+## Solution and Explanation (b cont'd)
 
 ```javascript
 greetJedi('Luke Skywalker')
@@ -281,7 +281,7 @@ const curry = function (fn) {
 
 ---
 
-## Solution Code (b)
+## Solution Code
 
 ### As a fancy one-liner
 

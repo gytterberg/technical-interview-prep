@@ -77,16 +77,18 @@ function PriorityQueue () {
 PriorityQueue.prototype.insert = function (data, priority) {
   const newItem = new Node(data, priority);
   if (!this.first || this.first.priority < priority) {
-    // First case: Handle both empty PQ and higher priority than anything in the queue. The new Node becomes the new first.
+    // First case: Check if the PQ is empty, or newItem's priority > this.first's
     newItem.next = this.first;
-    this.first = newItem;
+    this.first = newItem; // New Node (newItem) becomes new first
   } else {
-    // Second case: Find the place to insert the new item and insert it.
+    // Second case: Find where to insert newItem
     let currentNode = this.first;
-    while (currentNode.next && currentNode.next.priority >= priority) { //Traverse the queue until it finds a node with priority < search priority.
+    while (currentNode.next && currentNode.next.priority >= priority) {
+      // Traverse queue until it finds a node with priority < search priority
       currentNode = currentNode.next;
     }
-    //At this point in the algorithm, currentNode is the node right before the position where you're meant to insert a new item. Accomplish this by pointing the next of your new Node to currentNode's next, and then pointing currentNode's next to the new Node.
+    // Here, currentNode is right before where you want to insert newItem. Point
+    // newItem.next to currentNode.next, then point currentNode's next to newItem.
     newItem.next = currentNode.next;
     currentNode.next = newItem;
   }
@@ -97,9 +99,9 @@ PriorityQueue.prototype.peek = function () {
 }
 
 PriorityQueue.prototype.popMax = function () {
-  const maxVal = this.first.data;
+  const maxVal = this.first;
   this.first = this.first.next;
-  return maxVal;
+  return maxVal.data;
 }
 ```
 
@@ -232,8 +234,9 @@ class HeapPQ {
   _heapifyUp () {
     let currentIdx = this._items.length - 1;
     while (currentIdx > 0 &&
-        this._items[currentIdx].priority > this._items[this._parentIdx(currentIdx)].priority) {
-      this._swap(currentIdx, this._parentIdx(currentIdx))
+        this._items[currentIdx].priority > 
+        this._items[this._parentIdx(currentIdx)].priority) {
+      this._swap(currentIdx, this._parentIdx(currentIdx));
       currentIdx = this._parentIdx(currentIdx);
     }
   }
