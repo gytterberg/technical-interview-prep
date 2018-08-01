@@ -132,17 +132,15 @@ class: center middle
 const tries = {};
 
 function buildTrie (text) {
-  const trie = {};
   text = text.toLowerCase();
   
   for (let i = 0; i < text.length; i++) {
-    let node = trie;
-    const starting = i;
+    let node = {};
     
     while (text[i] && text[i] !== ' ' && text[i] !== ',' && text[i] !== '.') {
       const char = text[i];
       node[char] = node[char] || {indexes: []};
-      node[char].indexes.push(starting);
+      node[char].indexes.push(i);
       node = node[char];
       i++;
     }
