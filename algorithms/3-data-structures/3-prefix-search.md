@@ -134,8 +134,9 @@ const tries = {};
 function buildTrie (text) {
   text = text.toLowerCase();
   
+  const trie = {}
   for (let i = 0; i < text.length; i++) {
-    let node = {};
+    let node = trie;
     
     while (text[i] && text[i] !== ' ' && text[i] !== ',' && text[i] !== '.') {
       const char = text[i];
