@@ -116,9 +116,9 @@ This is relevant for leading remote REACTO. It may help to check out [zoom's own
 
 | name             | time        |
 |:----------------:|:-----------:|
-| interviewer prep | 10:00–10:15 |
-| mock interview   | 10:15–10:50 |
-| class review     | 10:50–11:00 |
+| interviewer prep | 9:30–9:45   |
+| mock interview   | 9:45–10:20  |
+| class review     | 10:20–10:30 |
 
 ### Chicago
 
