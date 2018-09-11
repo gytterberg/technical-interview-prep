@@ -20,8 +20,9 @@ Only do this before the first problem of each week.
 ## Send out REACTO night-before emails
 
 Option 1:
-  - Clone the technical interview prep repo
-  - Drag and drop the appropriate `.md` file (from finder view) into the email
+- Clone the technical interview prep repo
+- Drag and drop the appropriate `.md` file (from finder view) into the email
+
 Option 2:
 - Find the problem in the technical interview prep repo
 - Copy the raw markdown into a new secret gist (and save the link to that gist for later)
