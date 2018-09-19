@@ -70,8 +70,8 @@ function findWordsStartingWith(book, prefix) {
   prefix = prefix.toLowerCase()
   const finds = []
   
-  for (let i = 0; i < text.prefix - prefix.length; i++) {
-    if (i !== 0 && text[i - 1] !== '') continue
+  for (let i = 0; i < text.length - prefix.length; i++) {
+    if (i !== 0 && text[i - 1] !== ' ') continue
     if (text.slice(i).startsWith(prefix)) finds.push(i)
   }
   
