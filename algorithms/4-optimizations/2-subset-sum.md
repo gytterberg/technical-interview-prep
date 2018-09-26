@@ -5,11 +5,11 @@ Given a target sum and an array of positive integers, return true if any combina
 # Examples
 
 ```js
-subsetSum(2, [1,10,5,3]); // false
-subsetSum(10, [1,10,5,3]); // true
-subsetSum(9, [1,10,5,3]); // true
-subsetSum(19, [1,10,5,3]); // true
-subsetSum(17, [1,10,5,3]); // false
+subsetSum(2, [1, 10, 5, 3]); // false
+subsetSum(10, [1, 10, 5, 3]); // true
+subsetSum(9, [1, 10, 5, 3]); // true
+subsetSum(19, [1, 10, 5, 3]); // true
+subsetSum(17, [1, 10, 5, 3]); // false
 ```
 
 # Solutions
@@ -32,14 +32,13 @@ example: subsetSum(17, [1, 10, 5, 3])
 */
 ```
 
-Furthermore, while adding each new possible sum into the set, we could check if it's equal to the target. If so, we can return `true`. Otherwise, if it's greater than the target we shouldn't bother adding it in (after all, something *greater* than the target couldn't possibly be useful for adding up to the target).
+Furthermore, while adding each new possible sum into the set, we could check if it's equal to the target. If so, we can return `true`. Otherwise, if it's greater than the target we shouldn't bother adding it in (after all, something _greater_ than the target couldn't possibly be useful for adding up to the target).
 
 An implementation:
 
 ```js
-
 // using the ES6 data structure Set: http://exploringjs.com/es6/ch_maps-sets.html#sec_set
-function subsetSum (target, nums) {
+function subsetSum(target, nums) {
   // initialize possible sums to just a set containing 0
   const possibleSums = new Set([0]);
   for (const num of nums) {
@@ -59,11 +58,11 @@ function subsetSum (target, nums) {
 }
 
 // similar solution with arrays instead of sets
-function subsetSum(target, arr){
+function subsetSum(target, arr) {
   let sums = [0];
-  for (let i = 0; i < arr.length; i++){
+  for (let i = 0; i < arr.length; i++) {
     let sumsCopy = [...sums]; // create a new array to iterate through; iterating through the array that we're mutating will lead to some weird behavior
-    for (let j = 0; j < sumsCopy.length; j++){
+    for (let j = 0; j < sumsCopy.length; j++) {
       let newSum = sumsCopy[j] + arr[i];
       if (newSum === target) return true;
       else if (newSum < target) sums.push(newSum);
@@ -71,9 +70,7 @@ function subsetSum(target, arr){
   }
   return false;
 }
-
 ```
-
 
 Or we can have an optimized "top-down" recursive solution that takes advantage of memoization. This approach involves stepping through each number in the array and determining whether 1) including it in the sum will lead to a `true` result (using the remaining numbers) or 2) excluding it from the sum will lead to a `true` result (using the remaining numbers). We can do so by 1) subtracting that number from the target and recursing onward to the next number and 2) keeping the target the same and recursing onward to the next number. If either of these possibilities returns `true`, then the ultimate result is `true`.
 
@@ -83,7 +80,7 @@ That all could look something like:
 
 ```js
 // initialize the index to 0
-function subsetSum (target, nums, idx = 0) {
+function subsetSum(target, nums, idx = 0) {
   // if we've hit 0 we're done!
   if (target === 0) return true;
   // stop trying and return false if the target is negative OR if we've reached the end of the array
@@ -112,7 +109,7 @@ Like so:
 
 ```js
 // initialize the index to 0 and the memoized results to an empty object
-function subsetSum (target, nums, idx = 0, memo = {}) {
+function subsetSum(target, nums, idx = 0, memo = {}) {
   // if we've seen this target and already solved for it, return the answer right away
   if (memo.hasOwnProperty(target)) return memo[target];
   // if we've hit 0 we're done!
@@ -134,12 +131,10 @@ function subsetSum (target, nums, idx = 0, memo = {}) {
 }
 ```
 
-## Additions: 
+## Additions:
+
 ![subsetsum visualization](https://user-images.githubusercontent.com/21270878/27439357-c61c4198-5735-11e7-9261-8d8202abe983.jpg)
 
-* Here is a [repl](https://repl.it/Ivkg/4) showing the difference between the memoized and non-memoized versions
-* Here are the [slides](http://slides.com/mithunselvaratnam/subset-sum-2#/)
-* Here is a [video](https://www.youtube.com/watch?v=s6FhG--P7z0) of the O(n*m) solution 
-
-
-
+- Here is a [repl](https://repl.it/@malsados/DirectUnrulyUtilities) showing the difference between the memoized and non-memoized versions
+- Here are the [slides](http://slides.com/mithunselvaratnam/subset-sum-2#/)
+- Here is a [video](https://www.youtube.com/watch?v=s6FhG--P7z0) of the O(n\*m) solution
