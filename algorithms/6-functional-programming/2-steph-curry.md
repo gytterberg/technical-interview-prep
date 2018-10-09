@@ -54,6 +54,8 @@ const curriedAdd = curry(add)
 // curriedAdd can now take one argument at a time
 // in other words, it will now behave like `const add = x => y => x + y`
 
+const firstReturn = curriedAdd(1) // returns y => 1 + y
+const result = firstReturn(2) // returns 3
 ```
 
 ---
