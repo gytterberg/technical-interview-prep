@@ -19,7 +19,7 @@ One effective approach is:
 
 1. Sort each string in the array
 2. Create a hash table of these sorted strings and arrays of words that match
-3. Go through all of the values in that hash table and add them to the output array they contain at least two elements
+3. Go through all of the values in that hash table and add them to the output array if they contain at least two elements
 
 ```js
 function listAnagrams (wordsArr) {
