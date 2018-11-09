@@ -79,7 +79,7 @@ Where n is the haystack size and m the needle size, the solution is O(n\*m).
 
 ```javascript
 function indexOf(needle, haystack) {
-  for (let hIdx = 0; hIdx <= haystack.length - (needle.length - 1); hIdx++) {
+  for (let hIdx = 0; hIdx <= haystack.length - needle.length; hIdx++) {
     //O(n * ...) where n is the number of letters in haystack
     for (let nIdx = 0; nIdx < needle.length; nIdx++) {
       //O(m * ...) where m is the number of letters in needle
@@ -96,4 +96,5 @@ function indexOf(needle, haystack) {
 
 So, O(n \* (m \* (1 + 1)))=> O(n\*m)
 
+Video Solution [Matt Mintzer](https://www.youtube.com/watch?v=RDYZCErOQws)
 There are [other algorithms](https://en.wikipedia.org/wiki/String_searching_algorithm#Single_pattern_algorithms), such as [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm) (well, [modified slightly](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm#The_Galil_Rule)), that can perform at O(n+m) time—or even faster.
