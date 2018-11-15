@@ -44,10 +44,10 @@ function findWordsStartingWith (book, prefix) {
   const text = book.text.toLowerCase();
   prefix = prefix.toLowerCase();
   const finds = [];
-  
+
   for (let i = 0; i < text.length - prefix.length; i++) {
     if (i !== 0 && text[i - 1] !== ' ') continue;
-    
+
     for (let j = 0; j < prefix.length; j++) {
       if (prefix[j] !== text[i + j]) break;
       if (j + 1 === prefix.length) {
@@ -55,7 +55,7 @@ function findWordsStartingWith (book, prefix) {
       }
     }
   }
-  
+
   return finds;
 }
 ```
@@ -69,12 +69,12 @@ function findWordsStartingWith(book, prefix) {
   const text = book.text.toLowerCase()
   prefix = prefix.toLowerCase()
   const finds = []
-  
+
   for (let i = 0; i < text.length - prefix.length; i++) {
     if (i !== 0 && text[i - 1] !== ' ') continue
     if (text.slice(i).startsWith(prefix)) finds.push(i)
   }
-  
+
   return finds
 }
 ```
@@ -115,7 +115,7 @@ While expensive at setup, this solution yields dividends in repeated look-ups. S
 - You could use sets or hash tables to search
   - Tries shine when you're searching for words that have a single character difference or a prefix in common
 - Tries can also be used to find a missing character
-- Use case: Google search! 
+- Use case: Google search!
 
 ![Gif_of_Google_Search](https://media.giphy.com/media/Kyk9dywCAjbJ6/giphy.gif)
 
@@ -133,20 +133,21 @@ const tries = {};
 
 function buildTrie (text) {
   text = text.toLowerCase();
-  
+
   const trie = {}
   for (let i = 0; i < text.length; i++) {
     let node = trie;
-    
+    const starting = i;
+
     while (text[i] && text[i] !== ' ' && text[i] !== ',' && text[i] !== '.') {
       const char = text[i];
       node[char] = node[char] || {indexes: []};
-      node[char].indexes.push(i);
+      node[char].indexes.push(starting);
       node = node[char];
       i++;
     }
   }
-  
+
   return trie;
 }
 ```
@@ -160,7 +161,7 @@ function findOrCreateTrie (book) {
   if (!tries.hasOwnProperty(book.id)) {
     tries[book.id] = buildTrie(book.text);
   }
-  
+
   return tries[book.id];
 }
 
@@ -168,13 +169,13 @@ function findWordsStartingWith (book, prefix) {
   prefix = prefix.toLowerCase();
   const trie = findOrCreateTrie(book);
   let node = trie;
-  
+
   for (let i = 0; i < prefix.length; i++) {
     const char = prefix[i];
     node = node[char];
     if (!node) return [];
   }
-  
+
   return node.indexes;
 }
 ```
