@@ -7,11 +7,11 @@ The array that is returned should only contain unique values and its elements sh
 # Examples
 
 ```javascript
-stringPermutations('one')
+stringPermutations('one');
 // should return  [ 'eno', 'eon' 'neo', 'noe', 'oen', 'one']
-stringPermutations('app')
+stringPermutations('app');
 // should return  [ 'app','pap','ppa']
-stringPermutations('nn') //should return  [ 'nn' ]
+stringPermutations('nn'); //should return  [ 'nn' ]
 ```
 
 ---
@@ -36,28 +36,28 @@ So one important lesson to take from this exercise: permutations problems will t
 The following solution iteratively generates all possible permutations then sorts that result:
 
 ```js
-function stringPermutations (str) {
-  var results = [ ];
+function stringPermutations(str) {
+  var results = [];
   var letters = str.split('');
   results.push([letters.shift()]); //add first letter (as an array) to results
   while (letters.length) {
     var curLetter = letters.shift();
-    var tmpResults = [ ];
-    results.forEach(function (curResult) {
-      for (var i = 0; i<= curResult.length; i++) {
+    var tmpResults = [];
+    results.forEach(function(curResult) {
+      for (var i = 0; i <= curResult.length; i++) {
         var tmp = curResult.slice(); //make copy so we can modify it
         //insert the letter at the current position
-        tmp.splice(i,0,curLetter);
+        tmp.splice(i, 0, curLetter);
         tmpResults.push(tmp);
       }
     });
     results = tmpResults; //overwrite the previous results
   }
   return results
-    .map(function (letterArr) {
+    .map(function(letterArr) {
       return letterArr.join('');
     })
-    .filter(function (el, index, self) {
+    .filter(function(el, index, self) {
       return self.indexOf(el) === index; //filter out non-unique words
     })
     .sort();
@@ -69,15 +69,15 @@ function stringPermutations (str) {
 ...a similar solution, but recursive might look like:
 
 ```javascript
-function recursiveStringPermutations (str) {
-  var results = [ ];
-  getPerms(str, [ ]);
-  function getPerms (str, arr) {
+function recursiveStringPermutations(str) {
+  var results = [];
+  getPerms(str, []);
+  function getPerms(str, arr) {
     if (typeof str === 'string')
-        //on first call, split the string into an array
+      //on first call, split the string into an array
       str = str.split('');
     if (!str.length)
-        //base case- push the compiled results into the results variable
+      //base case- push the compiled results into the results variable
       results.push(arr.join(''));
     for (var i = 0; i < str.length; i++) {
       var letter = str.splice(i, 1);
@@ -87,9 +87,11 @@ function recursiveStringPermutations (str) {
       str.splice(i, 0, letter);
     }
   }
-  return results.filter(function(el,index) {
-    return results.indexOf(el) === index; //filter out non-unique words
-  }).sort();
+  return results
+    .filter(function(el, index) {
+      return results.indexOf(el) === index; //filter out non-unique words
+    })
+    .sort();
 }
 ```
 
@@ -97,13 +99,15 @@ function recursiveStringPermutations (str) {
 
 Here is a solution that implicitly keeps the results sorted as it generates them (an optimization):
 
-Without sorting before we start finding permutations, we will get n! * log(n!) -- we have an array that is n! in length at that point. If we sort before our sort time is n * log(n). In both situations, n is the length of the input string. Overall, finding all string permutations is n!
+Without sorting before we start finding permutations, we will get n! _ log(n!) -- we have an array that is n! in length at that point. If we sort before our sort time is n _ log(n). In both situations, n is the length of the input string. Overall, finding all string permutations is n!
+
+[Video Solution](https://www.youtube.com/watch?v=RDYZCErOQws)
 
 ---
 
 ```js
 // finds all possible permutations *while* maintaining the order of the characters
-function stringPermutations (str) {
+function stringPermutations(str) {
   if (str.length === 1) return [str]; // base case
   const all = [];
   // go through each character in the string
@@ -124,9 +128,12 @@ function stringPermutations (str) {
   }
   return all;
 }
-function sortedStringPermutations (str) {
+function sortedStringPermutations(str) {
   // first sort the characters in the string
-  const sortedStr = str.split('').sort().join('');
+  const sortedStr = str
+    .split('')
+    .sort()
+    .join('');
   // then find the ordered permutations of that sorted string
   return stringPermutations(sortedStr);
 }
