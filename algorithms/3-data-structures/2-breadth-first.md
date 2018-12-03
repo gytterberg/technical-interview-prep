@@ -1,4 +1,5 @@
 class: center middle
+
 ## Tree Traversal
 
 ---
@@ -21,12 +22,11 @@ Each of these function will take a node of the tree and a callback. The function
 ## Setup
 
 ```javascript
-
 function node(value) {
   return {
     value,
-    children: []
-  }
+    children: [],
+  };
 }
 var a = node('a');
 var b = node('b');
@@ -42,13 +42,14 @@ var k = node('k');
 var l = node('l');
 var m = node('m');
 
-a.children.push(b,c,d);
+a.children.push(b, c, d);
 b.children.push(e);
-e.children.push(k,l);
-c.children.push(f,g,h);
+e.children.push(k, l);
+c.children.push(f, g, h);
 h.children.push(m);
-d.children.push(i,j);
+d.children.push(i, j);
 ```
+
 ---
 
 ## Example
@@ -56,7 +57,7 @@ d.children.push(i,j);
 ![tree](https://www.cpp.edu/~ftang/courses/CS241/notes/images/trees/tree1.bmp)
 
 | Algorithm             | Order                       | Explanation                                                |
-|-----------------------|-----------------------------|------------------------------------------------------------|
+| --------------------- | --------------------------- | ---------------------------------------------------------- |
 | `breadthFirst`        | `A B C D E F G H I J K L M` | Each "level" of the tree is printed in order               |
 | `depthFirstPreOrder`  | `A B E K L C F G H M D I J` | Children nodes are visited before sibling nodes            |
 | `depthFirstPostOrder` | `K L E B F G M H C I J D A` | A node is not traversed until all its children are reached |
@@ -64,35 +65,36 @@ d.children.push(i,j);
 ---
 
 class: center middle
+
 ## Interviewer Guide
 
 ---
 
 ### RE
 
-* This differs from the traversal we worked on in junior phase in that each node may have any number of children
+- This differs from the traversal we worked on in junior phase in that each node may have any number of children
 
-* You may need to remind your interviewee of what the different types of traversal mean
+- You may need to remind your interviewee of what the different types of traversal mean
 
-* Interviewee does not need to write the "node" function, but should be aware of the structure of a node
+- Interviewee does not need to write the "node" function, but should be aware of the structure of a node
 
-* Be sure to have your interviewee sketch an example tree
+- Be sure to have your interviewee sketch an example tree
+
 ---
 
 ### AC
 
-* Push a recursive solution
+- Push a recursive solution
 
-* Remind them that each child of a tree node is it's own tree
-
+- Remind them that each child of a tree node is it's own tree
 
 ---
 
 ### TO
 
-* If your interviewee finishes, ask them:
-  * What is the Big O of the breadth first? Depth first?
-  * Does your answer change if this becomes a binary search tree (max 2 children)? 
+- If your interviewee finishes, ask them:
+  - What is the Big O of the breadth first? Depth first?
+  - Does your answer change if this becomes a binary search tree (max 2 children)?
 
 ---
 
@@ -111,7 +113,7 @@ const breadthFirst = (startingNode, callback) => {
     // we shift off the array instead of iterating with a counter
     // as we are treating it as a queue (FIFO)
     const node = queue.shift();
-    callback(node.value)
+    callback(node.value);
     // es6 format:
     queue.push(...node.children);
     // es5 might look like this if queue were a var (or let) instead of const
@@ -119,8 +121,9 @@ const breadthFirst = (startingNode, callback) => {
     // or:
     // queue.push.apply(queue, node.children)
   }
-}
+};
 ```
+
 ---
 
 ## Solution Code (Depth First)
@@ -133,20 +136,23 @@ const depthFirstPreOrder = (startingNode, callback) => {
   startingNode.children.forEach(child => {
     depthFirstPreOrder(child, callback);
   });
-}
+};
 
 const depthFirstPostOrder = (startingNode, callback) => {
   startingNode.children.forEach(child => {
     depthFirstPostOrder(child, callback);
   });
   callback(startingNode.value);
-}
+};
 ```
+
 ---
+
 ## Summary
 
 Big O
-  * Breadth First: O(n)
-  * Depth First: O(n)
 
+- Breadth First: O(n)
+- Depth First: O(n)
 
+[Video Solution](https://www.youtube.com/watch?v=4JPG-eRQpzY)
