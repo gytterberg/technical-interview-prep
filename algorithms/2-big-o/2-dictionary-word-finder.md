@@ -146,24 +146,23 @@ The less than `<` and greater than `>` operators can compare strings by alphabet
 
 ```javascript
 function definitionOf (word, dict) {
-  // initialize indexes at the beginning and end of the array, these define the bounds of our "search window"
-  let left = 0;
-  let right = arr.length - 1;
-  let middle;
-  // continue until the left pointer goes past the right pointer
-  // we want to allow left === right to account for edge cases (first and last array values)
-  while (left <= right) {
+  // initialize indexes at the beginning and end of the dictionary, these define the bounds of our "search window"
+  let prevLeft = 0;
+  let prevRight = dict.length - 1;
+  let index;
+  // continue until the index has not changed from the previous cycle
+  while (index !== prevLeft && index !== prevRight) {
     // find the middle of the existing search window
     index = Math.floor((prevLeft + prevRight) / 2);
-    if (dict[middle].startsWith(word + ' - ') {
-      return dict[middle].slice(word.length + 3)
+    if (dict[index].startsWith(word + ' - ')) { // startsWith is a string comparison, takes O(m) time
+      return dict[index].slice(word.length + 3); // "subtract" the word itself (plus the ' - ' part)
     }
-    if (word < dict[middle]) {
+    if (word < dict[index]) {
       // "shrink" the right half of the search window
-      right = middle - 1;
+      prevRight = index - 1;
     } else {
       // "shrink" the left half of the search window
-      left = middle + 1;
+      prevLeft = index + 1;
     }
   }
 }
@@ -237,12 +236,11 @@ Possible implementation of `binaryFind`...
 ```javascript
 function binaryFind (arr, matcher, comparator) {
   // initialize indexes at the beginning and end of the array, these define the bounds of our "search window"
-  let left = 0;
-  let right = arr.length - 1;
-  let middle;
-  // continue until the left pointer goes past the right pointer
-  // we want to allow left === right to account for edge cases (first and last array values)
-  while (left <= right) {
+  let prevLeft = 0;
+  let prevRight = arr.length - 1;
+  let index;
+  // continue until the index has not changed from the previous cycle
+  while (index !== prevLeft && index !== prevRight) {
     // find the middle of the existing search window
     index = Math.floor((prevLeft + prevRight) / 2);
     if (matcher(arr[index])) {
