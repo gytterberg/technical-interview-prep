@@ -86,9 +86,18 @@ not required.
 ```
 
 What is the time and space complexity of this solution? In fact, it is
-`O(2**n)`, in both cases, where `n` is the number of items in the original
-array. Why? Each of the `2**n` subsets have to be enumerated, that is, computed
-and included in the output.
+`O(n*2**n)`, in both cases, where `n` is the number of items in the original
+array. While this is technically correct, it is not what most people will
+expect you to say about this problem. This problem is *exponential* meaning
+that it requires at least an exponential number of steps, in this case `2**n`.
+The space complexity is easy to understand in this case, since there are `2**n`
+arrays in our final array, each with length `O(n)` Exercise: explain why the
+length of each is `O(n)`. The time complexity is more difficult to analyze, but
+if you are up for the challenge [the analysis][powerSetRecursive-analysis] uses
+[mathematical induction][wiki-induction].
+
+[powerSetRecursive-analysis]: 5-power-set-analysis.md
+[wiki-induction]: https://en.wikipedia.org/wiki/Mathematical_induction
 
 ## Iterative Approach
 
@@ -148,10 +157,14 @@ mask for index 3, `011`, and recall this means exclude the first element and
 include the second and third element of the array resulting in `[2, 3]`. Then
 the final output is an array of all the items in the masked array column.
 
-What is the time and space complexity here? Still `O(2**n)` and this is even
-easier to see because we have a loop that has `2**n` steps.
+What is the time and space complexity here? The space is the same as above,
+since the output is the same length, although it is in a different order, still
+`O(n*2**n)`. Again this is *exponential*, and we can see that the time
+complexity is also exponential because we have a loop that has `2**n` steps,
+and each step in the loop is `O(n)`.
 
 ## Appendix
+
 Note that `powerSetIterative` could also be written this way, which some may
 find more readable than the comparatively terse solution above.
 
