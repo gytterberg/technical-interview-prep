@@ -203,4 +203,4 @@ const reverseMeh = list => {
 
 ## Summary / Resources
 
-* TBD
+* [Wikipedia: cons cells](https://en.wikipedia.org/wiki/Cons)
