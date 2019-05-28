@@ -7,7 +7,7 @@ class: center middle
 ---
 # There are technical things...
 
-- algorithms, e.g. *impelement mergesort*
+- algorithms, e.g. *implement merge sort*
 
 - concept questions, e.g. *what is closure*
 
@@ -24,7 +24,7 @@ class: center middle
 ---
 # ...there are non-technical things:
 
-- culuture fit questions, e.g. *what drew you to us in particular*
+- culture fit questions, e.g. *what drew you to us in particular*
 
 - experiences questions, e.g. *tell me about a time when...*
 
@@ -129,9 +129,7 @@ class: center middle
 
 - questions about code you've written
 
-- if they ask you about things you didn't do
-
-- be honest
+- if they ask you about things you didn't do be honest
 
 - if you can elaborate / explain what's happening, do
 
