@@ -17,3 +17,4 @@ Upon completion of the lecture the students should be able to:
 - understand load balancing
 - identify some use cases for queues
 - identify places in a system to include previous 5 points
+- communicate their thought process in how to design systems

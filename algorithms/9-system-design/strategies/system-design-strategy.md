@@ -4,7 +4,7 @@ The open ended nature of these types of problems trip up a lot of developers, es
 
 ## Requirement Clarifications/Goals of the System
 
-These problems don't have one correct answer. Of course, if someone is creating Twitter or something, and they have only one table with everything on it, that would be wrong. But just like "standard" REACTOs, a candidate should clarify as much as possible in the beginning. Let's do an example of designing Twitter. Interviewers should set the tone by starting off with the idea that "we are the first engineers of Twitter and we want to design the MVP. The goal is to get them to in the mindset of creating and (later on if they have time) scaling the system. Some questions that should be asked by the candidate in the beginning are as follows:
+These problems don't have one correct answer. Of course, if someone is creating Twitter or something, and they have only one table with everything on it, that would be wrong. But just like "standard" REACTOs, a candidate should clarify as much as possible in the beginning. Let's do an example of designing Twitter. Interviewers should set the tone by starting off with the idea that "we are the first engineers of Twitter and we want to design the MVP. The goal is to get them to in the mindset of creating and (later on if they have time) scaling the system. Some questions that could be asked by the candidate in the beginning are as follows:
 
 - Will users of this Twitter clone be able to post tweets and follow other people?
 - Will tweets contain videos and photos?
@@ -46,7 +46,7 @@ tweet(user_id tweet_content, tweet_date, tweet_location, twitter_handle, )
 - tweet_location (string): optional latitude and longitude
 - twitter_handle (string): who wrote the tweet
 
-Other APIs they can talk about but not have to "implement" or can talk about later are: 
+Other APIs they can talk about but not have to "implement" or can talk about later are:
 
 - Tweet Search API
 - Generate Timeline API
@@ -59,17 +59,7 @@ System design is about tradeoffs. So an example of how this conversation would g
 - Define how long is acceptable in terms of latency of something like timeline generation
 - What are we trading off? Consistency?
 
-## (Very Basic or Even Optional Based on the Progress of the Interview so Far) "Back of the Envelope Estimation"
-
-This is an optional strategy. I do believe it gets very nitpicky even though it's supposed to be "back of the envelope". Some resources go as far as "How many KB of data will we store?" But starting the conversation about scaling early by saying something like "In one year, we expect 20K users" is good.
-
-Expanding on scale of a system:
-- How many tweets do we expect to be sent in a day?
-- How many number of timeline generations do we expect to happen per hour?
-- How much storage do we need?
-    - If the interview gets to the point where they are talking about photos and other forms of media on a tweet, then storage will change.
-- What kind of network bandwith are we expecting?
-    - A good conversation would be about how we manage traffic with load balancers or something
+# Everything below this does not apply for REACTOs but can be a means of discussion for TC/As
 
 ## Extremely High Level Diagram of Core Components of Our System
 
@@ -111,4 +101,14 @@ You can add this somewhere after the discussion of the high level diagram or zer
 - How are we handling possible service shutdowns? (Always fun to talk about Netflix's Chaos Architecture)
 - How are we monitoring performance and failures?
 
-The last 3 points are meant to be more discussion based
+## (Optional) "Back of the Envelope Estimation"
+
+This is an optional strategy. I do believe it gets very nitpicky even though it's supposed to be "back of the envelope". Some resources go as far as "How many KB of data will we store?" But starting the conversation about scaling early by saying something like "In one year, we expect 20K users" is good.
+
+Expanding on scale of a system:
+- How many tweets do we expect to be sent in a day?
+- How many number of timeline generations do we expect to happen per hour?
+- How much storage do we need?
+    - If the interview gets to the point where they are talking about photos and other forms of media on a tweet, then storage will change.
+- What kind of network bandwith are we expecting?
+    - A good conversation would be about how we manage traffic with load balancers or something

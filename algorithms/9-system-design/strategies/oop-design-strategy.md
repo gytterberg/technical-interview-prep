@@ -8,7 +8,7 @@ The example we will use here is desgining an ATM.
 
 This path will start off with having the candidate walk through the main components of an ATM. This is straight up telling them that the physical components are part of the design.
 
-I generally don't like telling candidates at the start that the physical objects can act as classes (Ex: Card Class for designing an ATM). The reason is that I want them to really reason with these questions. A lot of the time, candidates go straight for talking about depositing or withdrawing without considering the physical components of an ATM (keypad, screen, card slot, cash slot, etc...) or even the fact that there is an authentication process.
+I generally don't like telling candidates at the start that the physical objects can act as classes (Ex: Card Class) for designing an ATM. The reason is that I want them to really reason with these questions. A lot of the time, candidates go straight for talking about depositing or withdrawing without considering the physical components of an ATM (keypad, screen, card slot, cash slot, etc...) or even the fact that there is an authentication process.
 
 - Card reader
 - Keypad
@@ -87,7 +87,7 @@ Have the candidate now list all the classes related to the system as well as som
 
 ## Draw some interactions among the classes
 
-Whatever classes they draw out, have them show the interaction among them similar to the activity diagram.
+Whatever classes they draw out, have them show the interaction among them similar to the activity diagram or a schema diagram for database tables.
 
 ### Talk about stuff like inheritance
 

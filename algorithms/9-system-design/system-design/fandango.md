@@ -52,6 +52,8 @@ Depending on the status of the reservation, we can return successful or failed
 
 It's first come first serve but how can we handle multiple users wanting to book the same seat? We should try to implement something like a timed system where you can reserve your seats by clicking on them and those seats are locked (based on availability) for a specific amount of time, say 5 minutes. After 5 minutes are up, and the user doesn't purchase the seats, the seats are freed up for someone else to take them. If the user does purchase the seats, the seats become fully unavailable.
 
+# Everything below this is optional and would be better talked about in TC/A
+
 ### Using Microservices for Reservation System
 
 #### Microservice for Active Reservation
@@ -61,4 +63,4 @@ It's first come first serve but how can we handle multiple users wanting to book
 #### Microservice for Waiting Users
 
 - Same idea as above but we have a cache of users. The user who was waiting the longest would be "next in line" for the seats.
-- Use long polling to be updated on reservation status
+- Use web sockets to be updated on reservation status
