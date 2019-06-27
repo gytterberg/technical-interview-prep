@@ -21,3 +21,20 @@ Other questions that can be asked based on the lecture:
 Other ways of doing a TC/A:
 
 - Ask the pairs to design/diagram a very high level system (Tinder, Twitter, etc). This doesn't need to have schemas or APIs but rather just a high level flow chart noting system flow from application to database. After they do this, a group can volunteer to present their idea.
+
+# Example for the Fandango REACTO
+
+## Discussion on Taking the Booking System to the Next Level
+
+It's first come first serve but how can we handle multiple users wanting to book the same seat? We should try to implement something like a timed system where you can reserve your seats by clicking on them and those seats are locked (based on availability) for a specific amount of time, say 5 minutes. After 5 minutes are up, and the user doesn't purchase the seats, the seats are freed up for someone else to take them. If the user does purchase the seats, the seats become fully unavailable.
+
+### Using Microservices for Reservation System
+
+#### Microservice for Active Reservation
+
+- We can keep the reservations in some sort of a cache (as well as a database) that when a seat is purchased, it is removed from the reservation list. But also, would release the seats if the expiry time passes.
+
+#### Microservice for Waiting Users
+
+- Same idea as above but we have a cache of users. The user who was waiting the longest would be "next in line" for the seats.
+- Use web sockets to be updated on reservation status
