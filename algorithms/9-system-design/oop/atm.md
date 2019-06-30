@@ -74,11 +74,15 @@ After they are done with the activity diagrams, it's time to have them think abo
 - Receipt slot
 - Network infrastructure (for authentication, updating balance, etc.)
 
-*Minimum Solution*: Depending upon how much of the activity diagrams they get above and their current working model of how an ATM works, the minimum amount of components to identify are the cash dispenser, the keypad OR screen, and ATM. Sometimes, candidates might do one slot for all the functionality.
+*Minimum Solution*: Depending upon how much of the activity diagrams they get above and their current working model of how an ATM works, the minimum amount of components to identify are the cash dispenser, the screen, and ATM. Sometimes, candidates might do one slot for all the functionality.
 
-### Classes of an ATM System
+### Class Diagram of an ATM System
 
-By this point, the board should be filled with a lot of references for the candidate to be able to discuss and list the main classes of an ATM system.
+By this point, the board should be filled with a lot of references for the candidate to be able to discuss, list, and draw relationships among the main classes of an ATM system.
+
+*Note*: If the candidate gets "network infrastructure" above, ask them how they would split up those functionalities among classes. Example: How much functionality should the ATM have itself? Or does the bank do all of it and just sends the results back to the ATM. Like authentication: Does the ATM just depend on the bank to do it? Or does the ATM have that functionality built in locally so that it doesn't need to go over the network to do it?
+
+*Note*: Encourage them to actually think about what properties and methods should exist in each class. This can take a very long time so feel free, in the interest of time, to bring them back and have them start drawing out the diagram.
 
 *Full Solution*:
 
@@ -99,16 +103,19 @@ By this point, the board should be filled with a lot of references for the candi
     - Deposit extends Transaction
     - Withdraw extends Transaction
 
-![Sample Class Diagram for an ATM](./class-diagram.png)
+
+![Sample Class Diagram for an ATM](./full-atm.png)
 
 *Minimum Solution*:
 
 - Account
 - ATM
-- Keypad OR Screen
+- Screen
 - Slot
 - Deposit
 - Withdraw
+
+![Sample Minimum Class Diagram for an ATM](./minimum-atm.png)
 
 *Note 1*: A conversation point here is the transaction class. We can have this as a "main class" and deposit and withdraw can "extend" it. This can actually be extend (ha) to the account class. It can be the main class and savings and checking account can extend it. Encourage them to think about this by kind of throwing it out there: "For deposit, can't we generalize that somehow?" And start a conversation about it. Also, give a candidate room to defend themselves. You can absolutely challenge their notions but they can also defend their idea of why something may work. It's a viable solution to have deposit and withdraw as their own classes but one of the goals of OOP design is abstraction.
 
