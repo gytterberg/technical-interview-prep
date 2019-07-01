@@ -1,8 +1,7 @@
 # Think/Pair/Share
 
-Previously, we went over throttling, load balancers, queues and caches. Because coming up with an ERD and system APIs (for system design) and coming up with class diagrams and activity diagrams (for OOP design) would take up a lot of time and there is a lot of material in the lecture, we can reserve some time in the TC/A on Fridays to either add on ideas like caches or load balancers to the system design REACTO or to introduce some scenarios on how to apply system design principles or both.
+In previous cohorts, we went over throttling, load balancers, queues and caches. Because coming up with an ERD and system APIs (for system design) and coming up with class diagrams and activity diagrams (for OOP design) would take up a lot of time and there is a lot of material in the lecture, we can reserve some time in the TC/A on Fridays to either add on ideas like caches or load balancers to the system design REACTO or to introduce some scenarios on how to apply system design principles or both.
 
-This would follow Matt's philosophy of JIT (Just in Time) learning as well as a spaced repetition model while facilitating communication, sharing, and presenting on how to talk about systems without having to go super deep into detail. This method also addresses the relevancy problem that Dan brought up about something like caches and load balancers being too advanced. We will introduce the 50K foot view of system design, the students can be tested on schema design, API design, OO design for the REACTOs, the students can take this further with the TC/A on Friday.
 
 Examples of what can be asked in a TC/A:
 
