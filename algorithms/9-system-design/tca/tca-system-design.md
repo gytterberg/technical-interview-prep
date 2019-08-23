@@ -35,5 +35,5 @@ It's first come first serve but how can we handle multiple users wanting to book
 
 #### Microservice for Waiting Users
 
-- Same idea as above but we have a cache of users. The user who was waiting the longest would be "next in line" for the seats.
+- Same idea as above but we have a queue of users. The user who was waiting the longest would be "next in line" for the seats.
 - Use web sockets to be updated on reservation status
