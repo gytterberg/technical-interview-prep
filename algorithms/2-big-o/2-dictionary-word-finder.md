@@ -57,9 +57,8 @@ class: center middle
 
 # Binary search
 
-- If your candidate quickly comes up with the naive solution, push them to come up with other approaches
-- ...before they start implementing the naive approach
-- If they don't come up with binary search, suggest it
+- If your candidate quickly comes up with the naive solution, push them to come up with other approaches before they start implementing the naive approach
+- If they don't come up with the binary search approach, suggest it. If they are not as comfortable with binary search feel free to allow them to code the brute force first. 
 
 ---
 
