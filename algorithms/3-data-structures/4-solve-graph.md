@@ -111,6 +111,7 @@ Have your interviewee test their implementation on acyclic and cyclic graphs.
 
 ## Solution
 
+Depth First Search Solution
 ```javascript
 const doesPathExist = (graph, start, target, visited = {}) => {
   if (!graph[start]) return false
@@ -129,6 +130,29 @@ const doesPathExist = (graph, start, target, visited = {}) => {
 [MDN .some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
 ---
 
+Breadth First Search Solution
+```javascript
+const doesPathExist = (graph, start, target, visited = {}) => {
+  if (!graph[start]) return false
+  
+  let queue = [start]
+  let pointer = 0;
+  while (pointer < queue.length) { //As long as you haven't reached 
+    let node = queue[pointer]      //the end of the queue, keep traversing graph
+    visited[node] = true;
+    let neighbors = graph[node]
+    for (let i = 0; i < neighbors.length; i++) { //Iterate through all neighbors
+      let vertex = neighbors[i]                  //for current node
+      if (vertex === target) return true //return true if it's our target
+      if (!visited[vertex]) {  //Only add to queue if you haven't
+        queue.push(vertex)     //seen the node before
+      }
+    }
+    pointer++ //Move on to next item in queue. Could alternatively use shift.
+  }
+  return false
+}
+```
 ## Big O
 
 * Both DFS and BFS take O(V + E) time where V is the number of vertices or nodes and E is the number of edges. We MUST attempt to visit every node, which will take us through potentially many edges.
