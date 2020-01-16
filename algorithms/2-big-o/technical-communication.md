@@ -50,6 +50,15 @@ See also: Wikipedia's table of common [time complexities][time-complexities].
 - Explain the difference between time complexity and space complexity and when
     you would be concerned about one over the other.
 
+- Have students choose one of the following sorting algorithms. Walk through implementing it in JS or pseudocode. A couple groups may present their algo for the class
+
+    - Radix Sort O(kn)
+    - Quick Sort O(nlog(n))
+    - Selection Sort O(n**2)
+    - Insertion Sort O(n**2)
+
+- Suppose an algorithm has a time complexity of O(n*m). Why do we express it in terms of two values, and not n^2, **even if both values approach infinity?**
+
 # Thanks
 
 Thanks to the following contributors to this page:
