@@ -13,13 +13,6 @@ isPal('RaCecAr') => true
 isPal('!? 100 ABCcba 001 ?!') => true
 ```
 
-_Examples - Edge cases_
-
-```js
-pairSum([1], 2) -> false
-pairSum([2], 2) -> false
-pairSum([], 1) -> false
-```
 
 ## Iterative Solution 
 
