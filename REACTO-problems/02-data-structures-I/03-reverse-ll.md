@@ -20,18 +20,6 @@ const nums = mkNode(1, mkNode(2, mkNode(3)))
   - no arrays, no objects except the (immutable) list nodes themselves
   - no iterables or iteration protocol (`for`-`of`, `...`)
 
-???
-
-Singly-linked lists from functional languages like LISP (List Processor) or Haskell are called "cons" (constructor) lists, and are defined recursively as follows:
-
-```
-List a = Nil | Cons a (List a)
-          ^         ^    ^
-        empty      head  tail
-```
-
-In other words, "a list of `a`-type values is either the empty list 'Nil' or else a node 'Cons' containing an `a`-type value (the 'head') and a next list (the 'tail')."
-
 ---
 
 ## Example Output
