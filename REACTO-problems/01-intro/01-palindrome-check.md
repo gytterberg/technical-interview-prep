@@ -27,7 +27,7 @@ function isPalIterative(str){
   while(str.length > 1){
     let first = str[0].toLowerCase();
     let last = str[str.length - 1].toLowerCase();
-    if(first != lase) return false
+    if(first != last) return false
     str = str.slice(1, str.length - 2);
   }
   return true
@@ -59,7 +59,7 @@ function isPalRecursive(str){
   } else if (str[0] !== str[str.length -1 ]) {
     return false
   } else {
-    str = str.slice(1, str.length - 2);
+    str = str.slice(1, str.length - 1);
     return isPalRecursive(str)
   }
 }
