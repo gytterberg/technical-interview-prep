@@ -83,11 +83,19 @@ The main relationships we want to focus on are as follows:
 2. Each theater can have multiple theater rooms
 3. Each movie can have many showings
 4. Each showing can have many bookings
-5. A user can have multiple bookings
+5. Each theater room can have a schedule of different showings
+6. Each theater room has a certain number of seats that can be booked
+7. A user can have multiple bookings
+
+The ShowingSeat and TheaterRoomShowing tables are the most difficult ones to get.
+
+In terms of TheaterRoomShowing, push them to think about how the schedule data is not really exclusive to the TheaterRoom table or the ShowingTable. Usually, when data is associated with two different things but not exclusive to both and it's a many to many relationship, then that piece of data will most likely go into the through table.
+
+In terms of ShowingSeat. This table is the culmination of the booking itself, which seat has been booked and the showing. Try to push them into thinking about how we can keep track of all the main information (showing, booking, seating) while also keeping track of possibly a status and price. Let them think about their Grace Shopper and their thru table and what data was put in there.
 
 Below is a full schema of how this might work.
 
 Note: Good practice for this problem is be able to list some of kinds of data in each table and what are the foreign and primary keys.
 
-![Sample Schema](./fandangoSchema.png)
-[Link to Schema](https://app.quickdatabasediagrams.com/#/d/2ljjyj)
+![Sample Schema](./assets/fandangoSchema.png)
+[Link to Schema](https://drive.google.com/file/d/1c1a8ja1DoVB2PJYo84C6YhVKy6SNFUVu/view?usp=sharing)

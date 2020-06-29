@@ -22,6 +22,8 @@ Think through and diagram the different components of this public transport trac
 
 - Activity Diagrams (User Stories)
 - Class Diagram
+
+If we have time: 
 - System Data Flow Diagram
 - Schema Diagram
 
@@ -60,7 +62,7 @@ If your interviewee is stuck, start by discussing the nouns and verbs listed bel
 
 - Routes
 - Vehicle (bus or traincar)
-- Runs (ie #4567 would be a specific vehile completing a route)
+- Runs (ie #4567 would be a specific vehicle completing a route)
 - Stops
 - GPS locator on each vehicle
 
@@ -92,6 +94,8 @@ If your interviewee is stuck, start by discussing the nouns and verbs listed bel
 ### Class Diagram
 https://drive.google.com/file/d/1V4QqVaPHGofw2puTf90Fe2vaKbgzWwOk/view?usp=sharing
 
+
+## Below is if we have time
 ### DB Schema
 https://drive.google.com/file/d/1ki4qJ-hZ4lgewXySogIWjQO1VBhzT9Mh/view?usp=sharing
 
