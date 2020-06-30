@@ -101,26 +101,32 @@ class: center middle
 ## Solution Code (Breadth First)
 
 ```javascript
-const breadthFirst = (startingNode, callback) => {
-  // we use a queue to iterate over the tree
-  // progressively adding the children as we go
-  // The tree begins with the first node
-  const queue = [startingNode];
-  // you might want to consider handling edges cases
-  /// such as not receiving a properly formatted node
-  // or make a proper Node constructor/prototype (see below)
-  while (queue.length) {
-    // we shift off the array instead of iterating with a counter
-    // as we are treating it as a queue (FIFO)
-    const node = queue.shift();
-    callback(node.value);
-    // es6 format:
-    queue.push(...node.children);
-    // es5 might look like this if queue were a var (or let) instead of const
-    // queue = queue.concat(node.children)
-    // or:
-    // queue.push.apply(queue, node.children)
+const breadthFirst = (root) => {
+ //first always check if there is a root, if not we return null
+ if(!root){
+  return null
+ }
+ //BFS works best with a queue, so now we setup our Queue to hold the root node
+ let queue = [root];
+ //Setup a result array to store all of our nodes.
+ let result = [];
+ //Next we iterate while the queue has nodes in it
+ while(queue.length){
+ //setup another variable to keep track of where we are and process that nodes children
+ //We take the first item off the queue since queues are FIFO.
+ let current = queue.shift();
+ //Check if our current node has and left children, if it does add them to the queue.
+ if(current.left){
+  queue.push(current.left)
   }
+  //Check if our current node has and left children, if it does add them to the queue.
+  if(current.right){
+  queue.push(current.right)
+  }
+  //Lastly we push our current nodes value into an array to store all nodes processed.
+  result.push(current.val)
+ }
+ return result;
 };
 ```
 
