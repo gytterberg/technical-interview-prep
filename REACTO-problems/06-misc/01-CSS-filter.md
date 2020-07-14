@@ -21,7 +21,43 @@ Design a simple web app that features a color swatch preview (in 6 color hex not
 * Once the logical approach is solidified, how do we wire it together within the callback function of a click handler?
 
 ### Starting Point
-(jsfiddle)[https://jsfiddle.net/Lvkcbtq9/]
+```html
+
+<body>
+  <div id=swatch></div>
+  <p>
+    You are viewing: <span id='value'></span>
+  </p>
+  <button id='filter'>Rose Filter</button>
+</body>
+
+```
+
+```css
+
+#swatch {
+  height: 250px;
+  width: 250px;
+  border: 2px solid black
+}
+
+```
+
+```javascript
+let colorStr = '1AB20D';
+
+const swatch = document.getElementById('swatch');
+const span = document.getElementById('value')
+const roseBtn = document.getElementById('filter');
+
+swatch.style.backgroundColor = span.innerHTML = `#${colorStr}`;
+
+// Your Code Below
+
+```
+
+
+[jsfiddle](https://jsfiddle.net/Lvkcbtq9/)
 
 #### Solution
 
