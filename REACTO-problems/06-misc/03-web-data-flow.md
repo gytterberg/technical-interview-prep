@@ -6,6 +6,10 @@ A popular question in first interviews like on Launch Day is "What happens when 
 
 ## Strategy Guide and Solution
 
+### Diagram
+
+![Web Data Flow](./assets/web-data-flow.png)
+
 The general steps that happen are as follows:
 
 1. Type wikipedia.com into the address bar and press enter
