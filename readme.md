@@ -1,6 +1,6 @@
 # FSA Technical Interview Prep
 
-This repo contains the Fullstack senior phase technical interview prep materials, notably including the current canonical REACTO curriculum (see the `/algorithms` folder).
+This repo contains the Fullstack senior phase technical interview prep materials, notably including the current canonical REACTO curriculum
 
 The technical interview prep curriculum is in this format so that we can use git for source control.
 
