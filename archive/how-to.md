@@ -4,6 +4,9 @@ This is an internal guide for instructors / fellows / staff for the procedures a
 
 ---
 
+## Presenting REACTOs
+Read over the [Successful REACTO Guide](https://docs.google.com/presentation/d/1W9TDNteDyxhx6m1Ev5Y1C4DNoXFbaniBvmp5YuXnwI8/edit?usp=sharing)
+
 ## Create REACTO pairs
 
 Only do this before the first problem of each week.
