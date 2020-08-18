@@ -8,7 +8,7 @@ A major city has finally realized how beneficial it would be for it's citizens t
 
 ### The mayor's requirement
 
-- Consumers needs to be able to get information about the location of the buses and trains in relation to which stop they request via SMS text message, API, and via a website.
+- Consumers needs to be able to get information about the location of the buses and trains in relation to which stop they request via SMS text message and via a website. They both communicate with the API indicated below.
 
 ### Information the mayor has given us
 
