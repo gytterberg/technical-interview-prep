@@ -1,8 +1,12 @@
 # Palindrome Check
 
+
+## Learning Objective
+* Analyze and compare recursive and iterative approaches
+
+
 ## Interviewer Prompt
 Given an string `str`, create a function that returns a boolean, corresponding to whether that string is a palindrome (spelled the same backwards and forwards). Our palindrome check should be case-insensitive. 
-
 
 ## Examples
 
@@ -74,3 +78,10 @@ function isPalRecursive(str){
 ### Space Complexity: __O(n)__
 
 - We create n/2 additional calls on the recursive call stack, each time we slice of the first/last characters and recurse. 
+
+
+## Resources
+_Feel free to PR any useful resources! :)_
+
+* [Sample Slides](https://docs.google.com/presentation/d/1ZEa_rxZRlWOulIwU3SY9Bc9x9teduL-F7gQA7B_O088/edit?usp=sharing)
+* [AlgoExpert Link](https://www.algoexpert.io/questions/Palindrome%20Check)
