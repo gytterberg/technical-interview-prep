@@ -149,4 +149,4 @@ Use the nouns and verbs to help the candidate with this. The important parts of 
 ![Schema](./assets/TransitTrackerSchema.png)
 
 ## Resources
-* [Slides] (https://docs.google.com/presentation/d/1847iTV1x67_qs5goM6GD4Gtm4soLLGwBUvJdMhe0zsA/edit?usp=sharing)
+* [Sample Slides](https://docs.google.com/presentation/d/1847iTV1x67_qs5goM6GD4Gtm4soLLGwBUvJdMhe0zsA/edit?usp=sharing)
