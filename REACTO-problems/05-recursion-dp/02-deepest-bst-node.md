@@ -2,6 +2,12 @@
 
 ---
 
+## Learning Objective
+
+Apply recursion to BSTs, understand recursive structure of BSTs
+
+---
+
 ## Interviewer Prompt
 
 Given a binary tree, write a function that will return the node in the tree with greatest depth.You may assume there is a unique deepest node.
