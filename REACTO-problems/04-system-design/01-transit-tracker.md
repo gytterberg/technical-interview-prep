@@ -3,8 +3,7 @@
 OOP Design is a good exercise on how to split up our system into different components. It's like React Components before they were cool but instead of React Components, we separate our system into different objects/classes. The main difficulty with problems like these are that they are opened ended and force you to think abstractly and creatively. One of the other main goals of this exercise is to be able to draw out diagrams to help with communicating abstract ideas before they are implemented in code. These problems are language agnostic.
 
 ## Learning Objective
-* Define the context of a system 
-* Design the architecture of the system
+* To understand and design activity diagrams and class diagrams.
 
 ## The prompt
 
