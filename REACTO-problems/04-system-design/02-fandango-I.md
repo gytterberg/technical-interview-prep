@@ -2,6 +2,9 @@
 
 System Design questions tests the candidate ability to be able to create a system based on a user prompt. A user prompt is either a client telling you what they want or a team making an assumption of what a potential user might want in an idea. What makes this different from an OOP Design question is that this focuses less on the application components themselves and more of the flow of data and how we scale that data based on our understanding of the various trade offs as we modify our system.
 
+## Learning Objective
+To understand and design API and data schemas. 
+
 ## Design Fandango
 
 User prompt: I want to be able to book movie theater seats online.
@@ -98,3 +101,6 @@ Below is a full schema of how this might work.
 Note: Good practice for this problem is be able to list some of kinds of data in each table and what are the foreign and primary keys.
 
 ![Sample Schema](./assets/fandangoSchema.png)
+
+## Resource 
+* [Sample Slides](https://docs.google.com/presentation/d/1yEqWvwawm-4wKEPliVxnQsoXReXFPAsaJ-J4patZx7Q/edit?usp=sharing)
