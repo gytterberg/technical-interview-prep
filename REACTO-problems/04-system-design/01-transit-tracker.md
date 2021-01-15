@@ -8,7 +8,7 @@ OOP Design is a good exercise on how to split up our system into different compo
 
 ## The prompt
 
-A major city has finally realized how beneficial it would be for it's citizens to be able to track public transit and see how far away their next ride is! Luckily for you, the city has placed you in charge of designing the sytem!
+A major city has finally realized how beneficial it would be for it's citizens to be able to track public transit and see how far away their next ride is! Luckily for you, the city has placed you in charge of designing the system!
 
 ### The mayor's requirement
 
@@ -148,3 +148,6 @@ Use the nouns and verbs to help the candidate with this. The important parts of 
   - Routes and Stops have a many-to-many relationship with each other through the RouteStops thru table
 
 ![Schema](./assets/TransitTrackerSchema.png)
+
+## Resources
+* [Slides] (https://docs.google.com/presentation/d/1847iTV1x67_qs5goM6GD4Gtm4soLLGwBUvJdMhe0zsA/edit?usp=sharing)
