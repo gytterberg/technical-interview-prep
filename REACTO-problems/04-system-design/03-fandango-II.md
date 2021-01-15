@@ -2,6 +2,9 @@
 
 System Design questions tests the candidate ability to be able to create a system based on a user prompt. A user prompt is either a client telling you what they want or a team making an assumption of what a potential user might want in an idea. What makes this different from an OOP Design question is that this focuses less on the application components themselves and more of the flow of data and how we scale that data based on our understanding of the various trade offs as we modify our system.
 
+## Learning Objective
+Understand the flow of data and how to scale.
+
 ## Design Fandango II
 
 User prompt: I want to be able to book movie theater seats online.
@@ -86,3 +89,6 @@ An important discussion to have is how do these services communicate with each o
 The reason that the microservices don't have their own databases is that they depend on the same data. 
 
 ![Microservice Diagram](./assets/Microservices.png)
+
+## Resource
+* [Sample Slides](https://docs.google.com/presentation/d/1d3bDYaF7bPvfAv1JWEu4Y_ykhv_yVgRhgXd1E_2mfts/edit#slide=id.ga9979b04fa_0_45)
