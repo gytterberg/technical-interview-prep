@@ -1,6 +1,10 @@
 # String Permutations
 
-## Prompt
+
+## Learning Objective
+* Apply recursion to classic permutation problem
+
+## Interviewer Prompt
 
 Given a string, return an array of all the permutations of that string. The permutations of the string should be the same length as the original string (i.e. use each letter in the string exactly once) but do not need to be actual words.
 
@@ -15,15 +19,6 @@ stringPermutations('app');
 // should return  [ 'app','pap','ppa']
 stringPermutations('nn'); //should return  [ 'nn' ]
 ```
-
----
-
-## Resources
-
-- [Slides](http://slides.com/seemaullal/reacto#/)
-- [REPL walkthrough](https://repl.it/lFv/49)
-
----
 
 ## Solutions
 
@@ -140,3 +135,12 @@ function sortedStringPermutations(str) {
   return stringPermutations(sortedStr);
 }
 ```
+---
+
+## Resources
+
+- [Sample Slides](http://slides.com/seemaullal/reacto#/)
+- [REPL walkthrough](https://repl.it/lFv/49)
+- [Similar Problem - AlgoExpert Link](https://www.algoexpert.io/questions/Permutations)
+
+---
