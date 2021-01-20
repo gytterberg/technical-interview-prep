@@ -1,4 +1,9 @@
 # River Sizes
+
+## Learning Objective
+Implement BFS for graphs, understand adjacency matrix implementation
+of graphs
+
 ## Interviewer Prompt
 You are given a two-dimensional array (a matrix) of potentially unequal height and width that contains only values of `0` and `1`. Each `0` represents land, and each `1` represents part of a river. A river consists of any number of `1`s that are either horizontally or vertically adjacent, but not diagonally adjacent. The number of adjacent `1`s forming a river determine it's size.
 
@@ -141,3 +146,7 @@ function visitRiver(matrix, i, j) {
 	return 1 + visitRiver(matrix,i+1,j) + visitRiver(matrix,i-1,j) + visitRiver(matrix,i,j+1) + visitRiver(matrix,i,j-1);
 }
 ```
+
+## Resources
+* [Sample Slides](https://docs.google.com/presentation/d/1gVA7Dyae0OjodlT8hML9_y4YpYTVxJ8FyaME6dRmK5s/edit?usp=sharing)
+* [AlgoExpert Link](https://www.algoexpert.io/questions/River%20Sizes)

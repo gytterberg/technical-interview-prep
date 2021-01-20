@@ -2,7 +2,8 @@ class: center middle
 
 ## Tree Traversal
 
----
+## Learning Objective
+Implement classic search algorithm, understand use case for queues
 
 ## Interviewer Prompt
 
@@ -149,11 +150,11 @@ const depthFirstPostOrder = (startingNode, callback) => {
 
 ---
 
-## Summary
-
-Big O
+## Complexity
 
 - Breadth First: O(n)
 - Depth First: O(n)
+
+## Resources
 
 [Video Solution](https://www.youtube.com/watch?v=4JPG-eRQpzY)

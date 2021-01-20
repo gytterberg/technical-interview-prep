@@ -1,7 +1,8 @@
 class: center middle
 ## Solving Graphs
 
----
+## Learning Objective
+Understand adjacency list implementation of graphs
 
 ## Interviewer Prompt
 
@@ -19,9 +20,6 @@ In the example below, there is a connection from vertex a to vertex b and a conn
 }
 ```
 
-???
-
-Any presenter notes can go after the three question marks
 
 ---
 
@@ -134,10 +132,10 @@ Breadth First Search Solution
 ```javascript
 const doesPathExist = (graph, start, target, visited = {}) => {
   if (!graph[start]) return false
-  
+
   let queue = [start]
   let pointer = 0;
-  while (pointer < queue.length) { //As long as you haven't reached 
+  while (pointer < queue.length) { //As long as you haven't reached
     let node = queue[pointer]      //the end of the queue, keep traversing graph
     visited[node] = true;
     let neighbors = graph[node]
@@ -231,3 +229,8 @@ Consider the tradeoffs between using one of these data structures or the other. 
 
 Comparison from The Algorithm Design Manual, Skiena - second Edition - page 152
 ---
+
+## Resources
+
+* [Sample Slides](https://docs.google.com/presentation/d/1W9xj2U-8Xttqe6qHb5oa_bZtAEl5pNfcCMDpNEjQcpU/edit?usp=sharing)
+* [YouTube Videos](https://www.youtube.com/watch?v=DBRW8nwZV-g&ab_channel=freeCodeCamp.org) (https://www.youtube.com/watch?v=cWNEl4HE2OE&ab_channel=Fireship)
