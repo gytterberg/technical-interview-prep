@@ -1,8 +1,11 @@
-[Slides](https://slides.com/yustynnpanicker/reacto-3-4/)
+# Balanced Brackets 
 
----
 
-# Prompt
+## Learning Objective
+* Understand use cases for stacks
+
+
+## Interviewer Prompt
 
 Write a function that determines whether an input string has balanced brackets.
 
@@ -10,7 +13,7 @@ You are given an input string consisting of brackets—square `[ ]`, round `( )`
 
 An empty input string or a string without brackets can also be considered "balanced".
 
-# Examples
+## Examples
 
 ```js
 hasBalancedBrackets('[][(){}'); // false
@@ -19,7 +22,7 @@ hasBalancedBrackets('({[]})'); // true
 hasBalancedBrackets('text ( is allowed ){rwwrwrrww [] ()}'); // true
 ```
 
-# Solutions
+## Solutions
 
 In general an optimal approach is to keep a *stack* of open brackets, pushing as we come across them. As we come across closing brackets, if they match the most-recently-opened bracket we can pop the most-recently-opened bracket. If our stack is empty once we reach the end of the string, then our brackets must have been balanced.
 
@@ -101,3 +104,11 @@ Here is another similar solution:
 };
 
 ```
+
+## Resources
+_Feel free to PR any useful resources! :)_
+
+* [Sample Slides](https://slides.com/yustynnpanicker/reacto-3-4/)
+* [AlgoExpert Link](https://www.algoexpert.io/questions/Balanced%20Brackets)
+
+---
