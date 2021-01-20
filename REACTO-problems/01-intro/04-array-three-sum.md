@@ -1,4 +1,10 @@
 # Array Three Sum
+
+
+## Learning Objective
+* Apply previous solutions to increasingly complex problems
+
+
 ## Interviewer Prompt
 Given an array of distinct integers and an integer representing a target sum, write a function that returns an array of all triplets in the input array that sum to the target sum.
 
@@ -92,3 +98,9 @@ function arrayThreeSum(arr, targetSum){
   return solution
 }
 ```
+
+## Resources
+_Feel free to PR any useful resources! :)_
+
+* [Sample Slides](https://docs.google.com/presentation/d/1LhdgluKGpMBijw7B9FlMrTyX0IN6FgFuT4ezNr0W2Cc/edit#slide=id.g99d99f4895_0_2987)
+* [AlgoExpert Link](https://www.algoexpert.io/questions/Three%20Number%20Sum)

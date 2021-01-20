@@ -1,5 +1,10 @@
 # Merge N Sorted Linked Lists
 
+
+## Learning Objective
+* Apply previous solutions to increasingly complex problems
+
+
 ## Interviewer Prompt
 
 Write a function that takes in the heads of N sorted Singly Linked Lists and return the merged list. The merged list should be in sorted order.
@@ -150,6 +155,7 @@ N represents the total number of linked lists in an input array.
 
 ---
 
-## References
+## Resources
+_Feel free to PR any useful resources! :)_
 
-- [Leetcode Solution](https://leetcode.com/problems/merge-two-sorted-lists/solution/) (Leetcode Premium is needed to access the solution)
+* [Sample Slides](https://docs.google.com/presentation/d/1ShLVvy9gyKVi6zoV8LefgiIXXtgwoMcDTYhCvBZ1CzQ/edit#slide=id.ga9979b04fa_0_45)

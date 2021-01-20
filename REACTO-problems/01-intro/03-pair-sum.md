@@ -1,5 +1,9 @@
 # Pair Sum
 
+## Learning Objective
+* Apply Pointers to reduce time complexity
+
+
 ## Interviewer Prompt
 Given an array `arr` consisting of `N` integers, sorted in ascending order (least to greatest), and a separate number (a `sum`), determine if any 2 numbers in the array add up to the sum. Return `true` if any 2 different numbers within the array add up to sum. Return `false` if no 2 numbers in the array add up to sum.
 
@@ -171,3 +175,9 @@ function pairSum(arr, sum) {
 
 ### Space Complexity: __O(N)__
 - In the worst case, a new key will be added to `targetMap` for all elements (`N`) in the array
+
+
+## Resources
+_Feel free to PR any useful resources! :)_
+* [Sample Slides](https://docs.google.com/presentation/d/1AkqXKB2yP470cFyQxn2LohcPtH7PVwe4mkFvOBMGV_w/edit#slide=id.p)
+* [AlgoExpert Link](https://www.algoexpert.io/questions/Two%20Number%20Sum)
