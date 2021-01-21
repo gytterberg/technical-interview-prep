@@ -3,14 +3,17 @@
 
 ---
 
-# Prompt
+## Learning Objective
+Traverse and validate an adjacency matrix implementation of a Sudoku Board
+
+## Prompt
 
 Write a function that determines if a Sudoku solution is valid. Your input will be a 2-D array that represents a 9x9 matrix. Sudoku has three rules:
  - Every row must contain the numbers from 1-9 (no repeats)
  - Every column must also contain every number from 1-9
  - Every 3x3 subgroup/square must contain each number from 1-9
 
-# Representing the Data
+### Representing the Data
 
 Your input is a 2-D array that represents a 9x9 matrix. For example:
 
@@ -57,7 +60,7 @@ sudokuValidator([
 //should return false
 ```
 
-# Solution
+## Solution
 
 ```js
 function validSolution(solution){
