@@ -1,5 +1,3 @@
-class: center middle
-
 ## Tree Traversal
 
 ## Learning Objective
@@ -157,4 +155,7 @@ const depthFirstPostOrder = (startingNode, callback) => {
 
 ## Resources
 
-[Video Solution](https://www.youtube.com/watch?v=4JPG-eRQpzY)
+_Feel free to PR any useful resources! :)_
+
+* [Sample Slides](https://docs.google.com/presentation/d/12TB2tCUgxffWzNFxAGCT9BmhEOdwoQpAIS4wIvp2gJ4/edit#slide=id.p)
+* [Video Solution](https://www.youtube.com/watch?v=4JPG-eRQpzY)
