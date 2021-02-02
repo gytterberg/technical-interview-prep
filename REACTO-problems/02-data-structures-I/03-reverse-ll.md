@@ -191,6 +191,5 @@ const reverseMeh = list => {
 ## Resources
 _Feel free to PR any useful resources! :)_
 
-* [Sample Slides](https://docs.google.com/presentation/d/1abB7vPiF5RJL6HHx_c7g9c8Q-6aLPPP6/edit#slide=id.p1)
-* [AlgoExpert Link](https://www.algoexpert.io/questions/Reverse%20Linked%20List)
+* [Sample Slides](https://docs.google.com/presentation/d/1atuaoB2y3Z7RdzTJkuQr9P6zqDk1mtSr2dF0LAMRgYY/edit#slide=id.gb7c0061a87_0_44)
 * [Wikipedia: cons cells](https://en.wikipedia.org/wiki/Cons)
