@@ -1,4 +1,3 @@
-class: center middle
 ## Solving Graphs
 
 ## Learning Objective
@@ -231,6 +230,7 @@ Comparison from The Algorithm Design Manual, Skiena - second Edition - page 152
 ---
 
 ## Resources
+_Feel free to PR any useful resources! :)_
 
 * [Sample Slides](https://docs.google.com/presentation/d/1W9xj2U-8Xttqe6qHb5oa_bZtAEl5pNfcCMDpNEjQcpU/edit?usp=sharing)
 * [YouTube Videos](https://www.youtube.com/watch?v=DBRW8nwZV-g&ab_channel=freeCodeCamp.org) (https://www.youtube.com/watch?v=cWNEl4HE2OE&ab_channel=Fireship)
