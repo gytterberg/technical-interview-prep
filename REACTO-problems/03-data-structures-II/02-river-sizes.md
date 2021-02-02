@@ -148,5 +148,6 @@ function visitRiver(matrix, i, j) {
 ```
 
 ## Resources
+_Feel free to PR any useful resources! :)_
 * [Sample Slides](https://docs.google.com/presentation/d/1gVA7Dyae0OjodlT8hML9_y4YpYTVxJ8FyaME6dRmK5s/edit?usp=sharing)
 * [AlgoExpert Link](https://www.algoexpert.io/questions/River%20Sizes)
