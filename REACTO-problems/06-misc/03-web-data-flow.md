@@ -2,6 +2,9 @@
 
 A popular question in first interviews like on Launch Day is "What happens when I type [website address] and click enter?" It's a good conversation that can take up a good duration of time and show your technical communication chops. It's also very good to know what the process is like to get something like wikipedia.com on our screens.
 
+## Learning Objective
+Describe dataflow in a Fullstack application (WOW moment)
+
 ## What happens when we type wikipedia.com in our address bar and press enter
 
 ## Strategy Guide and Solution
@@ -74,3 +77,8 @@ Thinking back to Juke, we discussed that the browser reads the HTML line by line
 ### Discussion on Step 9: If the browser encounters certain tags for CSS, JS or Images in the HTML, repeat steps 4-6 but with appropriate resource
 
 Since the browser just loads the barebones HTML and reads it line by line, then whatever other resources we may have such as scripts, CSS and media will not be loaded/rendered yet. So, when the browser gets to a specific tag indicating the HTML needs another resource, it will issue requests back to the server (or other servers depending where these resources live) to retrieve these resources until the browser is done reading the HTML line by line.
+
+## Resources
+_Feel free to PR any useful resources! :)_
+
+* [Sample Slides](https://docs.google.com/presentation/d/1XsvczVcbdkU-h6mu0CtMCN6TUXNZOYOLDBKlAefBO3s/edit#slide=id.ga6126ab518_0_45)(if necessary)
