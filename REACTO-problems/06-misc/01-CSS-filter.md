@@ -1,5 +1,9 @@
 # Rose Filter
 
+## Learning Objective
+- Understand relevance of hexadecimal arithmatic to CSS, create 
+prototype of popular app (Instagram)
+
 ## Prompt
 
 Design a simple web app that features a color swatch preview (in 6 color hex notation, e.g. #a02bff), and filter button. When pressed, the filter button should apply a 'Rose' fitler, making the color of the swatch 20% more red, 10% less green, and 10% more blue. You should write this web app in pure JS, HTML, and CSS if possible. 
