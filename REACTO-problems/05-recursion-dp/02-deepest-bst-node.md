@@ -135,3 +135,4 @@ In both solutions, you must visit every node in the tree.
 _Feel free to PR any useful resources! :)_
 
 * [Sample Slides](https://docs.google.com/presentation/d/1zSNxir8ogHsZJtXXVWxYJf_GORQJBWvSoCQ7KEjgW9c/edit#slide=id.gb085c6eb8e_0_6)
+* [Algo Expert Similar Problem](https://www.algoexpert.io/questions/Node%20Depths)
