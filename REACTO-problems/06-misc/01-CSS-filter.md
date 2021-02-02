@@ -133,3 +133,8 @@ Good sub-questions to ask:
 * What are some edge cases to consider? What if a color is completely saturated (#FF) or completely unsaturated (#00)?
 
 * [js-fiddle](https://jsfiddle.net/d1oescjn/)
+
+## Resources
+_Feel free to PR any useful resources! :)_
+
+* [Sample Slides](https://docs.google.com/presentation/d/14UO36CnVCsVjcavyFn6JCsSTnuRT3NIdPW0XI9Ypm-c/edit#slide=id.g9d18be2464_0_91)
