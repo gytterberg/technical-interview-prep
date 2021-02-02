@@ -2,6 +2,9 @@
 
 ---
 
+## Learning Objective
+Implement memoization, understand usecase of Kadane's Algorithm
+
 ## Prompt
 
 You're an industrious programmer that lives off the grid. The local well that you use to fetch water has gone dry, so you've decided to collect rain water to filter; however, your collection device isn't flat. 
