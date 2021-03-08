@@ -83,7 +83,6 @@ function recursiveMerge(p1, p2, p1Prev) {
 ```
 
 ## Resources
-_Feel free to PR any useful resources! :)_
 
 * [Sample Slides](https://docs.google.com/presentation/d/1Bm02MoVpBkTsvy8GdGjbVXvLMLYYeiEc/edit#slide=id.p1)
 * [AlgoExpert Link](https://www.algoexpert.io/questions/Merge%20Linked%20Lists)
