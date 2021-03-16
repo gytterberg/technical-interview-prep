@@ -86,3 +86,26 @@ function recursiveMerge(p1, p2, p1Prev) {
 
 * [Sample Slides](https://docs.google.com/presentation/d/1Bm02MoVpBkTsvy8GdGjbVXvLMLYYeiEc/edit#slide=id.p1)
 * [AlgoExpert Link](https://www.algoexpert.io/questions/Merge%20Linked%20Lists)
+
+for testing
+```js
+class LinkedList {
+  constructor(val) {
+    this.value = val;
+    this.next = null;
+  }
+}
+
+function createList (nums) {
+  let head = new LinkedList(nums[0])
+  let origHead = head
+  for (let i = 1; i < nums.length; i++) {
+    head.next = new LinkedList(nums[i])
+    head = head.next
+  }
+  return origHead
+}
+
+let headone = createList([2, 4, 6, 8])
+let headtwo = createList([1, 3, 5, 7])
+```
