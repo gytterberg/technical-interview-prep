@@ -61,7 +61,7 @@ The Booking Service would be a good candidate to split into microservices. In ad
 
 An important discussion to have is how do these services communicate with each other? There are many ways in which we know such as our typical REST API but we can also use pub/sub design pattern. Since, the latter is out of scope, it can be ignored. The short answer is that the pub/sub pattern is a generalization of something we have used way back when: `addEventListener`
 
-### Sample Seat Waiting Service
+### Sample Active Reservation Service
 
 - Keep the reservation on a cache for about 5 minutes
 - Could update Booking table in DB with expiry time and status would be set to “On Hold”
@@ -71,7 +71,7 @@ An important discussion to have is how do these services communicate with each o
 - If seats are purchased, update status in DB to “Booked”
     - Send update to Seat Waiting Service
 
-### Sample Active Reservation Service
+### Sample Seat Waiting Service
 
 - Queue of waiting users for seats
     - First come; first serve
