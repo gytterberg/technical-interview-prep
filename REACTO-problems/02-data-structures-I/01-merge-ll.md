@@ -36,23 +36,31 @@ Most interviewees will get the process, but it's very easy to "solve" the proble
 **Optimized Solution 1:** O(n+m) time complexity, O(1) space complexity (n=length(headOne),m=length(headTwo))
 
 ```js
-function mergeLinkedLists(headOne, headTwo) {
-  let p1 = headOne;
-  let p1Prev = null;
-  let p2 = headTwo;
-  while (p1 !== null && p2 !== null) {
-    if (p1.value < p2.value) {
-      p1Prev = p1;
-      p1 = p1.next;
-    } else {
-      if (p1Prev !== null) p1Prev.next = p2;
-      p1Prev = p2;
-      p2 = p2.next;
-      p1Prev.next = p1;
+function mergeTwoLists(headone, headtwo) {
+  if (headone === null || headtwo === null)
+    return headone === null ? headtwo : headone
+
+  // p1 starts at the smaller head
+  let p1 = headone.value <= headtwo.value ? headone : headtwo
+  let p2 = headone === p1 ? headtwo : headone
+  let head = p1
+
+  while (p1.next !== null && p2 !== null) {
+    // if p1.next is less than p2 we can just move ahead one spot with p1
+    if (p1.next.value <= p2.value) {
+      p1 = p1.next
+    }
+    // if p2 is less than p1.next we'll need to slot p2
+    // in between p1 and p1.next without losing the reference to p1.next
+    else {
+      let temp = p1.next
+      p1.next = p2
+      p2 = temp
     }
   }
-  if (p1 === null) p1Prev.next = p2;
-  return headOne.value < headTwo.value ? headOne : headTwo;
+
+  p1.next = p2
+  return head
 }
 ```
 
@@ -79,6 +87,24 @@ function recursiveMerge(p1, p2, p1Prev) {
     p2.next = p1;
     recursiveMerge(p1, newP2, p2);
   }
+}
+```
+
+**Optimized Solution 3:** O(n+m) time complexity, O(n+m) space complexity (n=length(headOne), m=length(headTwo))
+
+```js
+function mergeLists(headone, headtwo) {
+  if (headone === null || headtwo === null) {
+    return headone === null ? headtwo : headone
+  }
+
+  let p1 = headone.val <= headtwo.val ? headone : headtwo
+  let p2 = p1 === headone ? headtwo : headone
+  const head = p1
+
+  head.next = mergeLists(p1.next, p2)
+
+  return head
 }
 ```
 
