@@ -1,23 +1,13 @@
-class: center middle
-## Curry
+# Curry
 
----
+## Learning Objective
+* Define currying and understand a basic implementation
 
-## Interviewer Prompt (a)
-
-Currying is the process by which a function of N arguments is implemented as N single-argument functions such that first of them takes in the first argument and returns a function which takes in the 2nd argument and so on, until the Nth single-argument function finally returns the value of the multi-argument function being implemented.
-
-### Your Task:
+## Interviewer Prompt
 
 Write a function called `curry` that takes a function as an argument, and returns a "curried" version of that function.
 
-???
-
-Encourage interviewers to share the next prompts with interviewees to help them understand the concept.
-
----
-
-## Interviewer Prompt (b)
+Currying is the process by which a function of N arguments is implemented as N single-argument functions such that first of them takes in the first argument and returns a function which takes in the 2nd argument and so on, until the Nth single-argument function finally returns the value of the multi-argument function being implemented.
 
 For example, consider the function:
 
@@ -41,11 +31,7 @@ We could do this if the `add` function looked like this:
 const add = x => y => x + y
 ```
 
----
-
-## Interviewer Prompt (c)
-
-Your task is to write a function called `curry` that can do this for us:
+## Examples
 
 ```javascript
 const add = (x, y) => x + y
@@ -57,10 +43,6 @@ const curriedAdd = curry(add)
 const firstReturn = curriedAdd(1) // returns y => 1 + y
 const result = firstReturn(2) // returns 3
 ```
-
----
-
-## Example Output
 
 ```javascript
 function doSomething (var1, var2, var3, var4) {
@@ -74,17 +56,15 @@ const thirdReturn = secondReturn(3); // var3 partially applied
 const finalResult = thirdReturn(4); // -9 -> (1 + 2 - 3 * 4)
 ```
 
----
 
-class: center middle
 ## Interviewer Guide
 
 ---
 
 ### RE
 
-* A good question would be: "Can you only give a curried function one argument at a time?"
-  * For example, with `curriedDoSomething`, should we still be able to say: `curriedDoSomething(1, 2, 3, 4)` all at once? Respond with "yes" if this happens
+* A good question would be: "Can you only give a curried function one argument at a time, or can you give it mutiple arguments at once?"
+  * For example, with `curriedDoSomething`, should we still be able to say: `curriedDoSomething(1, 2, 3, 4)` all at once? - the answer is yes!
 
 * Be aware that curried functions at any stage should be able to be re-used. That is, they should not be "one and done". For example:
 
@@ -130,11 +110,12 @@ console.log(takesOne.length) // 1
 
 ### Answers to Common Questions
 
-#### Example:
 * What if the function receives more arguments than it has room for?
   * _It should just ignore them like any JavaScript function does_
 * Should I handle `this` context in any particular way?
   * _You may assume that any functions passed to curry do not use `this`_
+* Can you only give a curried function one argument at a time, or can you give it mutiple arguments at once?
+  * _You can give a curried function mutiple arguments at once_
 
 ---
 
@@ -155,7 +136,7 @@ function curry (fn) {
 
 This won't cut it though! The function we return isn't re-usable because it closes over the same array!
 
-We could improve this approach and wrap the inner function in another function or an IIFE...but things get messy quickly...
+We could improve this approach and wrap the inner function in another function or an IIFE (Immediately Invoked Function Expression)... but things get messy quickly, so this is not a recommended approach.
 
 ---
 
@@ -177,10 +158,6 @@ const curry = function (fn) {
 ```
 
 The magic that makes this work is that we also curry the partially applied function. Let's step through an example:
-
----
-
-## Solution and Explanation (b cont'd)
 
 ```javascript
 function greet (title, name) {
@@ -206,8 +183,6 @@ const curry = function (fn) {
 ```
 
 ---
-
-## Solution and Explanation (b cont'd)
 
 ```javascript
 const greetJedi = curriedGreet('Jedi Master')
@@ -236,8 +211,6 @@ const curry = function (fn) {
 
 ---
 
-## Solution and Explanation (b cont'd)
-
 ```javascript
 greetJedi('Luke Skywalker')
 ```
@@ -260,7 +233,7 @@ const curry = function (fn) { // this fn's first argument is bound to 'Jedi Mast
 }
 ```
 
----
+
 
 ## Solution Code
 
@@ -276,7 +249,6 @@ const curry = function (fn) {
 }
 ```
 
----
 
 ## Solution Code
 
