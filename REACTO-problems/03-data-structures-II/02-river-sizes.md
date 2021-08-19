@@ -72,38 +72,7 @@ function riverSizes(matrix) {
   return sizes;
 }
 
-function visitRiver(matrix, i, j, visitedNodes, sizes) {
-	let currentRiverSize = 0;
 
-	//Keep track of unvisited nodes that could be part of the same river we are investigating
-	const nodesToExplore = [[i,j]];
-
-	//Iterate through those potential river nodes
-	while (nodesToExplore.length) {
-		const currentNode = nodesToExplore.pop()
-		[i, j] = currentNode
-
-		//If we have looked at this node before, skip it. If not, mark it as visited.
-		if (visited(i, j)) continue;
-		visited[i][j] = true;
-
-		//Account for the current node in our currentRiverSize counter
-		if (matrix[i][j] === 0) continue;
-		currentRiverSize++;
-
-		//Add unvisited neighbors to the stack
-		getUnvisitedNeighbors(matrix, i, j, visited, nodesToExplore)
-	}
-	sizes.push(currentRiverSize);
-}
-
-function getUnvisitedNeighbors(matrix, i, j, visited, nodesToExplore) {
-	//Validate the i and j inputs
-	if (i > 0 && !visited[i-1][j]) nodesToExplore.push([i-1, j]);
-	if (i < matrix.length - 1 && !visited[i+1][j]) nodesToExplore.push([i+1, j]);
-	if (j > 0 && !visited[i][j-1]) nodesToExplore.push([i, j-1]);
-	if (j < matrix.length - 1 && !visited[i][j+1]) nodesToExplore.push([i, j+1]);
-}
 
 ```
 
@@ -120,30 +89,61 @@ O(wh) where `w` is width and and `h` is height of the matrix. This is due to the
 
 ```javascript
 function riverSizes(matrix) {
-	const sizes = [];
+  const sizes = [];
 
-	//Iterate through the matrix. For a 0, move on. For a 1, stop to investigate.
+  //Create a secondary matrix keep track of visited nodes
+  const visitedNodes = matrix.map(row => row.map(elem => false));
+
+	//Iterate through the matrix
 	for (let i = 0; i < matrix.length; i++) {
-		for (let j = 0; j < matrix[0].length; j++) {
-			if (matrix[i][j] === 1) {
-				//Investigate the river and add its size to our sizes array
-				sizes.push(visitRiver(matrix, i, j));
-			}
+		for (let j = 0; j < matrix[i].length; j++) {
+		  //If we have looked at this node before, skip it
+			if (visitedNodes[i][j]) continue;
+			//If the node has a value of 1 and has never been visited, investigate it
+			visitRiver(matrix, i, j, visitedNodes, sizes);
 		}
 	}
-	return sizes;
+  return sizes;
 }
 
-function visitRiver(matrix, i, j) {
-	//Base Case:
-	//Validate the i and j inputs first, then check if the node value is 0
-	if (i >= matrix.length || j >= matrix[0].length || i < 0 || j < 0 || !matrix[i][j]) return 0;
 
-	//Recursive Case:
-	//Mutate the current matrix element to a 0 to indicate it has been visisted
-	matrix[i][j] = 0;
-	//Recurse to the 4 directions around you & return the final size
-	return 1 + visitRiver(matrix,i+1,j) + visitRiver(matrix,i-1,j) + visitRiver(matrix,i,j+1) + visitRiver(matrix,i,j-1);
+function visitRiver(matrix, i, j, visitedNodes, sizes) {
+	let currentRiverSize = 0;
+
+	//Keep track of unvisited nodes that could be part of the same river we are investigating (via stack)
+	let nodesToExplore = [[i,j]];
+
+	//Iterate through those potential river nodes
+	while (nodesToExplore.length) {
+		const currentNode = nodesToExplore.pop()
+    //deconstruct i and j from currentNode
+		 let [i, j] = currentNode
+     
+		//If we have looked at this node before, skip it. If not, mark it as visited.
+		if (visitedNodes[i][j]) continue;
+		visitedNodes[i][j] = true;
+    
+
+		//Account for the current node in our currentRiverSize counter
+		if (matrix[i][j] === 0) continue;
+		currentRiverSize++;
+
+		//Add unvisited neighbors to the stack
+		getUnvisitedNeighbors(matrix, i, j, visitedNodes, nodesToExplore)
+	}
+	if (currentRiverSize > 0) sizes.push(currentRiverSize);
+}
+
+//Helper function that will check right, left, up and down of element
+function getUnvisitedNeighbors(matrix, i, j, visited, nodesToExplore) {
+  //checks above i
+	if (i > 0 && !visited[i-1][j]) nodesToExplore.push([i-1, j]);
+	//check below i
+  if (i < matrix.length - 1 && !visited[i+1][j]) nodesToExplore.push([i+1, j]);
+	//checks to the left of j
+  if (j > 0 && !visited[i][j-1]) nodesToExplore.push([i, j-1]);
+  //checks to the right of j
+  if (j < matrix[0].length - 1 && !visited[i][j+1]) nodesToExplore.push([i, j+1]);
 }
 ```
 
