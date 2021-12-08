@@ -49,11 +49,15 @@ indexOf('oox', 'ooboxoooxo'); // should return 6
 # Solution(s)
 
 ```javascript
-function indexOf(needle, haystack) {
-  for (let hIdx = 0; hIdx <= haystack.length - needle.length; hIdx++) {
-    for (let nIdx = 0; nIdx < needle.length; nIdx++) {
-      if (haystack[hIdx + nIdx] !== needle[nIdx]) break;
-      if (nIdx + 1 === needle.length) return hIdx;
+function indexOf(substring, string) {
+  for (let start = 0; start <= string.length - substring.length; start++) {
+    for (let offset = 0; offset < substring.length; offset++) {
+      if (string[start + offset] !== substring[offset]) {
+        break;
+      }
+      if (offset + 1 === substring.length) {
+        return start;
+      }
     }
   }
   return -1;
@@ -69,19 +73,26 @@ Where n is the haystack size and m the needle size, the solution is O(n\*m).
 **Why?**
 
 ```javascript
-function indexOf(needle, haystack) {
-  for (let hIdx = 0; hIdx <= haystack.length - needle.length; hIdx++) {
-    //O(n * ...) where n is the number of letters in haystack
-    for (let nIdx = 0; nIdx < needle.length; nIdx++) {
-      //O(m * ...) where m is the number of letters in needle
-      if (haystack[hIdx + nIdx] !== needle[nIdx]) break;
-      //O(1) constant
-      if (nIdx + 1 === needle.length) return hIdx;
-      //O(1) constant
+function indexOf(substring, string) {
+  for (let start = 0; start <= string.length - substring.length; start++) {
+    // We have to do this loop N times, where N is the length of `string`
+    for (let offset = 0; offset < substring.length; offset++) {
+      // We have to do this loop M times, where M is the length of `substring`
+      if (string[start + offset] !== substring[offset]) {
+        break;
+      }
+      if (offset + 1 === substring.length) {
+        return start;
+      }
+      // ^ Body of inner loop is constant time, O(1)
     }
   }
   return -1;
-  O(1); // constant
+  // ^ Constant time, O(1);
+
+  // Overall algorithm is O(N * M) time complexity, O(1) space complexity
+  // Could also say that the algorithm is O(P), where P = N * M.
+  // This demonstrates that overall the growth is linear, not quadratic (N^2).
 }
 ```
 
