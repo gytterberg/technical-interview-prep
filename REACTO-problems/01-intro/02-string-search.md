@@ -104,6 +104,7 @@ _Feel free to PR any useful resources! :)_
 
 * [Sample Slides](https://docs.google.com/presentation/d/1XfnxmFlgMpcSvj4t3fuDFOs6WHpL9VAYxwTcEBr_bsA/edit#slide=id.p)
 * Video Solution [Matt Mintzer](https://www.youtube.com/watch?v=RDYZCErOQws)
+* Video Solution: [Gabriel Ytterberg] (https://youtu.be/UJQPVpvlZLA)
 * There are that can perform at O(n+m) time—or even faster:
       * [other algorithms](https://en.wikipedia.org/wiki/String_searching_algorithm#Single_pattern_algorithms);
       * [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm);
