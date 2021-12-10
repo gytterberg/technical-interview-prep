@@ -102,7 +102,7 @@ So, O(n \* (m \* (1 + 1)))=> O(n\*m)
 ## Resources
 _Feel free to PR any useful resources! :)_
 
-* [Sample Slides](https://docs.google.com/presentation/d/1XfnxmFlgMpcSvj4t3fuDFOs6WHpL9VAYxwTcEBr_bsA/edit#slide=id.p)
+* [Sample Slides](https://docs.google.com/presentation/d/1D6gcDAj6A3IbrJ0W5Bj5LxKvSuLWwRKjgioZ64OpFq8/edit?usp=sharing)
 * Video Solution [Matt Mintzer](https://www.youtube.com/watch?v=RDYZCErOQws)
 * Review video from 12/8/21 [Gabriel Ytterberg](https://youtu.be/UJQPVpvlZLA)
 * There are that can perform at O(n+m) time—or even faster:
