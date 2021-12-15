@@ -8,8 +8,8 @@
 ## Interviewer Prompt
 
 ```js
-const mkNode = (value, next = null) => ({ value, next })
-const nums = mkNode(1, mkNode(2, mkNode(3)))
+const makeNode = (value, next = null) => ({ value, next })
+const nums = makeNode(1, makeNode(2, makeNode(3)))
 ```
 
 1. Given a linked list with `.value` (first value) and `.next` (remaining list) interface, log the values in reverse order.
@@ -29,7 +29,7 @@ const nums = mkNode(1, mkNode(2, mkNode(3)))
 Part 1:
 
 ```js
-const nums = mkNode(1, mkNode(2, mkNode(3)))
+const nums = makeNode(1, makeNode(2, makeNode(3)))
 logReverse(nums)
 ```
 
@@ -42,7 +42,7 @@ logReverse(nums)
 Part 2:
 
 ```js
-const nums = mkNode(1, mkNode(2, mkNode(3)))
+const nums = makeNode(1, makeNode(2, makeNode(3)))
 const reversed = reverse(nums)
 console.log(reversed)
 ```
@@ -191,5 +191,5 @@ const reverseMeh = list => {
 ## Resources
 _Feel free to PR any useful resources! :)_
 
-* [Sample Slides](https://docs.google.com/presentation/d/1atuaoB2y3Z7RdzTJkuQr9P6zqDk1mtSr2dF0LAMRgYY/edit#slide=id.gb7c0061a87_0_44)
+* [Solution Slides](https://docs.google.com/presentation/d/1wl368F7YucOZQfGNho2sJNTO1RV6aoUepLYXb1RTfjE/edit?usp=sharing)
 * [Wikipedia: cons cells](https://en.wikipedia.org/wiki/Cons)
